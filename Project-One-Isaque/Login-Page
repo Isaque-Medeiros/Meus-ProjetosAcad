@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Homepage Insetos</title>
+</head>
+<body>
+    <div class="TituloHome">
+        <h1>Bem vindo à minha wiki de insetos :D</h1>
+        <h2>Selecione o tipo de inseto abaixo</h2>
+
+        <details>
+            <summary>Tipos de insetos</summary>
+            <div class="LinksEspecies">
+                <p>Formigas <button type="button">Ver</button></p>
+                <p>Abelhas <button type="button">Ver</button></p>
+                <p>Borboletas <button type="button">Ver</button></p>
+                <p>Besouros <button type="button">Ver</button></p>
+                <p>Libélulas <button type="button">Ver</button></p>
+                <p>Gafanhotos <button type="button">Ver</button></p>
+                <p>Louva-a-deus <button type="button">Ver</button></p>
+                <p>Vaga-lumes <button type="button">Ver</button></p>
+                <p>Cigarras <button type="button">Ver</button></p>
+                <p>Joaninhas <button type="button">Ver</button></p>
+                <p>Mariposas <button type="button">Ver</button></p>
+                <p>Grilos <button type="button">Ver</button></p>
+            </div>
+        </details>
+    </div>
+
+    <div class="SessaoRodape">
+        <h2>Compartilhe seu conhecimento!</h2>
+        <p>Você gosta de insetos? Se sim, compartilhe conosco sobre um ou vários de várias espécies de insetos, compartilhe uma história e faça parte da nossa wiki!</p>
+<img src="https://picsum.photos/id/1084/400/300" alt="Borboleta" width="200">
+
+</body>
+</html>
