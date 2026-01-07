@@ -2,6 +2,16 @@
 <html lang="pt-br">
 <head>
     <title>Homepage Insetos</title>
+    <style>
+        body {
+            background-color: rgb(29, 60, 84);
+        }
+        h1 {
+            color: white;
+            border-style: dotted;
+        }
+        
+    </style>
 </head>
 <body>
     <div class="TituloHome">
@@ -30,7 +40,17 @@
     <div class="SessaoRodape">
         <h2>Compartilhe seu conhecimento!</h2>
         <p>Você gosta de insetos? Se sim, compartilhe conosco sobre um ou vários de várias espécies de insetos, compartilhe uma história e faça parte da nossa wiki!</p>
-<img src="https://picsum.photos/id/1084/400/300" alt="Borboleta" width="200">
+        <img src="https://images.steamusercontent.com/ugc/957479782095197136/332154CBEF8C96F09F8E645F07E2A5FF6557D7DD/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Yuri" width=445>
+        <div class="Texto Usuário">
+            <h3>Campo de texto:</h3>
+            <form action="/action_page.py">
+                <label for="CampoTexto">Digite aqui...</label>
+                <input type="text" id="CampoTexto" name="CampoTexto"> 
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    
 
 </body>
 </html>
