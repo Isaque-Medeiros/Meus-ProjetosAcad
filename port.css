@@ -1,265 +1,165 @@
-h1{
-color: white;
-text-align: center;
-text-shadow: 2px 2px 12px white;
-letter-spacing: 20px;
-margin: 0;
+/* 1. RESET: Isso remove os espaços automáticos que o navegador cria */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.border1{
-background-image: linear-gradient(to bottom, black, rgb(0, 0, 73), rgb(3, 35, 102), rgb(3, 17, 49));
-width: auto;
-padding: 33px;
-margin: 0;
+body {
+    background-color: rgb(3, 17, 49);
+    font-family: 'Tahoma', sans-serif; /* Define uma fonte padrão para o corpo todo */
+    color: white;
+    overflow-x: hidden; /* Evita barra de rolagem lateral indesejada */
 }
 
-body{
-background-color: rgb(3, 17, 49);
+/* 2. CABEÇALHO (O topo azul) */
+.border1 {
+    background-image: linear-gradient(to bottom, black, rgb(0, 0, 73), rgb(3, 35, 102), rgb(3, 17, 49));
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-h2{
-color: white;
-text-align: center;
-margin: 0;
-font-size: 36px;
-padding: 1px;
-font-family: Tahoma;
+h1 {
+    color: white;
+    text-shadow: 2px 2px 12px rgba(255, 255, 255, 0.5);
+    letter-spacing: 15px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
 }
 
-h3{
-text-align: center;
-margin: 0;
-font-size: 36px;
-background-image: linear-gradient(to bottom, white, rgb(106, 128, 153));
--webkit-background-clip: text;
-background-clip: text;
-color: transparent;
-line-height: 1;
-font-family: Tahoma;
+/* 3. SUBTÍTULOS */
+.subtexto {
+    padding: 20px 0;
 }
 
-.Inicial{
-background-color: rgb(120, 127, 133);
-width: auto;
-padding: 0;
-margin: 45px;
-font-size: 1px;
+h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: normal;
 }
 
-.imagebug{
-text-align: center;
-opacity: 0.8;
+h3 {
+    text-align: center;
+    font-size: 42px;
+    background-image: linear-gradient(to bottom, white, rgb(106, 128, 153));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
 }
 
-.textoin{
-color: rgb(211, 211, 211);
-font-size: 22px;
-font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
-text-align: center;
-letter-spacing: 0;
-word-spacing: 0.01px;
-padding-bottom: 40px;
+/* 4. ESPAÇADORES (Ajustei para não ficarem buracos gigantes) */
+.Inicial {
+    background-color: rgb(120, 127, 133);
+    height: 2px;
+    margin: 30px 10%;
 }
 
-.sobremim{
-color: rgb(221, 224, 236);
-display: flex;
-justify-content: center;
-gap: 20px;
-font-size: 14px;
-font-family: Arial, Helvetica, sans-serif;
-border-color: rgb(119, 123, 123);
-padding-top: 30px;
-padding-bottom: 30px;
+.textoin {
+    color: rgb(211, 211, 211);
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px 40px 20px;
 }
 
-.certificado{
-border-radius: 19px;
-display: inline-block;
-border: solid;
-padding: 10px;
-border-width: 1px;
-width: auto;
-border-color: rgb(119, 123, 123);
-width:   fit-content;
-}
-
-.metaprof{
-border-radius: 19px;
-display: inline-block;
-border: solid;
-padding: 10px;
-border-width: 1px;
-width: auto;
-border-color: rgb(119, 123, 123);
-width: fit-content;
-}
-
-.trajetoria{
-border-radius: 19px;
-display: inline-block;
-border: solid;
-padding: 10px;
-border-width: 1px;
-width: auto;
-border-color: rgb(119, 123, 123);
-width: fit-content;
-}
-
-summary{
-list-style: none;
-}
-
-.programas{
-color: rgb(206, 215, 220);
-font-size: 28px;
-font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
-text-align: center;
-letter-spacing: 0.01px;
-word-spacing: 0.01px;
-justify-content: center;
-padding-top: 16px;
-}
-
-.textocon{
-color: rgb(159, 159, 170);
-font-size: 17px;
-font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
-text-align: center;
-letter-spacing: 0.01px;
-word-spacing: 0.01px;
-}
-
-.container{
-display: flex;
-align-items: center;
-justify-content: space-evenly;
-}
-
+/* 5. VÍDEO (Ajuste definitivo para arredondar) */
 .videoapresentacao {
-width: 90%;
-max-width: 800px;
-margin: 0 auto;
-border-radius: 25px;
-overflow: hidden; /* Corta o que sobrar */
-position: relative; /* Ajuda a fixar o corte */
-transform: translateZ(0); /* Truque para navegadores mobile */
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    line-height: 0; /* Remove espaço extra abaixo do iframe */
 }
 
 .videoapresentacao iframe {
-width: 100%;
-height: auto;
-aspect-ratio: 16 / 9;
-border: none;
-border-radius: 25px; /* Arredonda o vídeo em si */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    display: block;
 }
 
-.programa1{
-display: block;
+/* 6. SOBRE MIM / BOTÕES */
+.sobremim {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 40px 20px;
 }
 
-.textopro{
-color: rgb(211, 211, 211);
-font-size: 28px;
-font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
-text-align: center;
-letter-spacing: 0.01px;
-word-spacing: 0.01px;
-padding-bottom: 40px;
-padding-top: 40px; 
+.metaprof, .trajetoria, .certificado {
+    border-radius: 12px;
+    border: 1px solid rgb(119, 123, 123);
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+    cursor: pointer;
+    max-width: 300px;
 }
 
-.boxgithub{
-border-style: solid;
-border-width: 1px;
-border-radius: 15px;
-border-color: rgb(71, 86, 145);
-padding: 30px;
-max-width: 700px;
-background-color: #09095c;
-background-image:
-radial-gradient(circle at top right, rgba(41, 91, 209, 0.536), transparent 400px),
-linear-gradient(135deg, #070c4c 0%, #0b0b1a 100%);
-margin: 0 auto;
+.metaprof:hover, .trajetoria:hover, .certificado:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.titulogit{
-color: rgb(211, 211, 211);
-font-size: 28px;
-font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+/* 7. GRID DE TECNOLOGIAS (Ícones) */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
 }
 
-.textogit{
-color: rgb(158, 153, 153);
-font-size: 20px;
-font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+.programa-icone {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
-.buttongit{
-border: 1px;
-border-radius: 10px;
-background-color: skyblue;
-border-width: auto;
-width: fit-content;
-padding: 0.5px;
-padding-left: 17px;
-padding-right: 10px;
-color: rgb(3, 98, 193);
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-word-spacing: 0.5px;
-font-size: 17px;
+.programa-icone img {
+    max-height: 80px;
+    width: auto;
 }
 
-.gitimage{
-border: solid;
-border-radius: 30px;
-display: inline-block;
-border-width: 2.2px;
-color: rgb(41, 88, 208);
-align-items: center;
-justify-items: center;
-justify-content: center; 
-background-color: rgb(131, 214, 244);
-} 
-.divisa1{
-padding-top: 25px; 
+/* 8. BOX GITHUB */
+.boxgithub {
+    border: 1px solid rgb(71, 86, 145);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 800px;
+    background: linear-gradient(135deg, #070c4c 0%, #0b0b1a 100%);
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-.divisa2{
-background-color: gray;
-font-size: 1px;
-width: auto;
-margin: 45px;
-padding: 0;
-} 
-
-.programa-icone{
-display: flex;
-align-items: center;
-justify-content: center;
-height: 120px;
-margin-bottom: 20px;
-}
-.texto1{
-color: rgb(196, 33, 196);
+.gitimage {
+    background-color: rgb(131, 214, 244);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
 }
 
-.texto2{
-color: rgb(76, 128, 225);
-}
- 
-.texto3{
-color: rgb(216, 220, 77);
-}
-
-.texto4{
-color: rgb(212, 93, 123);
-}
-
-.texto5{
-color: rgb(95, 167, 227);
-}
-
-.texto6{
-color: rgb(148, 154, 167);
+.buttongit {
+    background-color: skyblue;
+    padding: 12px 25px;
+    border-radius: 10px;
+    display: inline-block;
+    color: rgb(3, 98, 193);
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
 }
