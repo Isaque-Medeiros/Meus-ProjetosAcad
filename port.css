@@ -1,0 +1,265 @@
+h1{
+color: white;
+text-align: center;
+text-shadow: 2px 2px 12px white;
+letter-spacing: 20px;
+margin: 0.1;
+}
+
+.border1{
+background-image: linear-gradient(to bottom, black, rgb(0, 0, 73), rgb(3, 35, 102), rgb(3, 17, 49));
+width: auto;
+padding: 33px;
+margin: 0.1px;
+}
+
+body{
+background-color: rgb(3, 17, 49);
+}
+
+.subtexto{
+}
+
+h2{
+color: white;
+text-align: center;
+margin: 0;
+font-size: 36px;
+padding: 1px;
+font-family: Tahoma;
+}
+
+h3{
+text-align: center;
+margin: 0;
+font-size: 36px;
+background-image: linear-gradient(to bottom, white, rgb(106, 128, 153));
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+line-height: 1;
+font-family: Tahoma;
+}
+
+.Inicial{
+background-color: rgb(120, 127, 133);
+width: auto;
+padding: 0.1px;
+margin: 45px;
+font-size: 1px;
+}
+
+.imagebug{
+text-align: center;
+opacity: 0.8;
+}
+
+.textoin{
+color: rgb(211, 211, 211);
+font-size: 22px;
+font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+text-align: center;
+letter-spacing: 0.01px;
+word-spacing: 0.01px;
+padding-bottom: 40px;
+}
+
+.sobremim{
+color: rgb(221, 224, 236);
+display: flex;
+justify-content: center;
+gap: 20px;
+font-size: 14px;
+font-family: Arial, Helvetica, sans-serif;
+border-color: rgb(119, 123, 123);
+padding-top: 30px;
+padding-bottom: 30px;
+}
+
+.certificado{
+border-radius: 19px;
+display: inline-block;
+border: solid;
+padding: 10px;
+border-width: 1px;
+width: auto;
+border-color: rgb(119, 123, 123);
+width:   fit-content;
+}
+
+.metaprof{
+border-radius: 19px;
+display: inline-block;
+border: solid;
+padding: 10px;
+border-width: 1px;
+width: auto;
+border-color: rgb(119, 123, 123);
+width: fit-content;
+}
+
+.trajetoria{
+border-radius: 19px;
+display: inline-block;
+border: solid;
+padding: 10px;
+border-width: 1px;
+width: auto;
+border-color: rgb(119, 123, 123);
+width: fit-content;
+}
+
+summary{
+list-style: none;
+}
+
+.programas{
+color: rgb(206, 215, 220);
+font-size: 28px;
+font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+text-align: center;
+letter-spacing: 0.01px;
+word-spacing: 0.01px;
+justify-content: center;
+padding-top: 16px;
+}
+
+.textocon{
+color: rgb(159, 159, 170);
+font-size: 17px;
+font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+text-align: center;
+letter-spacing: 0.01px;
+word-spacing: 0.01px;
+}
+
+.container{
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+}
+
+.videoapresentacao{
+width: 90%;
+max-width: 800px;
+margin: 0 auto;
+border-radius: 25px;
+overflow: hidden;
+}
+
+.videoapresentacao iframe{
+width: 100%;
+height: auto;
+aspect-ratio: 16 / 9;
+border: none;
+}
+
+.programa1{
+display: block;
+}
+
+.textopro{
+color: rgb(211, 211, 211);
+font-size: 28px;
+font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+text-align: center;
+letter-spacing: 0.01px;
+word-spacing: 0.01px;
+padding-bottom: 40px;
+padding-top: 40px; 
+}
+
+.boxgithub{
+border-style: solid;
+border-width: 1px;
+border-radius: 15px;
+border-color: rgb(71, 86, 145);
+padding: 30px;
+max-width: 700px;
+background-color: #09095c;
+background-image:
+radial-gradient(circle at top right, rgba(41, 91, 209, 0.536), transparent 400px),
+linear-gradient(135deg, #070c4c 0%, #0b0b1a 100%);
+margin: 0 auto;
+}
+
+.titulogit{
+color: rgb(211, 211, 211);
+font-size: 28px;
+font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+}
+
+.textogit{
+color: rgb(158, 153, 153);
+font-size: 20px;
+font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+}
+
+.buttongit{
+border: 1px;
+border-radius: 10px;
+background-color: skyblue;
+border-width: auto;
+width: fit-content;
+padding: 0.5px;
+padding-left: 17px;
+padding-right: 10px;
+color: rgb(3, 98, 193);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+word-spacing: 0.5px;
+font-size: 17px;
+}
+
+.gitimage{
+border: solid;
+border-radius: 30px;
+display: inline-block;
+border-width: 2.2px;
+color: rgb(41, 88, 208);
+align-items: center;
+justify-items: center;
+justify-content: center; 
+background-color: rgb(131, 214, 244);
+} 
+.divisa1{
+padding-top: 25px; 
+}
+
+.divisa2{
+background-color: gray;
+font-size: 1px;
+width: auto;
+margin: 45px;
+padding: 0.05px;
+} 
+
+.programa-icone{
+display: flex;
+align-items: center;
+justify-content: center;
+height: 120px;
+margin-bottom: 20px;
+}
+.texto1{
+color: rgb(196, 33, 196);
+}
+
+.texto2{
+color: rgb(76, 128, 225);
+}
+ 
+.texto3{
+color: rgb(216, 220, 77);
+}
+
+.texto4{
+color: rgb(212, 93, 123);
+}
+
+.texto5{
+color: rgb(95, 167, 227);
+}
+
+.texto6{
+color: rgb(148, 154, 167);
+}
