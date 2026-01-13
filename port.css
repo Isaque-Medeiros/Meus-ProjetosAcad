@@ -136,19 +136,22 @@ align-items: center;
 justify-content: space-evenly;
 }
 
-.videoapresentacao{
+.videoapresentacao {
 width: 90%;
 max-width: 800px;
 margin: 0 auto;
 border-radius: 25px;
-overflow: hidden;
+overflow: hidden; /* Corta o que sobrar */
+position: relative; /* Ajuda a fixar o corte */
+transform: translateZ(0); /* Truque para navegadores mobile */
 }
 
-.videoapresentacao iframe{
+.videoapresentacao iframe {
 width: 100%;
 height: auto;
 aspect-ratio: 16 / 9;
 border: none;
+border-radius: 25px; /* Arredonda o vídeo em si */
 }
 
 .programa1{
