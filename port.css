@@ -3,14 +3,14 @@ color: white;
 text-align: center;
 text-shadow: 2px 2px 12px white;
 letter-spacing: 20px;
-margin: 0.1;
+margin: 0;
 }
 
 .border1{
 background-image: linear-gradient(to bottom, black, rgb(0, 0, 73), rgb(3, 35, 102), rgb(3, 17, 49));
 width: auto;
 padding: 33px;
-margin: 0.1px;
+margin: 0;
 }
 
 body{
