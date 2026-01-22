@@ -116,3 +116,42 @@ summary:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
+.FundoRodape{
+    position: relative;
+    width: 100%;
+    line-height: 0; /* Remove espaços vazios abaixo da imagem */
+    margin-top: 50px; /* Espaço entre o conteúdo acima e o rodapé */
+ 
+
+}
+
+/* Container que envolve a imagem para criar o efeito de fusão */
+.FundorRodape-container {
+    position: relative;
+    width: 100%;
+    line-height: 0; /* Remove espaços vazios abaixo da imagem */
+    margin-top: 50px; /* Espaço entre o conteúdo acima e o rodapé */
+}
+
+/* Camada de gradiente para misturar com a cor do site */
+.FundorRodape-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Altura da zona de transição (ajuste se precisar) */
+    /* Substitua #000b29 pela cor exata do fundo do seu site */
+    background: linear-gradient(to bottom, #000b29e4, transparent);
+    z-index: 1;
+    pointer-events: none; /* Permite clicar através do gradiente se necessário */
+}
+ 
+.FundoRodape {
+    width: 100%;      /* Faz a imagem ocupar 100% da largura da tela */
+    max-width: none;  /* Remove o limite de 800px que estava travando ela */
+    height: auto;     /* Mantém a proporção da imagem */
+    display: block;   /* Remove comportamentos de texto */
+    border: none;
+}
