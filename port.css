@@ -148,7 +148,7 @@ summary:hover {
     pointer-events: none; /* Permite clicar através do gradiente se necessário */
 }
  
-.FundoRodape {
+.FundorRodape-container {
     width: 100%;      /* Faz a imagem ocupar 100% da largura da tela */
     max-width: none;  /* Remove o limite de 800px que estava travando ela */
     height: auto;     /* Mantém a proporção da imagem */
