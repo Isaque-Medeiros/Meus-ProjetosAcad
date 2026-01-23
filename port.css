@@ -143,12 +143,12 @@ summary:hover {
     width: 100%;
     height: 150px; /* Altura da zona de transição (ajuste se precisar) */
     /* Substitua #000b29 pela cor exata do fundo do seu site */
-    background: linear-gradient(to bottom, #000b29e4, transparent);
+    background: linear-gradient(to bottom, #000b29, transparent);
     z-index: 1;
     pointer-events: none; /* Permite clicar através do gradiente se necessário */
 }
- 
-.FundorRodape-container {
+
+.FundoRodape {
     width: 100%;      /* Faz a imagem ocupar 100% da largura da tela */
     max-width: none;  /* Remove o limite de 800px que estava travando ela */
     height: auto;     /* Mantém a proporção da imagem */
