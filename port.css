@@ -63,12 +63,15 @@ summary:hover {
 
 .container-habilidades {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Isso centraliza os ícones internamente */
     flex-wrap: wrap;
-    gap: 30px;
-    padding: 20px;
-    
-    
+    gap: 18px;
+    padding: 15px;
+    width: 100%;             /* Troque fit-content por 100% */
+    max-width: 1000px;       /* Opcional: define um limite para telas muito grandes */
+    margin: 0 auto;          /* Centraliza o bloco na página */
+    box-sizing: border-box;
+    padding-right: 30px;
 }
 
 .item-tecnologia p {
@@ -154,4 +157,4 @@ summary:hover {
     height: auto;     /* Mantém a proporção da imagem */
     display: block;   /* Remove comportamentos de texto */
     border: none;
-}
+}   
