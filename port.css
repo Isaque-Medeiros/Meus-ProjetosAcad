@@ -158,3 +158,23 @@ summary:hover {
     display: block;   /* Remove comportamentos de texto */
     border: none;
 }   
+.conteudo-sobreposto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;      /* Ajuste para mover para cima/baixo */
+    left: 50%;     /* Ajuste para mover para os lados */
+    transform: translate(-50%, -50%); /* Centraliza perfeitamente o texto */
+    flex-wrap: wrap;
+    color: white;  /* Cor do texto */
+    text-align: center;
+    z-index: 2;    /* Deve ser maior que o z-index do seu gradiente (que é 1) */
+    width: 90%;    /* Opcional: define uma largura máxima para o texto */
+}
+.conteudo-sobreposto h2{
+    padding-bottom: 36px;
+} 
+.conteudo-sobreposto a{
+    color:#87ceeb;
+}
