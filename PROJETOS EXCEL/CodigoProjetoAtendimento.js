@@ -25,7 +25,7 @@ function onEdit(e) {
     // Verifica se algum campo está vazio. Se sim, sai da função.
     for (let i = 0; i < valoresDeEntrada.length; i++) {
       if (valoresDeEntrada[i][0] === '') {
-        // Se encontrar um campo vazio, o script para aqui.
+        // Se encontrar um campo vazio, o script para aqui. 
         return; 
       }
     }
