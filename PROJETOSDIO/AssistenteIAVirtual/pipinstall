@@ -1,6 +1,13 @@
 !pip install git+https://githpip install -U openai-whisperub.com/openai/whisper.git -q
-pip install PyAudio
-pip install SpeechRecognition
+pip install openai==0.28
 pip install openai-whisper
+pip install SpeechRecognition
+pip install gTTS
+pip install pygame
 pip install setuptools-rust
-pip install openai
+pip install PyAudio
+pip install g4f gTTS
+
+
+
+ALL FOR AUDIO: pip install openai-whisper SpeechRecognition g4f gTTS PyAudio 
