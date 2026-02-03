@@ -7,6 +7,8 @@ pip install pygame
 pip install setuptools-rust
 pip install PyAudio
 pip install g4f
+pip install streamlit
+pip install plotly
 
 
 
