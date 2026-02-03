@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from ai_engine import gerar_planejamento_ia
 from file_manager import salvar_json
 
