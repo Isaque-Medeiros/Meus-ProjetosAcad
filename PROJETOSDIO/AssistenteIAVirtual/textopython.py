@@ -1,12 +1,16 @@
 import os
 import g4f
 from gtts import gTTS
+import pygame 
+import time
 
-PASTA_AUDIOS = "audioo"
+DIRETORIO_SCRIPT = os.path.dirname(os.path.abspath(__file__))
+PASTA_CAMINHO = os.path.join(DIRETORIO_SCRIPT, "audioo")
 
-if not os.path.exists(PASTA_AUDIOS):
-    os.makedirs(PASTA_AUDIOS)
-    print(f"Pasta '{PASTA_AUDIOS}' criada com sucesso.")
+
+if not os.path.exists(PASTA_CAMINHO):
+    os.makedirs(PASTA_CAMINHO)
+    print(f"Pasta '{PASTA_CAMINHO}' criada com sucesso.")
 
 def assistente_virtual_texto():
     print("--- Assistente IA (Modo Texto -> Áudio) ---")
@@ -24,7 +28,7 @@ def assistente_virtual_texto():
         
         # O g4f escolhe automaticamente um provedor gratuito disponível
         resposta_texto = g4f.ChatCompletion.create(
-            model=g4f.models.gpt_35_turbo,
+            model=g4f.models.default,
             messages=[{"role": "user", "content": pergunta}],
         )
 
@@ -36,7 +40,7 @@ def assistente_virtual_texto():
         
         # Nome do arquivo final
         nome_arquivo = "resposta_ia.mp3"
-        caminho_final = os.path.join(PASTA_AUDIOS, nome_arquivo)
+        caminho_final = os.path.join(PASTA_CAMINHO, nome_arquivo)
 
         # Converte o texto da IA em voz (Português)
         tts = gTTS(text=resposta_texto, lang='pt', slow=False)
@@ -47,6 +51,13 @@ def assistente_virtual_texto():
         print(f"Sucesso! O áudio foi salvo em: {caminho_final}")
         print("Você pode baixar esse arquivo da pasta 'audioo' para ouvir.")
 
+        #rodando audio resposta
+        pygame.mixer.init()
+        pygame.mixer.music.load(caminho_final)
+        pygame.mixer.music.play()
+        while pygame.mixer.music.get_busy():
+            time.sleep(1)
+        pygame.mixer.quit()    
     except Exception as e:
         print(f"Ocorreu um erro ao processar: {e}")
 

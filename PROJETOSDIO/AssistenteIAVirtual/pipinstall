@@ -6,7 +6,7 @@ pip install gTTS
 pip install pygame
 pip install setuptools-rust
 pip install PyAudio
-pip install g4f gTTS
+pip install g4f
 
 
 
