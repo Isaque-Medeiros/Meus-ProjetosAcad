@@ -1,8 +1,11 @@
 import streamlit as st
 import json
 from main import executar_fluxo_completo
-# Importamos a nova função que está lá no seu ai_engine.py
 from ai_engine import gerar_conselhos_visual 
+import sys
+import os
+# Adiciona a pasta 'app' ao caminho de busca do Python
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 st.set_page_config(page_title="Santander - Assistente Financeiro", layout="wide")
 

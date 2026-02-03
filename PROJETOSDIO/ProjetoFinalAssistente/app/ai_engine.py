@@ -68,38 +68,40 @@ def gerar_planejamento_ia(dados_cliente_json):
         }
 
 def gerar_conselhos_visual(json_analise):
-    """
-    Função para apresentação compreensível ao usuário final.
-    """
-    client = Client() # Inicializando o Client que agora está importado no topo
+    def gerar_conselhos_visual(json_analise):
+     """
+        Gera um roteiro prático e humano baseado nos dados reais do JSON,
+        seguindo o modelo de 'Desafio, Roteiro e Checklist'.
+        """
+    client = Client()
     
+    # Extraímos alguns valores do JSON para ajudar a IA, mas passamos o JSON todo também.
     prompt = f"""
-    Com base neste planejamento JSON: {json_analise}
+    Aja como um Consultor Financeiro Humano e Prático do Santander.
+    Baseie-se nestes dados: {json_analise}
     
-    Aja como um Senior Wealth Manager do Santander Private Banking.
-    Com base no JSON de planejamento técnico: {json_analise}
+    Sua missão é escrever um guia de ação idêntico ao modelo abaixo, mas adaptando os números para a realidade do JSON fornecido.
     
-    Crie um PARECER FINANCEIRO ESTRUTURADO. O tom deve ser de um especialista que quer fazer o cliente crescer patrimonialmente.
+    ESTRUTURA OBRIGATÓRIA:
 
-    REGRAS DE OURO:
-    - Use termos técnicos: 'Capacidade de Aporte', 'Alavancagem Negativa' (para dívidas), 'Liquidez Imediata'.
-    - Explique o PORQUÊ de cada ação.
-    - Se o perfil for 'Moderado' ou 'Arrojado', fale sobre o custo de oportunidade de estar fora do mercado.
+    1. DIAGNÓSTICO DIRETO:
+    'Com base nos dados que você compartilhou, o seu grande desafio está nos [Custo Fixo] ([X]%), que estão consumindo uma fatia [maior/menor] do que o recomendado (50%). O seu objetivo claro é reduzir R$ [Valor de Diferença] mensais nesses custos para equilibrar as contas.'
 
-    MANTENHA ESTA ESTRUTURA FIXA E FORMATO:
+    2. ROTEIRO PRÁTICO:
+    - 1. **Ataque aos Gastos Fixos (A meta de R$ [Valor de Diferença])**: Cite exemplos reais como Assinaturas, Celular, Tarifas e Energia com valores estimados de economia.
+    - 2. **Fortalecendo a Reserva de Emergência**: Cite o valor atual do cliente ([Reserva Atual]) e o valor alvo ([Valor Alvo] - 6 meses de custos). Explique 'Onde deixar o dinheiro' (ex: CDB 100% CDI Santander).
+    - 3. **Ajuste nos Gastos Variáveis (Consumo Consciente)**: Analise o percentual atual de variáveis do cliente e dê dicas de Delivery e Supermercado.
 
-    'Com base na análise estratégica do Santander, detalhamos o seu mapa de navegação financeira para maximizar sua capacidade de investimento:'
+    3. CHECKLIST PARA OS PRÓXIMOS 30 DIAS:
+    - Auditoria de Extrato.
+    - O Dia da Negociação (contas de consumo).
+    - Aporte Automático.
 
-    1. 🛠️ **OTIMIZAÇÃO DE CUSTOS FIXOS E ESTRUTURAIS**: [Analise se os gastos fixos estão sufocando a capacidade de investimento. Se acima de 50%, dê um plano de choque para reduzir e liberar fluxo de caixa. Use valores do JSON].
+    4. DICA DE OURO:
+    - Calcule quanto tempo (meses) ele leva para atingir a meta se economizar o valor sugerido. Use uma frase motivacional curta.
 
-    2. 📉 **GESTÃO DE PASSIVOS E CUSTO DE OPORTUNIDADE**: [Se houver dívidas, trate-as como "Drenos de Patrimônio". Compare os juros da dívida com o lucro de um investimento médio. Se não houver, foque em como os 30% de estilo de vida podem ser otimizados para acelerar a liberdade financeira].
-
-    3. 🛡️ **BASE DE SEGURANÇA E ARQUITETURA DE RESERVA**: [Calcule a Reserva de Emergência como o 'Pedágio para a Renda Variável'. Explique que sem a reserva de **R$ [ValorAlvo]** (calculada no JSON), ele está exposto a riscos sistêmicos que podem obrigá-lo a resgatar investimentos em momentos ruins].
-
-    ---
-    🎯 **CONCLUSÃO PARA INVESTIMENTO**: [Dê uma frase final sobre o potencial do cliente caso ele siga o plano].
-    
-    Destaque valores e porcentagens em **Negrito**.
+    Destaque valores e metas em **Negrito**.
+    Mantenha o tom empático e muito prático.
     """
     try:
         response = client.chat.completions.create(
