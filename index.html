@@ -1,71 +1,191 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dados Pessoais</title>
+    <title>Portfólio Profissional | Zaqui Medeiros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="port.css">
 </head>
 <body>
-    <style>
-        p{
-            color: rgb(224, 245, 255);
-        }
-        h1{
-            color: rgb(217, 252, 255);
-        }
-        .audio {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            filter: invert();
-            padding-bottom: 18px;
-            margin: 15px;
-        }
-        body{
-            background-color: rgb(11, 24, 38); 
-        }
-        h5{
-            color: rgb(114, 156, 252);
-            margin: 1px;
-        
-        }
-        .container{
-            line-height: 0.5px;
-            margin: 0px;
-        }
-        .imageminitial{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0;
-            width: 100%;
-        }
-        .imageminitial img{
-            width: auto;
-            max-width: 1400px;  
-            height: auto;
-        }
-    </style>
-    <div class="imageminitial";"><img src="https://image.geekship.com.br/VXORjoEUE169NzA2N0iE9y8q3hc=/2200x0/smart/filters:strip_icc():format(webp)/hull.geekship.com.br/wp-content/uploads/2023/12/toji-fushiguro-jujutsu.jpeg"></div>
-    <div class="audio">
-        <audio controls>
-            <source src="audio.mp3" type="audio/mpeg">
-        </audio>
+    <!-- Esferas de luz suaves para preencher o fundo -->
+    <div class="blob-bg blob-1"></div>
+    <div class="blob-bg blob-2"></div>
+
+    <div class="header-gradient">
+        <div class="top-name">
+            <h1>I s a q u e &nbsp; M e d e i r o s</h1>
+        </div>
     </div>
-    <p style="outline: solid 0.1px rgb(182, 212, 249);"></p>
-    <div class="Moving-Box" style="background-color: rgb(1, 3, 90);">
-        <marquee scrolldelay="100"><p>Texto Móvel :D</p> </marquee>
+
+    <!-- Barra de Info Útil para preencher o topo -->
+    <div class="quick-info">
+        <span>📍 São Paulo, Brasil</span>
+        <span class="dot">•</span>
+        <span>🎂 19 anos</span>
+        <span class="dot">•</span>
+        <span>💼 Disponível para Estágio</span>
     </div>
-    <h1 style="text-align: center;">Dados Pessoais</h1>
-    <div class="container"></div>
-        <h5><B>Olá mundo</b></h5>
-        <h5 style="padding-left: 90px;"><B>Toji é top</b></h5>
-        <h5 style="padding-left: 45px;"><B>Toji é tech</b></h5>
-        <h5 style="padding-left: 120px;"><B>Toji é pro</b></h5>
-    </div>            
-    <p><b>Nome</b>: Toji</p>
-    <p><b>Idade</b>: 20 anos</p>
-    <p><b>Curso</b>: Análise e Desenvolvimento de Sistemas</p>
-    <p><b>Instituição</b>: UNIP</p>
+
+    <div class="subtexto">
+        <h2>Bem-vindo ao meu</h2>
+        <h3 class="destaque-portfolio">Portfólio Pessoal</h3>
+    </div>
+
+    <div class="textoin">
+        <p>Desenvolvedor em formação, focado em criar soluções eficientes e inovadoras através da tecnologia.</p>
+    </div>
+
+    <div class="video-container">
+        <iframe width="800" height="465"
+            src="https://www.youtube.com/embed/nZ5vQ1S0Kog" 
+            title="Apresentação Profissional" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="sobremim">
+        <details>
+            <summary>Objetivo Profissional</summary>
+            <div class="detalhes-conteudo">
+                <p>Estudante de Tecnologia da Informação com foco em Desenvolvimento Full Stack. Busco aplicar os conhecimentos técnicos adquiridos em formações teóricas e práticas, visando contribuir para o sucesso de projetos desafiadores. <br><br> Almejo consolidar minha carreira como Analista de Desenvolvimento de Software, área na qual atualmente realizo minha graduação.</p>
+            </div>
+        </details>
+
+        <section class="timeline-section">
+            <h2 class="titulo-timeline">Minha Evolução</h2>
+            <div class="timeline-container">
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670263.png" alt="Roblox">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="date">2018</span>
+                        <h3>O Despertar: Lógica de Programação</h3>
+                        <p>Foi onde tudo começou. Apaixonei-me pela lógica de programação criando scripts em <strong>Lua</strong> dentro do Roblox. Desenvolver jogos ali me deu a base de pensamento computacional que utilizo até hoje.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5262/5262044.png" alt="Start">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="date">2019 - 2021</span>
+                        <h3>Design Gráfico | SAGA</h3>
+                        <p>Iniciei minha jornada tecnológica formal com a formação "Start | Design Gráfico" na instituição SAGA. Concluí o curso desenvolvendo um olhar estético apurado, essencial para o Front-end.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/8987/8987617.png" alt="Passo 1">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="date">2023 - 2024</span>
+                        <h3>Manutenção e Suporte | ETEC</h3>
+                        <p>Ingressei no curso técnico pela ETEC, concluindo em junho de 2024. Adquiri conhecimentos práticos em hardware e infraestrutura de TI.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item atual">
+                    <div class="timeline-icon pulse">
+                        <img src="https://cdn-icons-png.freepik.com/512/9776/9776798.png" alt="Atual">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="status-badge">Atualmente</span>
+                        <h3>Graduação em ADS</h3>
+                        <p>Atualmente, curso graduação em Análise e Desenvolvimento de Sistemas, focando no domínio de linguagens modernas e boas práticas de desenvolvimento. Conclusão prevista: 2026.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item futuro">
+                    <div class="timeline-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5759/5759205.png" alt="Meta">
+                    </div>
+                    <div class="timeline-content">
+                        <span class="date">Planos Futuros</span>
+                        <h3>Engenharia e Ciência da Computação</h3>
+                        <p>Pretendo realizar pós-graduação em Engenharia de Software e, futuramente, cursar Ciência da Computação para aprofundar os fundamentos teóricos e matemáticos aplicados.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <details>
+            <summary>Certificações</summary>
+            <div class="detalhes-conteudo">
+                <p>Lista de certificações em breve...</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="secao-titulo">
+        <p>Habilidades e <strong>Tecnologias</strong></p>
+    </div>
+
+    <!-- Grid reorganizado para cartões Soft -->
+    <div class="container-habilidades">
+        <div class="card-skill">
+            <div class="item-tecnologia"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png"></div>
+            <p>C#</p>
+        </div>
+        <div class="card-skill">
+            <div class="item-tecnologia"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/500px-ISO_C%2B%2B_Logo.svg.png"></div>
+            <p>C++</p>
+        </div>
+        <div class="card-skill">
+            <div class="item-tecnologia"><img src="https://images.icon-icons.com/2415/PNG/512/python_original_logo_icon_146381.png"></div>
+            <p>PYTHON</p>
+        </div>
+        <div class="card-skill">
+            <div class="item-tecnologia"><img src="https://static.vecteezy.com/system/resources/thumbnails/066/386/005/small/the-html5-logo-with-the-number-5-in-the-center-free-png.png"></div>
+            <p>HTML5</p>
+        </div>
+        <div class="card-skill">
+            <div class="item-tecnologia"><img src="https://images.icon-icons.com/2107/PNG/512/file_type_css_icon_130661.png"></div>
+            <p>CSS3</p>
+        </div>
+        <div class="card-skill">
+            <div class="item-tecnologia"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Windows_Terminal_logo.svg/2560px-Windows_Terminal_logo.svg.png"></div>
+            <p>BATCH</p>
+        </div>
+    </div>
+
+    <div class="secao-titulo">
+        <p>Projetos em Destaque</p>
+    </div>
+
+    <div class="boxgithub">
+        <h3>Repositório GitHub</h3>
+        <p>Explore meus projetos acadêmicos e aplicações desenvolvidas de forma autônoma.</p>
+        <div class="gitimage">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="40" class="git-icon"></div>
+        <a href="https://github.com/Isaque-Medeiros" class="buttongit">Acessar GitHub →</a>
+    </div>
+
+    <div class="sessao-guia">
+        <h2>Confira meus projetos abaixo:</h2>
+        <div class="iframe-soft">
+            <iframe 
+                src="https://isaque-medeiros.github.io/PIM-1-Semestre/"
+                width="100%" 
+                height="600px" 
+                style="border:none;">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="FundorRodape-container">
+      <img src="https://raw.githubusercontent.com/Isaque-Medeiros/Meus-ProjetosAcad/refs/heads/main/images/Aquaris.png" class="FundoRodape"> 
+      <div class="conteudo-sobreposto">
+          <h2>Meus contatos</h2>
+          <p>| <b>Meu Linkedin:</b> <a href="https://www.linkedin.com/in/isaque-medeiros-a99421268/">in/isaque-medeiros</a> |</p>
+          <p>| <b>E-mail:</b> <a href="mailto:medeiroisaque765@gmail.com">medeirosisaque765@gmail.com</a> |</p>
+        </div>
+    </div>
 </body>
-</html> 
+</html>
