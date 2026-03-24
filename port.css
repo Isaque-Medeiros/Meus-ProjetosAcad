@@ -274,3 +274,37 @@ summary:hover {
 }
 
 .conteudo-sobreposto a { color: #87ceeb; text-decoration: none; }
+
+.pulse {
+
+animation: pulse-animation 2s infinite;
+
+border-radius: 50%; /* Garante que o brilho seja circular */
+
+}
+
+
+
+/* A definição da animação */
+
+@keyframes pulse-animation {
+
+0% {
+
+box-shadow: 0 0 0 0px rgba(135, 206, 235, 0.7); /* Cor azul claro (soft) */
+
+}
+
+70% {
+
+box-shadow: 0 0 0 15px rgba(135, 206, 235, 0); /* O brilho expande e some */
+
+}
+
+100% {
+
+box-shadow: 0 0 0 0px rgba(135, 206, 235, 0); /* Reinicia o ciclo */
+
+}
+
+}
