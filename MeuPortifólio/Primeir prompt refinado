@@ -22,17 +22,9 @@ Use as ferramentas de leitura para:
 4. Extrair os textos atuais para preservarmos o histórico antes da remasterização.
 
 # FASE 2: ENGENHARIA DE ESTILOS (SISTEMA DE DESIGN)
-Refatore o CSS principal ou crie um `variables.css` utilizando a seguinte lógica de `:root`. Estas variáveis serão a "ponte" para o MkDocs:
+Refatore o CSS principal, Estas variáveis serão a "ponte" para o MkDocs:
 Lembrando de pegar as cores originais do meu portifólio, só reformule para ficar mais profissional.
 ```css
-:root {
-  --md-primary-fg-color: #SeuHexAqui; /* Identidade Principal */
-  --md-accent-fg-color: #SeuHexAqui;  /* Call to Action */
-  --bg-space: #0f172a;               /* Fundo Escuro Profissional (opcional) */
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-}
 ```
 
 **Requisitos Visuais:**
@@ -71,3 +63,4 @@ Remodele meus textos mantendo minha voz, mas com polimento executivo:
 
 # SAÍDA ESPERADA:
 "Apresente primeiro um relatório sucinto de como o site está hoje, a paleta de cores detectada e o plano de nomes das variáveis CSS que você pretende usar. **Aguarde meu sinal de 'Prosseguir' após este relatório.**"
+******

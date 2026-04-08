@@ -1,195 +1,589 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Profissional | Zaqui Medeiros</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="port.css">
+    <meta name="description" content="Portfólio profissional de Isaque de Medeiros, desenvolvedor em formação com foco em desenvolvimento Full Stack, projetos e trajetória acadêmica.">
+    <meta name="keywords" content="portfólio, desenvolvedor, full stack, HTML, CSS, JavaScript, projetos, tecnologia">
+    <meta name="author" content="Isaque de Medeiros">
+    <meta name="theme-color" content="#0b1020">
+    <title>Portfólio Profissional | Isaque de Medeiros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Esferas de luz suaves para preencher o fundo -->
-    <div class="blob-bg blob-1"></div>
-    <div class="blob-bg blob-2"></div>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
-    <div class="header-gradient">
-        <div class="top-name">
-            <h1>Isaque&nbsp;de&nbsp;Medeiros</h1>
-        </div>
-    </div>
+    <header class="site-header" id="inicio" role="banner" aria-label="Cabeçalho principal">
+        <div class="header-bg-shape shape-1" aria-hidden="true"></div>
+        <div class="header-bg-shape shape-2" aria-hidden="true"></div>
+        <div class="header-bg-shape shape-3" aria-hidden="true"></div>
 
-    <!-- Barra de Info Útil para preencher o topo -->
-    <div class="quick-info">
-        <span>📍 São Paulo, Brasil</span>
-        <span class="dot">•</span>
-        <span>🎂 19 anos</span>
-        <span class="dot">•</span>
-        <span>💼 Disponível para Estágio</span>
-    </div>
-
-    <div class="subtexto">
-        <h2>Bem-vindo ao meu</h2>
-        <h3 class="destaque-portfolio">Portfólio Pessoal</h3>
-    </div>
-
-    <div class="textoin">
-        <p>Desenvolvedor em formação, focado em criar soluções eficientes e inovadoras através da tecnologia.</p>
-    </div>
-
-    <div class="video-container">
-        <iframe width="800" height="465"
-            src="https://www.youtube.com/embed/nZ5vQ1S0Kog" 
-            title="Apresentação Profissional" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-        </iframe>
-    </div>
-
-    <div class="sobremim">
-        <details>
-            <summary>Objetivo Profissional</summary>
-            <div class="detalhes-conteudo">
-                <p>Estudante de Tecnologia da Informação com foco em Desenvolvimento Full Stack. Busco aplicar os conhecimentos técnicos adquiridos em formações teóricas e práticas, visando contribuir para o sucesso de projetos desafiadores. <br><br> Almejo consolidar minha carreira como Analista de Desenvolvimento de Software, área na qual atualmente realizo minha graduação.</p>
+        <nav class="navbar" aria-label="Navegação principal">
+            <div class="navbar__brand">
+                <span class="brand-dot" aria-hidden="true"></span>
+                <strong>Isaque Medeiros</strong>
             </div>
-        </details>
+            <ul class="navbar__menu">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#trajetoria">Trajetória</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#certificacoes">Certificações</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
 
-        <section class="timeline-section">
-            <h2 class="titulo-timeline">Minha Evolução</h2>
-            <div class="timeline-container">
-                
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670263.png" alt="Roblox">
-                    </div>
-                    <div class="timeline-content">
-                        <span class="date">2018</span>
-                        <h3>O Despertar: Lógica de Programação</h3>
-                        <p>Foi onde tudo começou. Apaixonei-me pela lógica de programação criando scripts em <strong>Lua</strong> dentro do Roblox. Desenvolver jogos ali me deu a base de pensamento computacional que utilizo até hoje.</p>
-                    </div>
+        <section class="hero" aria-label="Apresentação principal">
+            <div class="hero__content">
+                <p class="hero__eyebrow">Desenvolvedor em Formação • Full Stack • ADS</p>
+                <h1 class="hero__title">Construindo soluções digitais com foco em qualidade, performance e experiência do usuário.</h1>
+                <p class="hero__description">
+                    Olá! Eu sou <strong>Isaque de Medeiros</strong>. Sou estudante de Análise e Desenvolvimento de Sistemas,
+                    apaixonado por tecnologia e por transformar ideias em produtos funcionais. Tenho experiência com
+                    front-end, lógica de programação, design e base em back-end.
+                </p>
+                <div class="hero__actions">
+                    <a href="#projetos" class="btn btn--primary">Ver Projetos</a>
+                    <a href="#contato" class="btn btn--outline">Fale Comigo</a>
                 </div>
+                <ul class="hero__highlights" aria-label="Informações rápidas">
+                    <li>◉ São Paulo, Brasil</li>
+                    <li>◉ 19 anos</li>
+                    <li>◉ Disponível para estágio e oportunidades júnior</li>
+                </ul>
+            </div>
+            <aside class="hero__card" aria-label="Resumo profissional">
+                <h2>Resumo</h2>
+                <p>
+                    Foco em desenvolvimento web moderno, boas práticas de código,
+                    acessibilidade e aprendizado contínuo para evolução na carreira de software.
+                </p>
+                <dl>
+                    <div>
+                        <dt>Formação</dt>
+                        <dd>ADS (em andamento)</dd>
+                    </div>
+                    <div>
+                        <dt>Conclusão prevista</dt>
+                        <dd>2026</dd>
+                    </div>
+                    <div>
+                        <dt>Objetivo</dt>
+                        <dd>Desenvolvedor Full Stack</dd>
+                    </div>
+                    <div>
+                        <dt>Idiomas</dt>
+                        <dd>Português (nativo), Inglês (técnico)</dd>
+                    </div>
+                </dl>
+            </aside>
+        </section>
+    </header>
 
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5262/5262044.png" alt="Start">
-                    </div>
-                    <div class="timeline-content">
-                        <span class="date">2019 - 2021</span>
-                        <h3>Design Gráfico | SAGA</h3>
-                        <p>Iniciei minha jornada tecnológica formal com a formação "Start | Design Gráfico" na instituição SAGA. Concluí o curso desenvolvendo um olhar estético apurado, essencial para o Front-end.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/8987/8987617.png" alt="Passo 1">
-                    </div>
-                    <div class="timeline-content">
-                        <span class="date">2023 - 2024</span>
-                        <h3>Manutenção e Suporte | ETEC</h3>
-                        <p>Ingressei no curso técnico pela ETEC, concluindo em junho de 2024. Adquiri conhecimentos práticos em hardware e infraestrutura de TI.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item atual">
-                    <div class="timeline-icon pulse">
-                        <img src="https://cdn-icons-png.freepik.com/512/9776/9776798.png" alt="Atual">
-                    </div>
-                    <div class="timeline-content">
-                        <span class="status-badge">Atualmente</span>
-                        <h3>Graduação em ADS</h3>
-                        <p>Atualmente, curso graduação em Análise e Desenvolvimento de Sistemas, focando no domínio de linguagens modernas e boas práticas de desenvolvimento. Conclusão prevista: 2026.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item futuro">
-                    <div class="timeline-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5759/5759205.png" alt="Meta">
-                    </div>
-                    <div class="timeline-content">
-                        <span class="date">Planos Futuros</span>
-                        <h3>Engenharia e Ciência da Computação</h3>
-                        <p>Pretendo realizar pós-graduação em Engenharia de Software e, futuramente, cursar Ciência da Computação para aprofundar os fundamentos teóricos e matemáticos aplicados.</p>
-                    </div>
-                </div>
-
+    <main id="conteudo-principal" tabindex="-1">
+        <section class="section section--about" id="sobre" aria-labelledby="sobre-titulo">
+            <div class="section__header">
+                <p class="section__eyebrow">Sobre Mim</p>
+                <h2 id="sobre-titulo">Perfil Profissional</h2>
+            </div>
+            <div class="section__content section__content--two-columns">
+                <article>
+                    <p>
+                        Sou estudante de Tecnologia da Informação com foco em desenvolvimento de software e soluções web.
+                        Busco combinar criatividade com raciocínio lógico para entregar projetos consistentes, escaláveis e
+                        orientados a resultados.
+                    </p>
+                    <p>
+                        Tenho interesse especial em arquitetura de interfaces, melhoria contínua de código,
+                        usabilidade e colaboração em equipes multidisciplinares. Meu objetivo é crescer como profissional
+                        e contribuir em projetos que gerem valor real para pessoas e negócios.
+                    </p>
+                    <p>
+                        Acredito na evolução constante por meio de estudo, prática e experimentação.
+                        Por isso, mantenho projetos pessoais, atualizo meu GitHub com frequência e participo de desafios
+                        para ampliar repertório técnico.
+                    </p>
+                </article>
+                <article class="about-goals">
+                    <h3>Objetivos de Curto e Médio Prazo</h3>
+                    <ul>
+                        <li>Consolidar experiência prática em projetos Full Stack.</li>
+                        <li>Aprofundar conhecimentos em JavaScript moderno e frameworks.</li>
+                        <li>Fortalecer base em versionamento, testes e boas práticas de engenharia.</li>
+                        <li>Atuar em equipe de tecnologia com foco em impacto de produto.</li>
+                        <li>Conquistar oportunidades profissionais para acelerar meu desenvolvimento.</li>
+                    </ul>
+                </article>
             </div>
         </section>
 
-        <details>
-            <summary>Certificações</summary>
-            <div class="detalhes-conteudo">
-                <p>Lista de certificações em breve...</p>
+        <section class="section section--video" aria-labelledby="video-titulo">
+            <div class="section__header">
+                <p class="section__eyebrow">Apresentação</p>
+                <h2 id="video-titulo">Vídeo Profissional</h2>
             </div>
-        </details>
-    </div>
+            <div class="video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/nZ5vQ1S0Kog"
+                    title="Vídeo de apresentação profissional"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
 
-    <div class="secao-titulo">
-        <p>Habilidades e <strong>Tecnologias</strong></p>
-    </div>
+        <section class="section section--timeline" id="trajetoria" aria-labelledby="trajetoria-titulo">
+            <div class="section__header">
+                <p class="section__eyebrow">Carreira</p>
+                <h2 id="trajetoria-titulo">Linha do Tempo de Evolução</h2>
+            </div>
+            <ol class="timeline" aria-label="Linha do tempo da trajetória">
+                <li class="timeline__item">
+                    <article class="timeline__card">
+                        <header>
+                            <p class="timeline__date">2018</p>
+                            <h3>Primeiros passos com lógica de programação</h3>
+                        </header>
+                        <p>
+                            Iniciei minha jornada criando scripts em <strong>Lua</strong> no Roblox, desenvolvendo noções de
+                            lógica, estruturação de soluções e resolução de problemas.
+                        </p>
+                    </article>
+                </li>
+                <li class="timeline__item">
+                    <article class="timeline__card">
+                        <header>
+                            <p class="timeline__date">2019 — 2021</p>
+                            <h3>Formação em Design Gráfico (SAGA)</h3>
+                        </header>
+                        <p>
+                            Desenvolvi repertório visual e fundamentos de design, contribuindo para interfaces mais
+                            organizadas, atrativas e funcionais no contexto de front-end.
+                        </p>
+                    </article>
+                </li>
+                <li class="timeline__item">
+                    <article class="timeline__card">
+                        <header>
+                            <p class="timeline__date">2023 — 2024</p>
+                            <h3>Técnico em Manutenção e Suporte em Informática (ETEC)</h3>
+                        </header>
+                        <p>
+                            Aprofundei conhecimentos de infraestrutura de TI, hardware e suporte técnico, reforçando visão
+                            sistêmica sobre ambientes computacionais.
+                        </p>
+                    </article>
+                </li>
+                <li class="timeline__item timeline__item--active">
+                    <article class="timeline__card">
+                        <header>
+                            <p class="timeline__date">Atualmente</p>
+                            <h3>Graduação em Análise e Desenvolvimento de Sistemas</h3>
+                        </header>
+                        <p>
+                            Formação superior com foco em engenharia de software, programação orientada a objetos,
+                            banco de dados, desenvolvimento web e práticas profissionais.
+                        </p>
+                    </article>
+                </li>
+                <li class="timeline__item">
+                    <article class="timeline__card">
+                        <header>
+                            <p class="timeline__date">Próximos passos</p>
+                            <h3>Pós-graduação e aprofundamento acadêmico</h3>
+                        </header>
+                        <p>
+                            Planejo cursar especializações em Engenharia de Software e, futuramente, Ciência da
+                            Computação para ampliar base técnica e teórica.
+                        </p>
+                    </article>
+                </li>
+            </ol>
+        </section>
 
-    <!-- Grid reorganizado para cartões Soft -->
-    <div class="container-habilidades">
-        <div class="card-skill">
-            <div class="item-tecnologia"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Logo_C_sharp.png"></div>
-            <p style="color:rgb(177, 96, 252)">C#</p>
-        </div>
-        <div class="card-skill">
-            <div class="item-tecnologia"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/500px-ISO_C%2B%2B_Logo.svg.png" width="170%"></div>
-            <p style="color:rgb(141, 213, 255)">C++</p>
-        </div>
-        <div class="card-skill">
-            <div class="item-tecnologia"><img src="https://images.icon-icons.com/2415/PNG/512/python_original_logo_icon_146381.png"></div>
-            <p style="color:rgb(237, 250, 118)">PYTHON</p>
-        </div>
-        <div class="card-skill">
-            <div class="item-tecnologia"><img src="https://static.vecteezy.com/system/resources/thumbnails/066/386/005/small/the-html5-logo-with-the-number-5-in-the-center-free-png.png"></div>
-            <p style="color:rgb(255, 139, 139)">HTML5</p>
-        </div>
-        <div class="card-skill">
-            <div class="item-tecnologia"><img src="https://images.icon-icons.com/2107/PNG/512/file_type_css_icon_130661.png"></div>
-            <p style="color:rgb(96, 177, 252)">CSS3</p>
-        </div>
-        <div class="card-skill">
-            <div class="item-tecnologia"><img src="https://www.freeiconspng.com/uploads/command-line-icon-11.png"></div>
-            <p style="color:rgb(220, 227, 233)">BATCH</p>
-        </div>
-        <div class="card-skill">
-            <div class="item-tecnologia"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png"></div>
-            <p style="color:rgb(255, 240, 109)">JavaScript</p>
-        </div>
-    </div>
+        <section class="section section--skills" id="habilidades" aria-labelledby="habilidades-titulo">
+            <div class="section__header">
+                <p class="section__eyebrow">Competências</p>
+                <h2 id="habilidades-titulo">Habilidades Técnicas e Ferramentas</h2>
+            </div>
 
-    <div class="secao-titulo">
-        <p>Projetos em Destaque</p>
-    </div>
+            <div class="skills-logos">
+                <div class="skill-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Logo_C_sharp.png" alt="C#">
+                    <span>C#</span>
+                </div>
+                <div class="skill-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/500px-ISO_C%2B%2B_Logo.svg.png" alt="C++">
+                    <span>C++</span>
+                </div>
+                <div class="skill-logo">
+                    <img src="https://images.icon-icons.com/2415/PNG/512/python_original_logo_icon_146381.png" alt="Python">
+                    <span>Python</span>
+                </div>
+                <div class="skill-logo">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/066/386/005/small/the-html5-logo-with-the-number-5-in-the-center-free-png.png" alt="HTML5">
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-logo">
+                    <img src="https://images.icon-icons.com/2107/PNG/512/file_type_css_icon_130661.png" alt="CSS3">
+                    <span>CSS3</span>
+                </div>
+                <div class="skill-logo">
+                    <img src="https://www.freeiconspng.com/uploads/command-line-icon-11.png" alt="Batch">
+                    <span>Batch</span>
+                </div>
+                <div class="skill-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png" alt="JavaScript">
+                    <span>JavaScript</span>
+                </div>
+            </div>
 
-    <div class="boxgithub">
-        <h3>Repositório GitHub</h3>
-        <p>Explore meus projetos acadêmicos e aplicações desenvolvidas de forma autônoma.</p>
-        <div class="gitimage">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="40" class="git-icon"></div>
-        <a href="https://github.com/Isaque-Medeiros" class="buttongit">Acessar GitHub →</a>
-    </div>
+            <div class="skills-grid">
+                <article class="skill-card">
+                    <h3>Linguagens</h3>
+                    <ul>
+                        <li>C#</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>Batch Script</li>
+                    </ul>
+                </article>
 
-    <div class="sessao-guia">
-        <h2>Confira meus projetos abaixo:</h2>
-        <div class="iframe-soft">
-            <iframe 
-                src="https://isaque-medeiros.github.io/PIM-1-Semestre/"
-                width="100%" 
-                height="600px" 
-                style="border:none;">
-            </iframe>
+                <article class="skill-card">
+                    <h3>Front-end</h3>
+                    <ul>
+                        <li>Estruturação semântica de páginas</li>
+                        <li>Layout responsivo</li>
+                        <li>Componentização visual</li>
+                        <li>Boas práticas de acessibilidade</li>
+                        <li>Otimização de experiência do usuário</li>
+                    </ul>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Back-end e Lógica</h3>
+                    <ul>
+                        <li>Lógica de programação</li>
+                        <li>Estruturas de dados (base)</li>
+                        <li>Programação orientada a objetos</li>
+                        <li>Integração de funcionalidades</li>
+                        <li>Organização de fluxo de aplicação</li>
+                    </ul>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Ferramentas e Métodos</h3>
+                    <ul>
+                        <li>Git e GitHub</li>
+                        <li>Versionamento de código</li>
+                        <li>Documentação técnica</li>
+                        <li>Aprendizado orientado a projeto</li>
+                        <li>Melhoria contínua</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="skills-levels" aria-label="Nível de domínio por tecnologia">
+                <h3>Nível de Domínio (Autoavaliação)</h3>
+                <ul>
+                    <li>
+                        <span>HTML5</span>
+                        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-label="HTML5 90 por cento">
+                            <span style="width: 90%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>CSS3</span>
+                        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" aria-label="CSS3 85 por cento">
+                            <span style="width: 85%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>JavaScript</span>
+                        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-label="JavaScript 70 por cento">
+                            <span style="width: 70%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>Python</span>
+                        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" aria-label="Python 72 por cento">
+                            <span style="width: 72%;"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span>C#</span>
+                        <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68" aria-label="C sharp 68 por cento">
+                            <span style="width: 68%;"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section section--projects" id="projetos" aria-labelledby="projetos-titulo">
+            <div class="section__header">
+                <p class="section__eyebrow">Portfólio</p>
+                <h2 id="projetos-titulo">Projetos em Destaque</h2>
+            </div>
+
+            <div class="github-highlight">
+                <h3>Repositório Principal no GitHub</h3>
+                <p>
+                    No meu GitHub você encontra projetos acadêmicos, experimentos de front-end e iniciativas
+                    independentes desenvolvidas para prática e evolução técnica.
+                </p>
+                <div class="gitimage">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="40" class="git-icon" alt="Logotipo GitHub">
+                </div>
+                <a class="btn btn--primary" href="https://github.com/Isaque-Medeiros" target="_blank" rel="noopener noreferrer">
+                    Acessar GitHub →
+                </a>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <header>
+                        <h3>PIM - 1º Semestre</h3>
+                        <p class="project-tag">Projeto Acadêmico</p>
+                    </header>
+                    <p>
+                        Aplicação web desenvolvida para consolidar fundamentos de desenvolvimento front-end e organização
+                        de conteúdo, com foco em estrutura, navegabilidade e apresentação.
+                    </p>
+                    <ul>
+                        <li>Stack: HTML, CSS, JavaScript</li>
+                        <li>Foco: Estruturação, layout e usabilidade</li>
+                        <li>Status: Publicado</li>
+                    </ul>
+                    <a href="https://isaque-medeiros.github.io/PIM-1-Semestre/" target="_blank" rel="noopener noreferrer">Abrir Projeto</a>
+                </article>
+
+                <article class="project-card">
+                    <header>
+                        <h3>Landing de Portfólio</h3>
+                        <p class="project-tag">Projeto Pessoal</p>
+                    </header>
+                    <p>
+                        Página pessoal com objetivo de apresentar trajetória, habilidades e canais de contato em um único
+                        ambiente profissional e de fácil manutenção.
+                    </p>
+                    <ul>
+                        <li>Stack: HTML semântico e CSS moderno</li>
+                        <li>Foco: Identidade profissional</li>
+                        <li>Status: Em constante evolução</li>
+                    </ul>
+                    <a href="https://github.com/Isaque-Medeiros" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
+                </article>
+
+                <article class="project-card">
+                    <header>
+                        <h3>Exercícios de Lógica</h3>
+                        <p class="project-tag">Estudo Técnico</p>
+                    </header>
+                    <p>
+                        Conjunto de desafios para reforço de lógica de programação, estruturas condicionais, repetição e
+                        resolução de problemas com diferentes abordagens.
+                    </p>
+                    <ul>
+                        <li>Stack: Python, C# e JavaScript</li>
+                        <li>Foco: Pensamento computacional</li>
+                        <li>Status: Ativo</li>
+                    </ul>
+                    <a href="https://github.com/Isaque-Medeiros" target="_blank" rel="noopener noreferrer">Acompanhar estudos</a>
+                </article>
+            </div>
+
+            <div class="project-preview">
+                <h3>Prévia de Projeto Publicado</h3>
+                <iframe
+                    src="https://isaque-medeiros.github.io/PIM-1-Semestre/"
+                    title="Prévia do projeto PIM 1º Semestre"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
+        </section>
+
+        <section class="section section--certs" id="certificacoes" aria-labelledby="certs-titulo">
+            <div class="section__header">
+                <p class="section__eyebrow">Validação Técnica</p>
+                <h2 id="certs-titulo">Certificações e Formações</h2>
+            </div>
+
+            <div class="certs-wrapper">
+                <details open>
+                    <summary>Formação Técnica e Acadêmica</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li><strong>ETEC</strong> — Técnico em Manutenção e Suporte em Informática (concluído)</li>
+                            <li><strong>Graduação ADS</strong> — Análise e Desenvolvimento de Sistemas (em andamento)</li>
+                            <li><strong>SAGA</strong> — Formação Start em Design Gráfico (concluída)</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Cursos Complementares</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>Fundamentos de programação e algoritmos</li>
+                            <li>Boas práticas para desenvolvimento web</li>
+                            <li>Versionamento e fluxo de trabalho com Git</li>
+                            <li>Conceitos introdutórios de banco de dados</li>
+                            <li>Princípios de UX/UI aplicados ao front-end</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Próximas Certificações Planejadas</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li>Trilhas avançadas de JavaScript moderno</li>
+                            <li>Fundamentos de cloud para desenvolvedores</li>
+                            <li>Boas práticas de engenharia de software</li>
+                            <li>Testes automatizados para aplicações web</li>
+                            <li>Conceitos de arquitetura e APIs</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="section section--testimonials" aria-labelledby="diferenciais-titulo">
+            <div class="section__header">
+                <p class="section__eyebrow">Diferenciais</p>
+                <h2 id="diferenciais-titulo">Pontos Fortes Profissionais</h2>
+            </div>
+            <div class="diferenciais-grid">
+                <article>
+                    <h3>Compromisso com qualidade</h3>
+                    <p>
+                        Priorizo código legível, manutenção facilitada e organização estrutural para reduzir retrabalho e
+                        melhorar a escalabilidade dos projetos.
+                    </p>
+                </article>
+                <article>
+                    <h3>Aprendizado contínuo</h3>
+                    <p>
+                        Tenho disciplina de estudo e prática constante, acompanhando tendências de mercado e aplicando
+                        novas técnicas em projetos pessoais e acadêmicos.
+                    </p>
+                </article>
+                <article>
+                    <h3>Visão de produto</h3>
+                    <p>
+                        Procuro entender não apenas o código, mas também o objetivo do negócio e a experiência final do
+                        usuário, criando soluções mais úteis e eficientes.
+                    </p>
+                </article>
+                <article>
+                    <h3>Comunicação e colaboração</h3>
+                    <p>
+                        Valorizo trabalho em equipe, troca de conhecimento e alinhamento entre áreas para evolução conjunta
+                        e resultados mais sólidos.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section--faq" aria-labelledby="faq-titulo">
+            <div class="section__header">
+                <p class="section__eyebrow">FAQ</p>
+                <h2 id="faq-titulo">Perguntas Frequentes</h2>
+            </div>
+            <div class="faq-list">
+                <details>
+                    <summary>Você está disponível para estágio?</summary>
+                    <div class="details-content">
+                        <p>Sim. Estou disponível para oportunidades de estágio e posições júnior em desenvolvimento.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Quais tecnologias você utiliza com mais frequência?</summary>
+                    <div class="details-content">
+                        <p>Principalmente HTML, CSS, JavaScript e Python, além de estudos em C# e C++.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Você possui projetos publicados?</summary>
+                    <div class="details-content">
+                        <p>Sim. Tenho projetos acadêmicos e pessoais disponíveis no GitHub e em páginas publicadas.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Como entrar em contato para propostas?</summary>
+                    <div class="details-content">
+                        <p>Você pode falar comigo via LinkedIn ou e-mail. Os links estão na seção de contato.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contato" aria-labelledby="contato-titulo">
+        <div class="footer-overlay" aria-hidden="true"></div>
+        <div class="footer-content">
+            <section class="footer-block">
+                <h2 id="contato-titulo">Contato</h2>
+                <p>
+                    Vamos conversar sobre projetos, oportunidades ou colaboração em tecnologia.
+                    Estou aberto a conexões profissionais e novos desafios.
+                </p>
+            </section>
+
+            <section class="footer-block">
+                <h3>Canais Profissionais</h3>
+                <ul>
+                    <li>
+                        <strong>LinkedIn:</strong>
+                        <a href="https://www.linkedin.com/in/isaque-medeiros-a99421268/" target="_blank" rel="noopener noreferrer">
+                            linkedin.com/in/isaque-medeiros-a99421268
+                        </a>
+                    </li>
+                    <li>
+                        <strong>GitHub:</strong>
+                        <a href="https://github.com/Isaque-Medeiros" target="_blank" rel="noopener noreferrer">
+                            github.com/Isaque-Medeiros
+                        </a>
+                    </li>
+                    <li>
+                        <strong>E-mail:</strong>
+                        <a href="mailto:medeiroisaque765@gmail.com">medeiroisaque765@gmail.com</a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="footer-block">
+                <h3>Disponibilidade</h3>
+                <p>✔ Estágio em desenvolvimento</p>
+                <p>✔ Projetos freelancer sob avaliação</p>
+                <p>✔ Colaboração em projetos open source</p>
+            </section>
         </div>
-    </div>
 
-    <div class="FundorRodape-container">
-      <img src="https://raw.githubusercontent.com/Isaque-Medeiros/Meus-ProjetosAcad/refs/heads/main/images/Aquaris.png" class="FundoRodape"> 
-      <div class="conteudo-sobreposto">
-          <h2>Meus contatos</h2>
-          <p>| <b>Meu Linkedin:</b> <a href="https://www.linkedin.com/in/isaque-medeiros-a99421268/">in/isaque-medeiros</a> |</p>
-          <p>| <b>E-mail:</b> <a href="mailto:medeiroisaque765@gmail.com">medeirosisaque765@gmail.com</a> |</p>
+        <div class="footer-bottom">
+            <p>© <span id="ano-atual">2026</span> Isaque de Medeiros. Todos os direitos reservados.</p>
+            <a href="#inicio">Voltar ao topo ↑</a>
         </div>
-    </div>
+    </footer>
+
+    <script>
+        (function atualizarAnoAtual() {
+            var ano = new Date().getFullYear();
+            var elementoAno = document.getElementById('ano-atual');
+            if (elementoAno) {
+                elementoAno.textContent = String(ano);
+            }
+        })();
+    </script>
 </body>
 </html>
