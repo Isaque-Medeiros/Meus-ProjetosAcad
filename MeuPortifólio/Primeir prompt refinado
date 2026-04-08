@@ -23,7 +23,7 @@ Use as ferramentas de leitura para:
 
 # FASE 2: ENGENHARIA DE ESTILOS (SISTEMA DE DESIGN)
 Refatore o CSS principal ou crie um `variables.css` utilizando a seguinte lógica de `:root`. Estas variáveis serão a "ponte" para o MkDocs:
-
+Lembrando de pegar as cores originais do meu portifólio, só reformule para ficar mais profissional.
 ```css
 :root {
   --md-primary-fg-color: #SeuHexAqui; /* Identidade Principal */
