@@ -1,0 +1,76 @@
+
+***
+
+# ROLE: SENIOR TECHNICAL WRITER & MKDOCS SOLUTIONS ARCHITECT
+Sua missão agora é a Fase 2: **Remasterização da Documentação Técnica**.
+Você deve configurar o MkDocs para que ele seja indistinguível da Landing Page que você acabou de criar. O objetivo é que o usuário sinta que mudou de aba, mas não mudou de sistema.
+
+# FASE 1: EXTRAÇÃO DE DNA VISUAL
+Antes de escrever os arquivos `.md`, execute:
+1.  Leia o novo `index.html` e o CSS refinado da etapa anterior.
+2.  Mapeie as variáveis de cores (:root), a fonte utilizada e o design do Header/Navbar.
+3.  Você deve criar o arquivo `docs/stylesheets/extra.css` e injetar o tema base lá, forçando o MkDocs Material a seguir as mesmas cores do index.
+
+# FASE 2: FUSÃO ESTRUTURAL (OVERRIDES)
+O MkDocs não pode ter um header diferente do index.
+1.  Verifique se existe uma pasta `overrides`. Se não, crie-a.
+2.  Crie/Modifique `overrides/main.html` para injetar o mesmo sistema de navegação e rodapé utilizado no `index.html`. 
+3.  Configure o `mkdocs.yml` para utilizar esse override.
+
+# FASE 3: DETALHAMENTO DOS PROJETOS (TECNOLOGIA DE PONTA)
+
+### 3.1 PROJETO BSFM (O Carro-Chefe de IA)
+Não escreva apenas descrições simples. Utilize a lógica: **Problema > Solução > Arquitetura**.
+- **Hardware/Software:** Mencione Python, YOLOv11, integração de câmeras/fotos.
+- **Processamento de Dados:** Descreva como o modelo interpreta a densidade calórica e a classe dos alimentos.
+- **Diferencial Estratégico:** Destaque que o BSFM atua como "Copiloto para Nutricionistas", não substituição.
+- **Componente Visual:** Crie um diagrama **Mermaid.js** (tipo `graph TD`) mostrando o fluxo: Imagem -> Modelo YOLO -> Parser de Dados -> Dashboard do Usuário.
+
+### 3.2 PROJETO IA FINANCEIRA (Engine Santander + JSON)
+- **Logica de Prompting:** Detalhe como o sistema garante a saída em JSON estruturado sem alucinações (Prompt Engineering avançado).
+- **Metodologia:** Explique a aplicação das métricas Santander sobre o plano financeiro.
+- **UX:** Descreva o uso do Streamlit para transformar dados brutos em insights visuais reativos.
+
+### 3.3 LABORATÓRIO E FORMAÇÃO (The Journey)
+- Organize os projetos acadêmicos por "Linguagens Core" (C#, C++, Java) e "Sistemas Embarcados" (Arduino).
+- Dê destaque para o curso técnico na ETEC e a graduação na UNIP, enfatizando o tempo de estudo em cada linguagem.
+
+# FASE 4: CONFIGURAÇÕES "INSANE" DO MKDOCS.YML
+Configure o `mkdocs.yml` com estas features premium:
+```yaml
+theme:
+  name: material
+  language: pt-BR
+  features:
+    - navigation.tabs           # Menu horizontal similar ao seu index
+    - navigation.sections       # Estrutura limpa
+    - navigation.expand         # Abrir submenus
+    - content.code.annotate     # Explicação de código com pontos de foco
+    - content.code.copy         # Botão de copiar código
+    - search.share              # Compartilhar busca
+plugins:
+  - search
+  - mermaid2                    # Habilitar diagramas técnicos
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+  - pymdownx.tabbed:
+      alternate_style: true
+```
+
+# FASE 5: REVISÃO DE TEXTO (SENIOR COPYWRITING)
+O tom deve ser **Sério, Técnico e Confiante**.
+- **Métrica de Qualidade:** Mínimo de 400 a 600 palavras por projeto principal (BSFM e Financeiro). 
+- **SEO:** Use metatags nos arquivos MD para que cada página de projeto seja indexável de forma única.
+- **Call to Action:** No final de cada projeto, adicione um botão: "Veja o código no GitHub" ou "Acesse a aplicação (Streamlit Cloud)".
+
+# TAREFA DE SAÍDA:
+Após estruturar os arquivos, execute o comando de build e apresente o relatório de todos os links verificados. Certifique-se de que não existam Dead Links entre o MkDocs e o seu `index.html`.
+
+**Inicie lendo os estilos do meu novo Index e comece a produção do `mkdocs.yml` agora.**
+
+
