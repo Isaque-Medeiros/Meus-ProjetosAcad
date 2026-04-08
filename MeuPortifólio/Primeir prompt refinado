@@ -40,6 +40,8 @@ Refatore o CSS principal ou crie um `variables.css` utilizando a seguinte lógic
 2. **Glassmorphism:** Se combinar com a estética, use transparências sutis com `backdrop-filter: blur()`.
 3. **Micro-interações:** Todos os botões e links de navegação devem ter estados de `hover` e `active` fluidos.
 
+Lembre-se que no MKDOCS ele consegue ler html então você pode pesquisar como integrar o estilo html dentro dos meus docs para deixar bem mais profissional visualmente
+
 # FASE 3: ARQUITETURA DE CONTEÚDO (HTML5 SEMÂNTICO)
 Reescreva o `index.html` garantindo:
 1. **Header unificado:** Crie uma Navbar que será o modelo para o MkDocs. O link para "Projetos" deve ser o destaque.
