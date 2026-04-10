@@ -1,0 +1,509 @@
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-card: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent-gold: #d4af37;
+    --accent-gold-hover: #f0c941;
+    --success: #10b981;
+    --danger: #ef4444;
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ===== HEADER ===== */
+.header {
+    background-color: var(--bg-secondary);
+    padding: 20px 0;
+    border-bottom: 1px solid #252525;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* ===== STATUS CONTAINER ===== */
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.status-container.status-open {
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--success);
+}
+
+.status-container.status-closed {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger);
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse 2s infinite;
+}
+
+.status-open .status-indicator {
+    background-color: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
+
+.status-closed .status-indicator {
+    background-color: var(--danger);
+    box-shadow: 0 0 8px var(--danger);
+}
+
+#status-text {
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+}
+
+.status-open #status-text {
+    color: var(--success);
+}
+
+.status-closed #status-text {
+    color: var(--danger);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+.toggle-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.toggle-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+/* ===== MAIN ===== */
+.main {
+    padding: 28px 0 100px;
+}
+
+/* ===== HERO ===== */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 12px 0;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+}
+
+.hero-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.section {
+    margin-bottom: 36px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    border-left: 3px solid var(--accent-gold);
+    padding-left: 12px;
+}
+
+/* ===== SERVIÇOS ===== */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.service-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+    border: 1px solid #252525;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.08);
+}
+
+.service-card:active {
+    transform: translateY(0);
+}
+
+.service-info h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.service-info p {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.service-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+/* ===== FORMULÁRIO ===== */
+.booking-form {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 24px 20px;
+    border: 1px solid #252525;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: var(--bg-secondary);
+    border: 1px solid #2d2d2d;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: var(--transition);
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0a0a0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #444;
+}
+
+.form-group input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+    cursor: pointer;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--accent-gold), #b8962e);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, var(--accent-gold-hover), var(--accent-gold));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* ===== LISTA DE AGENDAMENTOS ===== */
+.bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+    padding: 32px 0;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px dashed #2d2d2d;
+}
+
+.booking-item {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #252525;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.booking-name {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.booking-service {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.booking-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.booking-time {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.booking-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #25d366;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: rgba(37, 211, 102, 0.1);
+    transition: var(--transition);
+}
+
+.booking-whatsapp:hover {
+    background-color: rgba(37, 211, 102, 0.2);
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #444;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.delete-btn:hover {
+    color: var(--danger);
+}
+
+/* ===== TOAST NOTIFICATION ===== */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    padding: 14px 24px;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #2d2d2d;
+    white-space: nowrap;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.toast.error {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: var(--bg-secondary);
+    padding: 20px 0;
+    border-top: 1px solid #252525;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.footer-sub {
+    font-size: 11px;
+    color: #555;
+    margin-top: 6px;
+}
+
+/* ===== WHATSAPP FLOATING BUTTON ===== */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+    transition: var(--transition);
+    z-index: 999;
+    text-decoration: none;
+}
+
+.whatsapp-fab:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-fab:active {
+    transform: scale(0.95);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (min-width: 480px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .status-container {
+        width: auto;
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .booking-form {
+        padding: 16px;
+    }
+}
