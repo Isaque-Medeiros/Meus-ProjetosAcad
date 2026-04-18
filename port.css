@@ -1,7 +1,7 @@
 /* --- CONFIGURAÇÕES BASE (Mantendo suas cores e fontes modernas) --- */
 body {
-    background-color: #000b29;
-    color: white;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: 'Inter', sans-serif; /* Fonte soft moderna */
     margin: 0;
     text-align: center;
@@ -21,15 +21,16 @@ body {
     text-shadow: 0 4px 10px rgba(0,0,0,0.5);
     font-size: 21px;
     margin: 0;
+    color: var(--text-primary);
 }
 
-.subtexto h2 { font-weight: 300; color: #ccc; margin-bottom: 5px; }
-.subtexto h3 { font-size: 2em; margin-top: 0; font-weight: 700; }
+.subtexto h2 { font-weight: 300; color: var(--text-secondary); margin-bottom: 5px; }
+.subtexto h3 { font-size: 2em; margin-top: 0; font-weight: 700; color: var(--text-primary); }
 
 .textoin p {
     max-width: 650px;
     margin: 20px auto;
-    color: #b0b0b0;
+    color: var(--text-secondary);
 }
 
 /* --- VÍDEO (Preservando sua recentralização e tamanhos) --- */
