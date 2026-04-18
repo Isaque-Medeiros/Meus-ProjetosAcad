@@ -1,0 +1,15 @@
+{
+  "analise_santander": {
+    "diagnostico_regra_50_30_20": {
+      "atual": {"fixo": 60, "variavel": 30, "investimento": 10},
+      "recomendado": {"fixo": 50, "variavel": 30, "investimento": 20},
+      "status": "Ajustar Gastos Fixos"
+    },
+    "plano_acao": [
+      { "prioridade": 1, "titulo": "Quitar Cartão de Crédito", "descricao": "Devido aos juros de 12.5%, este é o foco imediato." },
+      { "prioridade": 2, "titulo": "Reserva de Emergência", "descricao": "Meta de R$ 18.000,00 (6 meses de custo fixo)." }
+    ],
+    "estrategia_investimento": "Sugestão de alocação em CDB/LCI para o perfil Moderado.",
+    "conclusao_final": "Texto motivacional e técnico baseado na metodologia Santander."
+  }
+}

@@ -1,0 +1,21 @@
+:root {
+  --bg-primary: #000b29;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #94a3b8;
+  --accent-color: #87ceeb;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --header-gradient-start: #001f4d;
+  --header-gradient-end: #000b29;
+  --button-bg: #87ceeb;
+  --button-hover-bg: #0d1b3e;
+  --button-hover-color: #ffffff;
+  --footer-gradient-start: #000b29;
+  --footer-gradient-end: transparent;
+  --md-primary-fg-color: #000b29; /* Identidade Principal */
+  --md-accent-fg-color: #87ceeb;  /* Call to Action */
+  --bg-space: #0f172a;            /* Fundo Escuro Profissional (opcional) */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}

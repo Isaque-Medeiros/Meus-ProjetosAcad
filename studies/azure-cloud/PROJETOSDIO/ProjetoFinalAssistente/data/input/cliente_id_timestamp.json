@@ -1,0 +1,30 @@
+{
+  "metadados": {
+    "cliente_id": "001",
+    "data_coleta": "2024-05-20T14:30:00",
+    "responsavel": "Funcionario_X"
+  },
+  "perfil": {
+    "nome": "João Silva",
+    "idade": 35,
+    "dependentes": 2,
+    "perfil_investidor": "Moderado"
+  },
+  "financeiro_atual": {
+    "renda_liquida": 5000.00,
+    "gastos_fixos": 3000.00,
+    "gastos_variaveis": 1500.00,
+    "reserva_atual": 1000.00
+  },
+  "dividas": [
+    { "tipo": "Cartão de Crédito", "valor_total": 2000.00, "taxa_juros_mensal": 12.5 },
+    { "tipo": "Financiamento Carro", "valor_total": 15000.00, "taxa_juros_mensal": 1.2 }
+  ],
+  "objetivos": {
+    "curto_prazo": {"descricao": "Viagem de férias", "valor": 3000.00, "prazo_meses": 12},
+    "medio_prazo": {"descricao": "Troca de carro", "valor": 20000.00, "prazo_meses": 48},
+    "longo_prazo": {"descricao": "Aposentadoria", "valor": 500000.00, "prazo_meses": 240}
+  }
+}
+
+

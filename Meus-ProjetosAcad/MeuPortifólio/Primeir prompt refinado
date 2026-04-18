@@ -1,0 +1,66 @@
+***
+# ROLE & CONTEXT
+Você é um **Engenheiro de Software Full Stack Senior** e **Especialista em UX/UI de Portfólios**. Sua missão é transformar meu diretório atual em um ecossistema digital de elite.
+
+**Minha Essência:** 
+- Profissional de Suporte de TI Nível Especialista (Troubleshooting complexo/B2B).
+- Desenvolvedor com foco em IA (YOLO v11, Visão Computacional) e Python.
+- Acadêmico de ADS, egresso da ETEC. 
+- Atitude: Mão na massa, resolvedor de problemas que outros não resolvem.
+
+# OBJETIVO TÉCNICO: FUSÃO INVISÍVEL
+Eu possuo um index em HTML/CSS e uma documentação em MkDocs. Eles devem parecer **um único site**. 
+- Você deve estabelecer a "Identidade Visual Master" agora no HTML, que será herdada pelo MkDocs posteriormente.
+
+---
+
+# FASE 1: AUDITORIA RECURSIVA (DISCOVERY)
+Use as ferramentas de leitura para:
+1. Mapear todos os arquivos `.html` e `.css`.
+2. Identificar a estrutura de pastas atual. 
+3. **PONTO CRÍTICO:** Localizar onde estão os links que apontam para o MkDocs (ex: `/docs`, `/projects`).
+4. Extrair os textos atuais para preservarmos o histórico antes da remasterização.
+
+# FASE 2: ENGENHARIA DE ESTILOS (SISTEMA DE DESIGN)
+Refatore o CSS principal, Estas variáveis serão a "ponte" para o MkDocs:
+Lembrando de pegar as cores originais do meu portifólio, só reformule para ficar mais profissional.
+```css
+```
+
+**Requisitos Visuais:**
+1. **Layout Responsivo:** Implemente um sistema de Grid ou Flexbox que suporte telas Mobile-first até Ultra-wide.
+2. **Glassmorphism:** Se combinar com a estética, use transparências sutis com `backdrop-filter: blur()`.
+3. **Micro-interações:** Todos os botões e links de navegação devem ter estados de `hover` e `active` fluidos.
+
+Lembre-se que no MKDOCS ele consegue ler html então você pode pesquisar como integrar o estilo html dentro dos meus docs para deixar bem mais profissional visualmente
+
+# FASE 3: ARQUITETURA DE CONTEÚDO (HTML5 SEMÂNTICO)
+Reescreva o `index.html` garantindo:
+1. **Header unificado:** Crie uma Navbar que será o modelo para o MkDocs. O link para "Projetos" deve ser o destaque.
+2. **Hero Section:** Foque em: "Especialista em Suporte & Desenvolvedor de Soluções de IA". Menos "sou estudante", mais "resolvo problemas de alto impacto".
+3. **Experience Section:** Traduza o cargo de "Suporte TI Especialista" para uma linguagem de engenharia: mencione Troubleshooting de Nível 3, análise de logs, resolução de falhas de sistema críticas.
+4. **Projeto Highlight (BSFM):** Use palavras-chave como "Visão Computacional", "YOLO v11", "Métrica de Micronutrientes". 
+5. **Acessibilidade:** Garanta que todas as imagens tenham `alt` e os botões tenham `aria-label`.
+
+# FASE 4: COPYWRITING & STORYTELLING TÉCNICO (O TOM)
+Remodele meus textos mantendo minha voz, mas com polimento executivo:
+- **Corrija:** Ortografia, gramática e concordância.
+- **Evite:** Texto genérico como "Bem-vindo ao meu site". 
+- **Substitua:** Em vez de "fui técnico na ETEC", use "Formação técnica de base pela ETEC em Manutenção de Sistemas, consolidando a fundamentação em infraestrutura".
+- **Keywords:** Machine Learning, Computer Vision, API Integration, Advanced Troubleshooting, Streamlit.
+
+# FASE 5: PREPARAÇÃO DA PONTE (MKDOCS HOOKS)
+1. Certifique-se de que o CSS do index não conflite com as classes do MkDocs Material, mas ofereça as cores.
+2. Crie uma pasta `overrides/` se não existir, e dentro dela um `main.html`. O Cline deve preparar o terreno para injetar o Header do Index dentro do MkDocs na próxima etapa.
+
+---
+
+# INSTRUÇÕES DE EXECUÇÃO PARA O CLINE:
+1. **Pense antes de agir:** Execute `list_files` e entenda o contexto. 
+2. **Backup primeiro:** Antes de salvar qualquer refatoração no `index.html`, salve o original como `.bak`.
+3. **Etapas Curtas:** Faça a alteração do CSS primeiro, me mostre as variáveis no log. Se eu aprovar, proceda para o HTML.
+4. **Validação:** Ao finalizar, utilize ferramentas de CLI se disponíveis para verificar erros de sintaxe no CSS/HTML.
+
+# SAÍDA ESPERADA:
+"Apresente primeiro um relatório sucinto de como o site está hoje, a paleta de cores detectada e o plano de nomes das variáveis CSS que você pretende usar. **Aguarde meu sinal de 'Prosseguir' após este relatório.**"
+******
