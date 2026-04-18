@@ -123,10 +123,10 @@ Sou um desenvolvedor apaixonado por tecnologia com experiência em múltiplas á
 
 ## 📞 Contato & Links
 
-- **GitHub**: [Seu perfil GitHub]
+- **GitHub**: [Seu perfil GitHub](https://github.com/Isaque-Medeiros)
 - **LinkedIn**: [Seu perfil LinkedIn]
-- **Portfólio**: `/portfolio/index.html`
-- **Email**: [Seu email profissional]
+- **Portfólio**: [Clique aqui para acessar](https://isaque-medeiros.github.io/Meus-ProjetosAcad/)
+- **Email**: [medeirosisaque765@gmail.com]
 
 ---
 
