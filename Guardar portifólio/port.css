@@ -1,0 +1,310 @@
+/* --- CONFIGURAÇÕES BASE (Mantendo suas cores e fontes modernas) --- */
+body {
+    background-color: #000b29;
+    color: white;
+    font-family: 'Inter', sans-serif; /* Fonte soft moderna */
+    margin: 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* --- HEADER (Preservando seu degradê e espaçamento) --- */
+.header-gradient {
+    background: linear-gradient(to bottom, #001f4d, #000b29);
+    padding: 60px 0;
+    
+}
+
+.top-name h1 {
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    font-size: 21px;
+    margin: 0;
+}
+
+.subtexto h2 { font-weight: 300; color: #ccc; margin-bottom: 5px; }
+.subtexto h3 { font-size: 2em; margin-top: 0; font-weight: 700; }
+
+.textoin p {
+    max-width: 650px;
+    margin: 20px auto;
+    color: #b0b0b0;
+}
+
+/* --- VÍDEO (Preservando sua recentralização e tamanhos) --- */
+.video-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.video-container iframe {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 100%; /* Respeita o container */
+}
+
+/* --- SEÇÃO SOBRE MIM / DETAILS (Preservando sua largura pequena e centralização) --- */
+.sobremim {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+summary {
+    list-style: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: fit-content;    /* Crucial para manter pequeno */
+    margin: 0 auto;        /* Crucial para centralizar */
+    display: block;        
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+summary:hover {
+    background-color: white;
+    color: #000b29;
+}
+
+.detalhes-conteudo {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    margin-top: 10px;
+    text-align: left;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+/* --- TIMELINE (AJUSTE CRUCIAL: Mantendo o layout e protegendo o tamanho das imagens) --- */
+.timeline-section {
+    width: 95%;
+    max-width: 1100px;
+    margin: 60px 0 60px 20px;
+    text-align: left;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, #87ceeb 0%, transparent 100%);
+    opacity: 0.1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 70px;
+}
+
+/* Bloqueando o tamanho do ícone para não vazar (Conforme sua imagem de erro) */
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #0d1b3e;
+    border: 2px solid #87ceeb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Não deixa a imagem vazar */
+    z-index: 2;
+}
+
+.timeline-icon img {
+    max-width: 30px; /* Garante que as logos não cresçam desproporcionalmente */
+    height: auto;
+    object-fit: contain;
+}
+
+.timeline-content {
+    background: rgba(135, 206, 235, 0.05); /* Efeito soft de vidro */
+    backdrop-filter: blur(5px);
+    padding: 25px;
+    border-radius: 20px;
+    border-left: 4px solid #87ceeb;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* --- HABILIDADES (Preservando centralização e gaps) --- */
+/* --- CONTAINER HABILIDADES CORRIGIDO --- */
+.container-habilidades {
+    display: flex;           /* Garante o alinhamento lado a lado */
+    justify-content: center; /* Centraliza o bloco na página */
+    flex-wrap: wrap;         /* Faz quebrar linha se não couber */
+    gap: 20px;               /* Espaçamento entre os cartões */
+    max-width: 1000px;       /* Limite lateral */
+    margin: 40px auto;       /* Centralização e espaçamento vertical */
+    padding: 20px;
+}
+
+.card-skill {
+    background: rgba(255, 255, 255, 0.05); /* Efeito soft de fundo */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 130px;            /* Largura fixa do cartão */
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.card-skill:hover {
+    transform: translateY(-8px);
+    border-color: #87ceeb;
+    background: rgba(135, 206, 235, 0.1);
+}
+
+/* REGRA CRUCIAL: TRAVA O TAMANHO DAS IMAGENS */
+.item-tecnologia {
+    width: 60px;   /* Largura máxima do espaço da imagem */
+    height: 60px;  /* Altura máxima do espaço da imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-tecnologia img {
+    max-width: 100%;  /* Não deixa passar do 60px do pai */
+    max-height: 100%; /* Não deixa passar do 60px do pai */
+    object-fit: contain; /* Mantém a proporção sem distorcer */
+}
+
+.card-skill p {
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
+    margin-bottom: 0;
+}
+
+/* --- GITHUB BOX (Preservando largura e arredondamento) --- */
+.boxgithub {
+    background: linear-gradient(135deg, #0d1b3e 0%, #162a5e 100%);
+    width: 80%;
+    max-width: 555px;
+    margin: 60px auto;
+    padding: 35px;
+    border-radius: 25px;
+    border: 1px solid rgba(135, 206, 235, 0.1);
+}
+
+.buttongit {
+    display: inline-block;
+    background-color: #87ceeb;
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3);
+}
+/* --- CORREÇÃO DO ÍCONE GITHUB (VOLTANDO AO ORIGINAL) --- */
+.gitimage {
+    border: solid 2.2px rgb(41, 88, 208); /* Seu contorno azul original */
+    border-radius: 30px;                /* Arredondamento original */
+    background-color: rgb(131, 214, 244); /* Fundo azul claro para contraste */
+    width: fit-content;                 /* Ajusta ao tamanho do ícone */
+    margin: 20px auto;                  /* Centraliza no card */
+    padding: 10px;                      /* Espaço interno para o ícone respirar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.git-icon {
+    width: 40px; 
+    filter: none !important; /* Garante que o ícone fique preto e não inverta para branco */
+    display: block;
+}
+
+/* Opcional: Efeito suave ao passar o mouse para combinar com o portfólio soft */
+.gitimage:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(131, 214, 244, 0.5);
+    transition: 0.3s ease;
+}
+
+/* --- FOOTER (Mantendo o seu efeito de fusão e fusão original) --- */
+.FundorRodape-container {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.FundorRodape-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 200px;
+    background: linear-gradient(to bottom, #000b29, transparent);
+    z-index: 1;
+}
+
+.FundoRodape {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.conteudo-sobreposto {
+    position: absolute;
+    top: 55%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    z-index: 2;
+}
+
+.conteudo-sobreposto a { color: #87ceeb; text-decoration: none; }
+
+.pulse {
+
+animation: pulse-animation 2s infinite;
+
+border-radius: 50%; /* Garante que o brilho seja circular */
+
+}
+
+
+
+/* A definição da animação */
+
+@keyframes pulse-animation {
+
+0% {
+
+box-shadow: 0 0 0 0px rgba(135, 206, 235, 0.7); /* Cor azul claro (soft) */
+
+}
+
+70% {
+
+box-shadow: 0 0 0 15px rgba(135, 206, 235, 0); /* O brilho expande e some */
+
+}
+
+100% {
+
+box-shadow: 0 0 0 0px rgba(135, 206, 235, 0); /* Reinicia o ciclo */
+
+}
+
+}
