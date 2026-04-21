@@ -670,6 +670,24 @@ main {
   border: none;
 }
 
+/* Configuração para Celulares (telas de até 768px de largura) */
+@media (max-width: 768px) {
+  .project-preview {
+    margin-top: 20px;        /* Reduz o espaço superior no celular */
+    margin-left: -15px;      /* Joga o box um pouco para a esquerda */
+    margin-right: -15px;     /* Joga o box um pouco para a direita */
+    border-radius: 10px;     /* Deixa as quinas menos arredondadas no celular */
+    width: calc(100% + 30px); /* Faz ele ocupar toda a largura da tela do celular */
+    max-width: 100vw;        /* Garante que não crie barra de rolagem lateral */
+  }
+
+  .project-preview iframe {
+    /* Em vez de 650px fixo, usamos 85% da altura da tela do celular */
+    height: 85vh; 
+    min-height: 500px;      /* Garante que nunca fique muito pequeno */
+  }
+}
+
 /* --- SEÇÃO CERTIFICAÇÕES --- */
 .certs-wrapper {
   max-width: 700px;
