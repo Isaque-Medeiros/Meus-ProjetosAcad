@@ -673,20 +673,41 @@ main {
 /* Configuração para Celulares (telas de até 768px de largura) */
 @media (max-width: 768px) {
   .project-preview {
-    margin-top: 20px;        /* Reduz o espaço superior no celular */
-    margin-left: -15px;      /* Joga o box um pouco para a esquerda */
-    margin-right: -15px;     /* Joga o box um pouco para a direita */
-    border-radius: 10px;     /* Deixa as quinas menos arredondadas no celular */
-    width: calc(100% + 30px); /* Faz ele ocupar toda a largura da tela do celular */
-    max-width: 100vw;        /* Garante que não crie barra de rolagem lateral */
+    margin-top: 20px;
+    /* Resetando margens e bordas para ocupar a tela toda */
+    margin-left: -20px;       /* Ajuste conforme o padding do seu container pai */
+    margin-right: -20px;      /* Ajuste conforme o padding do seu container pai */
+    width: 100vw;             /* Força a largura ser a largura total da janela */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%); /* Técnica para centralizar ignorando o padding do pai */
+    
+    border-radius: 0;         /* Retira arredondamento no mobile para parecer app */
+    border-left: none;
+    border-right: none;
+    box-shadow: none;         /* Sombras em iframes mobile as vezes pesam ou cortam */
+  }
+
+  .project-preview h3 {
+    font-size: 18px;          /* Diminui um pouco o título para sobrar espaço */
+    margin-bottom: 15px;
+    padding: 0 15px;          /* Dá um respiro pro texto não colar na quina */
   }
 
   .project-preview iframe {
-    /* Em vez de 650px fixo, usamos 85% da altura da tela do celular */
-    height: 85vh; 
-    min-height: 500px;      /* Garante que nunca fique muito pequeno */
+    /* Altura maior no mobile para dar a sensação de "tela cheia" */
+    height: 80vh;            
+    width: 100%;
+    display: block;           /* Remove espaços em branco extras no fundo */
+    border: none;
   }
 }
+
+.project-preview {
+    touch-action: pan-y; /* Ajuda a rolagem vertical da página principal */
+}
+
 
 /* --- SEÇÃO CERTIFICAÇÕES --- */
 .certs-wrapper {
