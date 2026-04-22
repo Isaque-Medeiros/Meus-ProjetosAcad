@@ -672,40 +672,40 @@ main {
 
 /* Configuração para Celulares (telas de até 768px de largura) */
 @media (max-width: 768px) {
+  
+  /* Adicione isso para garantir que a página não tenha barra de rolagem lateral */
+  body {
+    overflow-x: hidden;
+  }
+
   .project-preview {
     margin-top: 20px;
-    /* Resetando margens e bordas para ocupar a tela toda */
-    margin-left: -20px;       /* Ajuste conforme o padding do seu container pai */
-    margin-right: -20px;      /* Ajuste conforme o padding do seu container pai */
-    width: 100vw;             /* Força a largura ser a largura total da janela */
+    
+    /* MÁGICA PARA ESTICAR: */
+    width: 100vw !important;      /* Força 100% da largura da janela */
     position: relative;
     left: 50%;
     right: 50%;
-    transform: translateX(-50%); /* Técnica para centralizar ignorando o padding do pai */
+    margin-left: -50vw !important; /* Move a div para a extremidade esquerda do celular */
+    margin-right: -50vw !important;
     
-    border-radius: 0;         /* Retira arredondamento no mobile para parecer app */
+    border-radius: 0;             /* Fica mais bonito no celular sem as bordas curvas */
     border-left: none;
     border-right: none;
-    box-shadow: none;         /* Sombras em iframes mobile as vezes pesam ou cortam */
-  }
-
-  .project-preview h3 {
-    font-size: 18px;          /* Diminui um pouco o título para sobrar espaço */
-    margin-bottom: 15px;
-    padding: 0 15px;          /* Dá um respiro pro texto não colar na quina */
+    box-shadow: none;
   }
 
   .project-preview iframe {
     /* Altura maior no mobile para dar a sensação de "tela cheia" */
-    height: 80vh;            
-    width: 100%;
-    display: block;           /* Remove espaços em branco extras no fundo */
+    height: 80vh !important;            
+    width: 100vw !important;      /* Garante que o iframe também ocupe tudo */
+    display: block;
     border: none;
   }
-}
 
-.project-preview {
-    touch-action: pan-y; /* Ajuda a rolagem vertical da página principal */
+  .project-preview h3 {
+    padding: 0 20px;              /* Mantém o título centralizado com espaço */
+  }
 }
 
 
