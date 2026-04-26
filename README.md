@@ -55,8 +55,13 @@ Sou estudante de Análise e Desenvolvimento de Sistemas, apaixonado por tecnolog
 - Projetos acadêmicos
 
 ### **Cloud Computing**
-- Microsoft Azure (curso introdutório - DIO)
+- Microsoft Azure Avançado (DIO) — curso introdutório abordando API Management, AKS, Functions, WebServices e DB em nuvem
 - Conceitos fundamentais de cloud
+
+### **Bootcamps Realizados**
+- **Santander Bootcamp (DIO)** — Ciência de Dados com Python
+- **Bradesco Bootcamp (DIO)** — Gen & IA (Geração e Inteligência Artificial)
+- **Microsoft Azure Avançado (DIO)** — Cloud computing e infraestrutura
 
 ## 🛠️ Tecnologias em Aprendizado
 
