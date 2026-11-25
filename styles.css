@@ -773,17 +773,10 @@ svg[aria-hidden="true"]:not(.orbits) [fill="currentColor"] { stroke: none; }
   font-size: clamp(8px, 1.08vw, 10.4px);
   line-height: 1.78;
   color: #90a4c8;
-  white-space: pre-wrap;
   overflow: hidden;
   min-height: 0;
 }
-.term__body .cmd { color: #dbeafe; }
-.term__body .cmd::before { content: "$ "; color: var(--cyan); }
-.term__body .ok { color: #6ee7b7; }
-.term__body .info { color: #93c5fd; }
-.term__body .warn { color: #fcd34d; }
-.term__body .dim { color: #5b6b93; }
-.term__body .cursor {
+.term__line .cursor {
   display: inline-block;
   width: 5px;
   height: 10px;
@@ -895,8 +888,8 @@ svg[aria-hidden="true"]:not(.orbits) [fill="currentColor"] { stroke: none; }
 @media (max-width: 620px) {
   .fchip { font-size: 9px; padding: 4px 7px; }
   .fchip--b, .fchip--d { display: none; }
-  .fchip--a { right: 0; top: 0; }
-  .fchip--c { left: 0; bottom: 8%; }
+  .fchip--a { left: auto; right: 0; top: -2px; }
+  .fchip--c { left: 0; bottom: -2px; }
 }
 
 /* ---------- 8. Faixa de tecnologias ---------- */
@@ -2066,6 +2059,233 @@ svg[aria-hidden="true"]:not(.orbits) [fill="currentColor"] { stroke: none; }
   .draw { stroke-dashoffset: 0; }
   .lap-fade { opacity: 1; }
   .typing-line { opacity: 1; }
+}
+
+/* ============================================================
+   24. Upgrades v2 — terminal interativo, rail, statusbar, tilt
+   ============================================================ */
+
+/* spotlight que segue o mouse no hero */
+.hero__spot {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    480px circle at var(--mx, 50%) var(--my, 40%),
+    rgba(43, 105, 251, 0.16),
+    transparent 62%
+  );
+}
+.hero:hover .hero__spot { opacity: 1; }
+.hero__inner { position: relative; z-index: 1; }
+
+/* ---- terminal interativo ---- */
+.term__hint {
+  margin-left: auto;
+  font-size: 7.6px;
+  color: #46557a;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.term__hint b { color: #7f92bd; font-weight: 500; }
+
+.term__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px 12px 4px;
+  font-family: var(--font-mono);
+  font-size: clamp(7.8px, 1vw, 9.8px);
+  line-height: 1.62;
+  color: #90a4c8;
+  scrollbar-width: thin;
+  scrollbar-color: #22304d transparent;
+}
+.term__body::-webkit-scrollbar { width: 4px; }
+.term__body::-webkit-scrollbar-thumb { background: #22304d; border-radius: 4px; }
+
+.term__line { display: block; white-space: pre-wrap; word-break: break-word; }
+.term__line.cmd { color: #dbeafe; }
+.term__echo { color: var(--cyan); }
+.term__line.ok { color: #6ee7b7; }
+.term__line.info { color: #93c5fd; }
+.term__line.dim { color: #5b6b93; }
+.term__line.err { color: #fca5a5; }
+.term__line.gap { height: 0.55em; }
+
+.term__form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 12px 5px;
+  flex: none;
+}
+.term__prompt {
+  font-family: var(--font-mono);
+  font-size: clamp(7.8px, 1vw, 9.8px);
+  color: var(--cyan);
+  flex: none;
+}
+.term__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: #e8f1ff;
+  font-family: var(--font-mono);
+  font-size: clamp(7.8px, 1vw, 9.8px);
+  caret-color: var(--cyan);
+  padding: 0;
+}
+.term__input::placeholder { color: #3a4865; }
+.term__caret { display: none; }
+
+/* chips viram comandos clicáveis */
+.fchip {
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  font-family: var(--font-mono);
+}
+.fchip:hover {
+  border-color: rgba(77, 134, 255, 0.62);
+  background: rgba(43, 105, 251, 0.2);
+  color: #fff;
+  box-shadow: 0 12px 26px -14px rgba(43, 105, 251, 0.9);
+  animation-play-state: paused;
+}
+.fchip:active { transform: scale(0.97); }
+
+/* ---- navegação lateral ---- */
+.rail-nav {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  align-items: flex-end;
+}
+.rail-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 2px 0;
+}
+.rail-nav span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.22);
+  transition: 0.3s var(--ease);
+  flex: none;
+}
+.rail-nav em {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  opacity: 0;
+  transform: translateX(6px);
+  transition: 0.3s var(--ease);
+  white-space: nowrap;
+}
+.rail-nav a:hover em,
+.rail-nav a.is-active em { opacity: 1; transform: none; }
+.rail-nav a:hover span { background: var(--cyan); }
+.rail-nav a.is-active span {
+  background: var(--blue);
+  box-shadow: 0 0 12px rgba(43, 105, 251, 0.9);
+  transform: scale(1.25);
+}
+@media (max-width: 1280px) { .rail-nav { display: none; } }
+
+/* ---- progresso da timeline ---- */
+.timeline { position: relative; }
+.timeline__progress {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  width: 2px;
+  height: calc(100% - 24px);
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--blue), var(--cyan));
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0.9;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(43, 105, 251, 0.55);
+}
+
+/* ---- tilt 3D + zoom no preview ---- */
+.pcard {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.35s var(--ease), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.pcard__visual svg { transition: transform 0.7s var(--ease); }
+.pcard:hover .pcard__visual svg { transform: scale(1.035); }
+
+/* ---- botões magnéticos ---- */
+.btn[data-magnetic] {
+  transform: translate3d(var(--mag-x, 0px), var(--mag-y, 0px), 0);
+  transition: transform 0.28s var(--ease), box-shadow 0.25s ease, background 0.25s ease,
+    border-color 0.25s ease, color 0.25s ease;
+}
+.btn[data-magnetic]:hover {
+  transform: translate3d(var(--mag-x, 0px), calc(var(--mag-y, 0px) - 2px), 0);
+}
+
+/* ---- glow pulsante do notebook ---- */
+.laptop__glow { animation: glow-pulse 7s ease-in-out infinite; }
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+/* ---- status bar estilo IDE ---- */
+.statusbar {
+  max-width: var(--wrap);
+  margin: 16px auto 0;
+  padding: 8px clamp(20px, 5vw, 32px) 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.05em;
+  color: var(--faint);
+}
+.statusbar .sb__item { display: inline-flex; align-items: center; gap: 6px; }
+.sb__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+.sb__right { margin-left: auto; }
+
+/* ---- ajustes responsivos v2 ---- */
+@media (hover: none) {
+  .term__form { display: none; }
+}
+@media (max-width: 620px) {
+  .term__hint { display: none; }
+  .rail-nav { display: none; }
+  .statusbar { font-size: 0.58rem; gap: 10px; }
+  .statusbar .sb__right { margin-left: 0; }
 }
 
 /* ---------- 23. Impressão ---------- */

@@ -1,6 +1,6 @@
 /* ============================================================
-   Isaque Medeiros — Portfólio 2026
-   Interações: reveals, terminal, filtros, modal, command palette
+   Isaque Medeiros — Portfólio 2026 (v2)
+   Interações: terminal, reveals, filtros, modal, palette, tilt
    Vanilla JS · sem dependências
    ============================================================ */
 (function () {
@@ -9,9 +9,11 @@
   const $ = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const touch = window.matchMedia('(hover: none)').matches;
   const delay = (ms) => new Promise((r) => setTimeout(r, ms));
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
-  /* ---------------- 1. Estado pronto + título animado ---------------- */
+  /* ---------------- 1. Título animado + auto-fit ---------------- */
   function splitLine(el, startIndex) {
     let idx = startIndex;
     Array.from(el.childNodes).forEach((node) => {
@@ -37,6 +39,23 @@
     return idx;
   }
 
+  function fitHeroTitle() {
+    const title = $('.hero__title');
+    if (!title) return;
+    title.style.fontSize = '';
+    const lines = $$('.line', title);
+    if (!lines.length) return;
+    if (getComputedStyle(lines[0]).whiteSpace !== 'nowrap') return;
+    let size = parseFloat(getComputedStyle(title).fontSize);
+    const overflows = () => lines.some((l) => l.scrollWidth > l.clientWidth + 1);
+    let guard = 0;
+    while (overflows() && size > 26 && guard < 80) {
+      size -= 1;
+      title.style.fontSize = size + 'px';
+      guard++;
+    }
+  }
+
   function initHeroTitle() {
     let idx = 0;
     $$('.hero__title [data-split]').forEach((line) => {
@@ -47,29 +66,7 @@
     });
     fitHeroTitle();
     window.addEventListener('resize', debounce(fitHeroTitle, 160));
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => fitHeroTitle());
-    }
-  }
-
-  // impede que a headline (nowrap) seja cortada em qualquer largura
-  function fitHeroTitle() {
-    const title = $('.hero__title');
-    if (!title) return;
-    title.style.fontSize = '';
-    const lines = $$('.line', title);
-    if (!lines.length) return;
-    // em telas pequenas a linha quebra naturalmente
-    if (getComputedStyle(lines[0]).whiteSpace !== 'nowrap') return;
-    const start = parseFloat(getComputedStyle(title).fontSize);
-    let size = start;
-    const overflows = () => lines.some((l) => l.scrollWidth > l.clientWidth + 1);
-    let guard = 0;
-    while (overflows() && size > 26 && guard < 80) {
-      size -= 1;
-      title.style.fontSize = size + 'px';
-      guard++;
-    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeroTitle);
   }
 
   function debounce(fn, ms) {
@@ -81,61 +78,219 @@
     };
   }
 
-  /* ---------------- 2. Terminal animado ---------------- */
-  const TERM_LINES = [
-    { c: 'cmd', t: 'npm run deploy -- --prod' },
-    { c: 'ok', t: '✓ 9 funções serverless publicadas' },
-    { c: 'ok', t: '✓ postgres conectado · neon' },
-    { c: 'ok', t: '✓ sessão HttpOnly · scrypt' },
-    { c: 'info', t: '→ painel em tempo real no ar' },
-    { c: 'ok', t: '● deploy concluído · produção' }
-  ];
+  /* ---------------- 2. Terminal interativo ---------------- */
+  const OUT = {
+    boot: [
+      { c: 'cmd', t: 'cat README.md' },
+      { c: 'info', t: '# estudante de ADS que constrói sistemas reais' },
+      { c: 'ok', t: '✓ 6 projetos indexados' },
+      { c: 'ok', t: '✓ 2 apps públicos · 3 privados · 1 acadêmico' },
+      { c: 'dim', t: '→ digite "help" e pressione Enter' }
+    ],
+    help: [
+      { c: 'dim', t: 'comandos disponíveis:' },
+      { c: 'ok', t: '  whoami      quem eu sou' },
+      { c: 'ok', t: '  ls          meus projetos' },
+      { c: 'ok', t: '  cat stack   stack técnica' },
+      { c: 'ok', t: '  contato     como falar comigo' },
+      { c: 'ok', t: '  clear       limpar o terminal' }
+    ],
+    whoami: [
+      { c: 'cmd', t: 'isaque de medeiros pinto' },
+      { c: 'info', t: 'estudante de ADS · UNIP (colação dez/2026)' },
+      { c: 'info', t: 'analista de suporte field service na TOTVS via DB4 SERV' },
+      { c: 'dim', t: 'dev em formação · buscando a 1ª vaga júnior (.NET)' }
+    ],
+    ls: [
+      { c: 'dim', t: 'nome           acesso' },
+      { c: 'ok', t: 'bsfm/          app + docs públicos' },
+      { c: 'ok', t: 'barbe-city/    no ar (agenda + pix)' },
+      { c: 'info', t: 'bancada/       privado (uso interno)' },
+      { c: 'info', t: '4dx/           privado (automação)' },
+      { c: 'ok', t: 'sysacad/       c++ acadêmico' },
+      { c: 'dim', t: 'climo/         protótipo não concluído' }
+    ],
+    'cat stack': [
+      { c: 'dim', t: '{' },
+      { c: 'ok', t: '  "backend": ["C#", ".NET 8", "Python", "Node"],' },
+      { c: 'ok', t: '  "dados":   ["PostgreSQL", "SQL Server"],' },
+      { c: 'ok', t: '  "front":   ["HTML", "CSS", "JavaScript"],' },
+      { c: 'dim', t: '  "estudo":  ["TypeScript", "React", "testes"]' },
+      { c: 'dim', t: '}' }
+    ],
+    contato: [
+      { c: 'ok', t: 'e-mail    medeiroisaque765@gmail.com' },
+      { c: 'ok', t: 'github    github.com/Isaque-Medeiros' },
+      { c: 'ok', t: 'linkedin  in/isaque-medeiros-a99421268' },
+      { c: 'dim', t: '→ ou clique em "Falar comigo" no topo' }
+    ],
+    projetos: [
+      { c: 'info', t: 'role até a seção 03 — cada card abre um estudo de caso' },
+      { c: 'dim', t: 'inclui o que deu certo e o que não terminou' }
+    ],
+    sobre: [
+      { c: 'info', t: 'seção 01 — quem eu sou, sem maquiagem' }
+    ],
+    deploy: [
+      { c: 'cmd', t: 'git push origin main' },
+      { c: 'dim', t: 'enumerando objetos: 47, feito.' },
+      { c: 'ok', t: '✓ main → main' },
+      { c: 'ok', t: '✓ GitHub Pages: build concluído' },
+      { c: 'info', t: '→ este site é HTML, CSS e JS puro' }
+    ]
+  };
 
-  async function initTerminal() {
-    const term = $('#term');
-    if (!term) return;
+  function initTerminal() {
+    const out = $('#term-out');
+    const form = $('#term-form');
+    const input = $('#term-input');
+    if (!out) return;
 
-    const lineEls = TERM_LINES.map((l) => {
-      const span = document.createElement('span');
-      span.className = 'line ' + l.c;
-      span.style.display = 'block';
-      return span;
+    const line = (text, cls) => {
+      const el = document.createElement('span');
+      el.className = 'term__line' + (cls ? ' ' + cls : '');
+      el.textContent = text;
+      out.appendChild(el);
+      out.scrollTop = out.scrollHeight;
+      return el;
+    };
+
+    const echo = (cmd) => {
+      const el = document.createElement('span');
+      el.className = 'term__line cmd';
+      const p = document.createElement('span');
+      p.className = 'term__echo';
+      p.textContent = '~$ ';
+      el.appendChild(p);
+      el.appendChild(document.createTextNode(cmd));
+      out.appendChild(el);
+    };
+
+    const print = (list) => {
+      list.forEach((l) => line(l.t, l.c));
+      out.scrollTop = out.scrollHeight;
+    };
+
+    const clear = () => { out.innerHTML = ''; };
+
+    const normalize = (raw) => raw.trim().toLowerCase().replace(/\s+/g, ' ');
+
+    const run = (raw) => {
+      const cmd = normalize(raw);
+      if (!cmd) return;
+      echo(raw.trim());
+      if (cmd === 'clear' || cmd === 'cls') { clear(); return; }
+      const table = {
+        help: OUT.help,
+        '?': OUT.help,
+        whoami: OUT.whoami,
+        id: OUT.whoami,
+        ls: OUT.ls,
+        'ls projetos': OUT.ls,
+        'ls projetos/': OUT.ls,
+        'cat stack': OUT['cat stack'],
+        'cat stack.json': OUT['cat stack'],
+        stack: OUT['cat stack'],
+        contato: OUT.contato,
+        contact: OUT.contato,
+        projetos: OUT.projetos,
+        sobre: OUT.sobre,
+        deploy: OUT.deploy
+      };
+      const result = table[cmd] || table[cmd.replace(/\/$/, '')] || table[cmd.replace(/\s+\/.*$/, '')];
+      if (result) {
+        print(result);
+      } else {
+        line('comando não encontrado: ' + cmd, 'err');
+        line('tente "help" para ver a lista', 'dim');
+      }
+    };
+
+    // boot com efeito de digitação
+    const boot = async () => {
+      if (reduce) { print(OUT.boot); return; }
+      for (const l of OUT.boot) {
+        const el = document.createElement('span');
+        el.className = 'term__line ' + l.c;
+        let textNode;
+        if (l.c === 'cmd') {
+          const p = document.createElement('span');
+          p.className = 'term__echo';
+          p.textContent = '~$ ';
+          el.appendChild(p);
+          textNode = document.createTextNode('');
+          el.appendChild(textNode);
+        } else {
+          textNode = document.createTextNode('');
+          el.appendChild(textNode);
+        }
+        out.appendChild(el);
+        for (let i = 0; i < l.t.length; i++) {
+          textNode.nodeValue = l.t.slice(0, i + 1);
+          out.scrollTop = out.scrollHeight;
+          await delay(l.c === 'cmd' ? 26 : 7);
+        }
+        await delay(150);
+      }
+    };
+    boot();
+
+    if (form && input) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const v = input.value;
+        input.value = '';
+        run(v);
+      });
+    }
+
+    $$('#chips [data-cmd]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        run(btn.dataset.cmd);
+        if (input && !touch) input.focus();
+      });
     });
 
-    if (reduce) {
-      TERM_LINES.forEach((l, i) => {
-        lineEls[i].textContent = l.t;
-        term.appendChild(lineEls[i]);
+    // clicar no terminal foca o input
+    const app = $('#term-app');
+    if (app && input && !touch) {
+      app.addEventListener('click', (e) => {
+        if (e.target.closest('button')) return;
+        input.focus();
       });
-      return;
     }
 
-    const caret = document.createElement('span');
-    caret.className = 'cursor';
-
-    for (let i = 0; i < TERM_LINES.length; i++) {
-      const el = lineEls[i];
-      el.style.opacity = '1';
-      term.appendChild(el);
-      const text = TERM_LINES[i].t;
-      for (let c = 0; c < text.length; c++) {
-        el.textContent = text.slice(0, c + 1);
-        term.appendChild(caret);
-        // acelera depois dos primeiros caracteres
-        await delay(i === 0 ? 22 : c < 12 ? 16 : 9);
+    // acesso pelo teclado: "t" abre o terminal
+    document.addEventListener('keydown', (e) => {
+      const tag = (document.activeElement || {}).tagName || '';
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) return;
+      if (e.key === 't' && input && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const rect = out.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          input.focus();
+          e.preventDefault();
+        }
       }
-      el.textContent = text;
-      await delay(i === 0 ? 320 : 230);
-    }
-    caret.remove();
+    });
   }
 
-  /* ---------------- 3. Parallax suave do notebook ---------------- */
+  /* ---------------- 3. Spotlight do hero ---------------- */
+  function initHeroSpot() {
+    const hero = $('.hero');
+    const spot = $('#hero-spot');
+    if (!hero || !spot || reduce || touch) return;
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      spot.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+      spot.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+    });
+  }
+
+  /* ---------------- 4. Parallax do notebook ---------------- */
   function initLaptopTilt() {
     const art = $('.hero__art');
     const laptop = $('#laptop');
-    if (!art || !laptop || reduce || window.matchMedia('(hover: none)').matches) return;
-
+    if (!art || !laptop || reduce || touch) return;
     let raf = null;
     art.addEventListener('mousemove', (e) => {
       const r = art.getBoundingClientRect();
@@ -153,9 +308,11 @@
     });
   }
 
-  /* ---------------- 4. Scroll reveal ---------------- */
+  /* ---------------- 5. Reveals ---------------- */
   function initReveals() {
     const items = $$('.reveal');
+    const counter = $('#sb-reveals');
+    if (counter) counter.textContent = String(items.length);
     if (!('IntersectionObserver' in window) || reduce) {
       items.forEach((el) => el.classList.add('in'));
       return;
@@ -174,18 +331,14 @@
     items.forEach((el) => io.observe(el));
   }
 
-  /* ---------------- 5. Números ---------------- */
+  /* ---------------- 6. Números ---------------- */
   function initCounters() {
     const nodes = $$('[data-count]');
     if (!nodes.length) return;
-
     const animate = (el) => {
       const target = parseFloat(el.dataset.count);
       const suffix = el.dataset.suffix || '';
-      if (reduce) {
-        el.textContent = target + suffix;
-        return;
-      }
+      if (reduce) { el.textContent = target + suffix; return; }
       const dur = 1300;
       const t0 = performance.now();
       const tick = (now) => {
@@ -196,18 +349,11 @@
       };
       requestAnimationFrame(tick);
     };
-
-    if (!('IntersectionObserver' in window)) {
-      nodes.forEach(animate);
-      return;
-    }
+    if (!('IntersectionObserver' in window)) { nodes.forEach(animate); return; }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            animate(e.target);
-            io.unobserve(e.target);
-          }
+          if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
         });
       },
       { threshold: 0.6 }
@@ -215,7 +361,7 @@
     nodes.forEach((n) => io.observe(n));
   }
 
-  /* ---------------- 6. Navegação ---------------- */
+  /* ---------------- 7. Navegação ---------------- */
   function initNav() {
     const nav = $('#nav');
     const progress = $('#progress');
@@ -225,12 +371,10 @@
 
     let lastY = window.scrollY;
     let ticking = false;
-
     const update = () => {
       const y = window.scrollY;
       const max = document.documentElement.scrollHeight - window.innerHeight;
       if (progress) progress.style.setProperty('--p', max > 0 ? (y / max) * 100 + '%' : '0%');
-
       nav.classList.toggle('is-scrolled', y > 12);
       const menuOpen = mobile && mobile.classList.contains('is-open');
       if (!menuOpen) {
@@ -240,17 +384,9 @@
       lastY = y;
       ticking = false;
     };
-
-    window.addEventListener(
-      'scroll',
-      () => {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(update);
-        }
-      },
-      { passive: true }
-    );
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
     update();
 
     if (burger && mobile) {
@@ -265,29 +401,23 @@
         burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
       });
       $$('a', mobile).forEach((a) => a.addEventListener('click', close));
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') close();
-      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
     }
 
-    // link ativo
+    // seções observadas: nav + rail
+    const ids = ['sobre', 'experiencia', 'projetos', 'stack', 'formacao', 'contato'];
+    const sections = ids.map((id) => ({ id, el: document.getElementById(id) })).filter((s) => s.el);
     const links = $$('.nav__links a');
-    const sections = links
-      .map((a) => {
-        const id = a.getAttribute('href');
-        const el = id && id.startsWith('#') ? document.getElementById(id.slice(1)) : null;
-        return el ? { a, el } : null;
-      })
-      .filter(Boolean);
+    const rails = $$('.rail-nav a');
 
-    if (sections.length && 'IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
-            links.forEach((l) => l.classList.remove('is-active'));
-            const match = sections.find((s) => s.el === entry.target);
-            if (match) match.a.classList.add('is-active');
+            const id = entry.target.id;
+            links.forEach((l) => l.classList.toggle('is-active', l.getAttribute('href') === '#' + id));
+            rails.forEach((r) => r.classList.toggle('is-active', r.dataset.rail === id));
           });
         },
         { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
@@ -296,13 +426,100 @@
     }
   }
 
-  /* ---------------- 7. Filtros de projeto ---------------- */
+  /* ---------------- 8. Scramble nos links ---------------- */
+  function initScramble() {
+    if (reduce) return;
+    const chars = 'abcdefghijklmnopqrstuvwxyz#/<>_';
+    $$('[data-scramble]').forEach((el) => {
+      const original = el.textContent.trim();
+      let raf = null;
+      const start = () => {
+        if (raf) cancelAnimationFrame(raf);
+        const t0 = performance.now();
+        const dur = 380;
+        const tick = (now) => {
+          const p = (now - t0) / dur;
+          if (p >= 1) { el.textContent = original; raf = null; return; }
+          let out = '';
+          for (let i = 0; i < original.length; i++) {
+            const threshold = (i + 1) / (original.length + 2);
+            out += p > threshold ? original[i] : chars[Math.floor(Math.random() * chars.length)];
+            if (original[i] === ' ') out = out.slice(0, -1) + ' ';
+          }
+          el.textContent = out;
+          raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      };
+      el.addEventListener('mouseenter', start);
+      el.addEventListener('focus', start);
+    });
+  }
+
+  /* ---------------- 9. Botões magnéticos ---------------- */
+  function initMagnetic() {
+    if (reduce || touch) return;
+    $$('[data-magnetic]').forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * 0.18;
+        const y = (e.clientY - r.top - r.height / 2) * 0.22;
+        btn.style.setProperty('--mag-x', x.toFixed(1) + 'px');
+        btn.style.setProperty('--mag-y', y.toFixed(1) + 'px');
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.setProperty('--mag-x', '0px');
+        btn.style.setProperty('--mag-y', '0px');
+      });
+    });
+  }
+
+  /* ---------------- 10. Tilt dos cards ---------------- */
+  function initCardTilt() {
+    if (reduce || touch) return;
+    $$('.pcard').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          'perspective(1000px) rotateX(' + (-py * 4).toFixed(2) + 'deg) rotateY(' +
+          (px * 6).toFixed(2) + 'deg) translateY(-5px)';
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------------- 11. Progresso da timeline ---------------- */
+  function initTimelineProgress() {
+    const tl = $('#timeline');
+    const bar = $('#tl-progress');
+    if (!tl || !bar) return;
+    let ticking = false;
+    const update = () => {
+      const r = tl.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p = clamp((vh * 0.72 - r.top) / (r.height || 1), 0, 1);
+      bar.style.transform = 'scaleY(' + p.toFixed(3) + ')';
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  }
+
+  /* ---------------- 12. Filtros ---------------- */
   function initFilters() {
     const filters = $$('.filter');
     const cards = $$('.pcard');
     const count = $('#proj-count');
-    const allCount = $('[data-proj-total]', $('.filter[data-filter="all"]') || document.createElement('span'));
-    if (allCount) allCount.textContent = String(cards.length);
+    const total = $('[data-proj-total]');
+    if (total) total.textContent = String(cards.length);
 
     const apply = (key) => {
       let visible = 0;
@@ -315,83 +532,72 @@
           if (!card.classList.contains('in')) card.classList.add('in');
         }
       });
-      if (count) {
-        count.textContent = visible === 1 ? '1 projeto' : visible + ' projetos';
-      }
+      if (count) count.textContent = visible === 1 ? '1 projeto' : visible + ' projetos';
     };
 
     filters.forEach((btn) => {
       btn.addEventListener('click', () => {
-        filters.forEach((b) => {
-          b.classList.remove('is-on');
-          b.setAttribute('aria-pressed', 'false');
-        });
+        filters.forEach((b) => { b.classList.remove('is-on'); b.setAttribute('aria-pressed', 'false'); });
         btn.classList.add('is-on');
         btn.setAttribute('aria-pressed', 'true');
         apply(btn.dataset.filter);
       });
     });
-
     apply('all');
   }
 
-  /* ---------------- 8. Dados dos projetos ---------------- */
+  /* ---------------- 13. Dados dos projetos ---------------- */
   const PROJECTS = {
-    refresh: {
-      kicker: 'Sistema interno · DB4 SERV / TOTVS',
-      title: 'Field Refresh 2026 — gestão de bancada em tempo real',
+    bsfm: {
+      kicker: 'Projeto acadêmico · UNIP · PIM 3º semestre',
+      title: 'BSFM — Brazilian System of Food Metric',
       summary:
-        'O projeto Refresh 2026 troca o parque de máquinas da TOTVS em escala. O controle disso vivia em planilha e mensagem: ninguém sabia, em tempo real, onde cada máquina estava, quem era o responsável e o que faltava fazer. Eu construí o sistema que responde a perguntas como essas.',
-      badges: [
-        ['em produção', 'live'],
-        ['PJ · TOTVS', 'blue'],
-        ['IA aplicada', 'violet'],
-        ['código privado', 'amber']
-      ],
-      meta: [['Meu papel', 'idealização, arquitetura e desenvolvimento'], ['Ano', '2026'], ['Acesso', 'banco de dados com login e papéis']],
+        'Projeto integrador do 3º semestre: uma plataforma que reconhece o alimento pela foto e converte medida caseira em gramatura. Não é produto comercial — é um projeto acadêmico levado até o fim, com aplicação publicada, documentação em MkDocs e código aberto.',
+      badges: [['app publicado', 'live'], ['código aberto', 'blue'], ['acadêmico', 'cyan']],
+      meta: [['Meu papel', 'backend, API, modelo e documentação'], ['Ano', '2026'], ['Contexto', 'PIM — UNIP']],
       metrics: [
-        ['9', 'funções serverless em produção'],
-        ['4', 'papéis de acesso distintos'],
-        ['1', 'fonte de verdade: o banco'],
-        ['0', 'chave de IA exposta no cliente']
+        ['.NET 8', 'API REST publicada'],
+        ['YOLO', 'detecção de alimento por imagem'],
+        ['3', 'repositórios no projeto'],
+        ['MkDocs', 'documentação pública']
       ],
       problem:
-        'A operação de bancada de um refresh de parque envolve dezenas de máquinas em estágios diferentes — recebida, em imagem, em checklist, aguardando peça, pronta, devolvida. Com controle manual, o gerente não conseguia ver gargalo, o analista duplicava trabalho e o histórico se perdia no fim do lote.',
+        '"Uma colher de arroz" não é uma medida. Quem acompanha dieta precisa registrar o que come, mas medir em gramas é chato e impreciso — e os apps existentes exigem busca manual em tabela, que é exatamente onde o usuário desiste.',
       built: [
-        '<strong>Painel operacional em tempo real</strong> com o estado de cada máquina, filtros por SPON/status/data e ordenação.',
-        '<strong>Fila por analista</strong> e checklist final liberado para qualquer analista — a regra do processo, não a hierarquia, define quem pode fechar.',
-        '<strong>Autenticação completa</strong>: e-mail e senha com scrypt, sessão em cookie HttpOnly com hash no banco, além de login com Google (OAuth 2.0 server-side).',
-        '<strong>Quatro papéis</strong> (dev, gerente, analista, cliente) com permissões diferentes e área de administração exclusiva do desenvolvedor.',
-        '<strong>Migração de dados</strong> do modelo antigo em JSON para PostgreSQL no Neon, com re-hash automático de senhas legadas no primeiro login.',
-        '<strong>Agente de IA “Climo”</strong>: o contexto é montado no servidor a partir do banco, então a resposta nunca vem de dado truncado do navegador — e a chave da IA nunca chega ao cliente.',
-        '<strong>Relatórios imprimíveis</strong> em A4, exportação TSV/JSON e layout de impressão dedicado.',
-        'Arquitetura ajustada ao limite de <strong>12 serverless functions</strong> do plano Hobby da Vercel, agrupando rotas de autenticação em funções dinâmicas sem mudar as URLs públicas.'
+        'Backend em <strong>.NET 8 / ASP.NET Core</strong> com arquitetura em camadas e API REST documentada.',
+        '<strong>Inferência de visão computacional</strong> com modelo YOLO (ONNX) para identificar itens alimentares na imagem enviada.',
+        '<strong>Conversão de medidas caseiras</strong> em gramatura, cruzando a detecção com a base de composição nutricional (USDA).',
+        '<strong>Dashboard metabólico</strong> com IMC, TMB e TDEE calculados a partir do perfil do usuário.',
+        'Diário alimentar, plano semanal de refeições, controle de consumo de água e <strong>Mapa SOS Saúde</strong> com Leaflet.',
+        '<strong>Central LIBRAS</strong> — acessibilidade tratada como requisito, não como extra.',
+        'Deploy do backend no <strong>Render</strong> e documentação técnica completa em <strong>MkDocs</strong>, publicada no GitHub Pages.',
+        'Desenvolvimento apoiado em <strong>TDD e SDD</strong>, usando modelo de linguagem como par de programação.'
       ],
       result:
-        'Um único lugar para enxergar o lote inteiro. O gerente vê o andamento sem perguntar, o analista sabe exatamente o que fazer em seguida e cada máquina tem histórico. Foi o primeiro sistema que eu projetei, documentei e operei com usuário real dentro de uma operação corporativa.',
-      stack: ['JavaScript (ES Modules)', 'Node.js', 'PostgreSQL', 'Neon', 'Vercel', 'Chart.js', 'scrypt', 'OAuth 2.0', 'LLM'],
-      links: [['Abrir sistema', 'https://refreshtotvs2026.vercel.app', 'external']]
+        'Foi o projeto em que coloquei, pela primeira vez, um modelo de machine learning atrás de uma API que eu mesmo escrevi — e entendi na prática o que é latência de inferência, versionamento de modelo e documentação que outra pessoa consegue seguir. O app está no ar e a documentação explica como rodar do zero.',
+      stack: ['.NET 8', 'ASP.NET Core', 'C#', 'ONNX Runtime', 'YOLO', 'PostgreSQL', 'Render', 'MkDocs', 'Leaflet'],
+      links: [
+        ['Abrir o app', 'https://bsfm-nutri.onrender.com', 'external'],
+        ['Documentação', 'https://brazilian-system-of-food-metric.github.io/software-documentation/', 'book'],
+        ['Código', 'https://github.com/Brazilian-System-of-Food-Metric/BSFM-APP', 'github']
+      ]
     },
 
     barbe: {
-      kicker: 'Cliente real · barbearia em Jaraguá/SP',
+      kicker: 'Projeto próprio · barbearia em Jaraguá/SP',
       title: 'Barbe City Jaraguá v2 — agendamento com Pix',
       summary:
-        'A barbearia do Anderson controlava a agenda em papel e WhatsApp. A v2 é um sistema completo: o cliente agenda sozinho, paga com Pix e o dono administra horário, preço, promoção e financeiro no mesmo lugar.',
-      badges: [
-        ['em produção', 'live'],
-        ['cliente real', 'amber'],
-        ['pagamento Pix', 'violet']
-      ],
-      meta: [['Meu papel', 'projeto, desenvolvimento e deploy'], ['Ano', '2026'], ['Status', 'rodando com dados migrados']],
+        'Sistema que desenvolvi para a barbearia do Anderson. Não é um case vendido: é um projeto próprio, rodando no negócio de verdade, com agenda online, pagamento Pix e painel administrativo.',
+      badges: [['no ar', 'live'], ['projeto próprio', 'amber'], ['pagamento Pix', 'violet']],
+      meta: [['Meu papel', 'projeto, desenvolvimento e deploy'], ['Ano', '2026'], ['Status', 'publicado, com dados migrados']],
       metrics: [
         ['135', 'agendamentos históricos migrados'],
-        ['R$ 4.230', 'valor histórico conciliado'],
+        ['R$ 4.230', 'histórico conciliado'],
         ['10', 'serviços cadastrados'],
-        ['100%', 'compatível com LGPD']
+        ['LGPD', 'exclusão de dados do cliente']
       ],
       problem:
-        'Sem agenda digital, o cliente não sabia o horário livre, o dono perdia receita em horário vago e não havia histórico de quem faltou. Além disso, cobrar no salão significa dinheiro trocado, sem comprovante e sem conciliação.',
+        'Sem agenda digital, o cliente não sabia o horário livre, o dono perdia receita em horário vago e não havia histórico de quem faltou. Cobrar no salão significa dinheiro trocado, sem comprovante e sem conciliação.',
       built: [
         '<strong>Agendamento com ou sem login</strong>, calendário real de disponibilidade, serviços adicionais e bloqueios de horário.',
         '<strong>Pagamento Pix pelo Mercado Pago</strong> com QR Code, copia-e-cola, webhook e polling de confirmação.',
@@ -404,95 +610,78 @@
         '<strong>Importação do legado</strong> com 135 agendamentos, preservando checksums e sem inventar pagamento para registro antigo.'
       ],
       result:
-        'Um negócio de bairro passou a ter agenda online, cobrança com comprovante e indicador financeiro — sem depender de um funcionário para responder mensagem. Foi o projeto em que mais aprendi sobre modelagem relacional, integração de pagamento e o que “produção” realmente significa.',
-      stack: ['Node.js 24', 'Express', 'PostgreSQL 18', 'Neon', 'Mercado Pago', 'Google OAuth', 'Brevo', 'WhatsApp Cloud API', 'Vercel', 'bcrypt', 'CSP/Helmet'],
+        'Foi o projeto em que mais aprendi sobre modelagem relacional, integração de pagamento e o que “publicar” realmente significa: webhook que falha, sessão que expira, dado legado que não bate. Ainda é um projeto meu, sem contrato comercial — mas roda com dados reais e eu mantenho.',
+      stack: ['Node.js 24', 'Express', 'PostgreSQL 18', 'Neon', 'Mercado Pago', 'Google OAuth', 'Brevo', 'Vercel', 'bcrypt', 'CSP/Helmet'],
       links: [
         ['Ver site', 'https://barbe-city-jaragua-eta.vercel.app', 'external'],
         ['Código', 'https://github.com/Isaque-Medeiros/BarbeCity-2.0', 'github']
       ]
     },
 
-    bsfm: {
-      kicker: 'Projeto integrado · UNIP · 3º semestre',
-      title: 'BSFM — Brazilian System of Food Metric',
+    refresh: {
+      kicker: 'Ferramenta interna · equipe de field service',
+      title: 'Controle de bancada — Refresh 2026',
       summary:
-        '“Uma colher de arroz” não é uma medida — é uma estimativa. O BSFM usa visão computacional para reconhecer o alimento na foto e converter medida caseira em gramatura, com acompanhamento nutricional no mesmo lugar.',
-      badges: [
-        ['.NET 8', 'blue'],
-        ['visão computacional', 'violet'],
-        ['projeto acadêmico', 'cyan']
-      ],
-      meta: [['Meu papel', 'backend, API, modelo e documentação'], ['Ano', '2026'], ['Contexto', 'PIM — 3º semestre ADS']],
+        'Um painel que eu construí para o time acompanhar o andamento do refresh de máquinas. Não é produto da TOTVS, não foi licenciado e a empresa não tem envolvimento comercial com ele: é uma ferramenta interna, feita por mim, usada pela equipe.',
+      badges: [['uso interno', 'amber'], ['sem link público', 'blue'], ['IA aplicada', 'violet']],
+      meta: [['Meu papel', 'idealização, desenvolvimento e manutenção'], ['Ano', '2026'], ['Acesso', 'restrito à equipe']],
       metrics: [
-        ['.NET 8', 'ASP.NET Core + REST API'],
-        ['YOLO', 'detecção de alimento por imagem'],
-        ['7', 'módulos funcionais'],
-        ['MkDocs', 'documentação publicada']
+        ['9', 'funções serverless'],
+        ['4', 'papéis de acesso'],
+        ['1', 'fonte de verdade: o banco'],
+        ['0', 'chave de IA no navegador']
       ],
       problem:
-        'Quem acompanha dieta precisa registrar o que come, mas medir em gramas é chato e impreciso. Os apps existentes exigem busca manual em tabela — e é exatamente aí que o usuário desiste do registro.',
+        'O controle do fluxo era planilha e mensagem: ninguém sabia em tempo real onde cada máquina estava, quem era o responsável e o que faltava fazer. No fim do lote, o histórico se perdia.',
       built: [
-        'Backend em <strong>.NET 8 / ASP.NET Core</strong> com arquitetura em camadas e API REST documentada.',
-        '<strong>Inferência de visão computacional</strong> com modelo YOLO (ONNX) para identificar itens alimentares na imagem enviada.',
-        '<strong>Conversão de medidas caseiras</strong> em gramatura, cruzando a detecção com a base de composição nutricional (USDA).',
-        '<strong>Dashboard metabólico</strong> com IMC, TMB e TDEE calculados a partir do perfil do usuário.',
-        'Diário alimentar, plano semanal de refeições, controle de consumo de água e <strong>Mapa SOS Saúde</strong> com Leaflet.',
-        '<strong>Central LIBRAS</strong> — acessibilidade pensada como requisito, não como extra.',
-        'Deploy do backend no Render, frontend na Vercel e documentação técnica completa em <strong>MkDocs Material</strong>.',
-        'Desenvolvimento apoiado em <strong>TDD e SDD</strong>, usando modelo de linguagem como par de programação (DeepSeek, GPT e agente CLINE).'
+        '<strong>Painel em tempo real</strong> com o estado de cada máquina, filtros por contrato, status e data, e ordenação.',
+        '<strong>Fila por analista</strong> e checklist final liberado para qualquer analista — a regra do processo, não a hierarquia, define quem pode fechar.',
+        '<strong>Autenticação com papéis</strong>: e-mail e senha com scrypt, sessão em cookie HttpOnly com hash no banco e login com Google (OAuth 2.0 server-side).',
+        '<strong>Quatro perfis</strong> (desenvolvedor, gestor, analista e cliente) com permissões distintas.',
+        '<strong>Migração de dados</strong> do modelo antigo em JSON para PostgreSQL no Neon, com re-hash automático de senhas legadas no primeiro login.',
+        '<strong>Relatórios imprimíveis em A4</strong>, exportação TSV/JSON e layout de impressão dedicado.',
+        '<strong>Módulo de IA</strong> cujo contexto é montado no servidor, a partir do banco — a chave nunca chega ao cliente.'
       ],
       result:
-        'Nota máxima no projeto integrado e a primeira vez em que coloquei um modelo de machine learning atrás de uma API própria. Aprendi na prática o que é latência de inferência, versionamento de modelo e documentação que outra pessoa consegue seguir.',
-      stack: ['.NET 8', 'ASP.NET Core', 'C#', 'ONNX Runtime', 'YOLO', 'PostgreSQL', 'SQLite', 'Render', 'MkDocs', 'Leaflet'],
-      links: [
-        ['Código', 'https://github.com/Isaque-Medeiros/pim-03semestre-ads', 'github'],
-        ['Build mobile', 'https://bsfm-dev-version.vercel.app', 'external']
-      ]
+        'Hoje o time usa para medir o andamento, e isso melhorou o meu próprio trabalho: eu deixei de ser o gargalo da informação. Não passou por comitê nem virou produto — é a prova de que eu consigo pegar um problema de operação, modelar e entregar. Por ser interno, o código e os dados não são públicos.',
+      stack: ['JavaScript (ES Modules)', 'Node.js', 'PostgreSQL', 'Neon', 'Vercel', 'Chart.js', 'scrypt', 'OAuth 2.0', 'LLM'],
+      links: []
     },
 
     dx4: {
-      kicker: 'Automação de processo · operação LATAM',
+      kicker: 'Automação própria · operação LATAM (Konecta)',
       title: 'Motor Híbrido 4DX',
       summary:
-        'Um formulário operacional com dezenas de campos repetidos, preenchido à mão, dezenas de vezes por dia. Em vez de pedir acesso ao sistema, eu escrevi um bookmarklet que injeta um inspetor de DOM e preenche tudo em um clique.',
-      badges: [
-        ['impacto em TMA', 'amber'],
-        ['JavaScript puro', 'blue'],
-        ['sem backend', 'cyan']
-      ],
+        'Um bookmarklet que eu usava no meu próprio fluxo de trabalho: em vez de digitar dezenas de campos repetidos, o script lia a tabela de origem e preenchia o formulário em um clique. Apresentei à equipe, mas não houve adoção oficial.',
+      badges: [['automação própria', 'violet'], ['JavaScript puro', 'blue'], ['sem repositório', 'amber']],
       meta: [['Meu papel', 'concepção e desenvolvimento'], ['Ano', '2025 — 2026'], ['Contexto', 'Konecta · operação LATAM']],
       metrics: [
         ['1', 'clique para executar'],
         ['0', 'instalação necessária'],
         ['DOM', 'injeção + inspetor (Eruda)'],
-        ['N2', 'equipe de analistas atendida']
+        ['LocalStorage', 'estado sincronizado']
       ],
       problem:
-        'O time repetia o mesmo preenchimento em formulários longos, com dados que já estavam em outra tela. Cada digitação era uma chance de erro, e cada erro virava retrabalho e tempo de atendimento maior.',
+        'O time repetia o mesmo preenchimento em formulários longos, com dados que já estavam em outra tela. Cada digitação era uma chance de erro, e cada erro virava retrabalho.',
       built: [
         '<strong>Bookmarklet em JavaScript puro</strong> — sem extensão, sem permissão de administrador, sem instalação.',
-        '<strong>Injeção do inspetor de DOM (Eruda)</strong> para ler a estrutura da página e localizar os campos corretos dinamicamente.',
+        '<strong>Injeção do inspetor de DOM (Eruda)</strong> para ler a estrutura da página e localizar os campos corretamente.',
         '<strong>Parsing de tabelas</strong> do sistema de origem e preenchimento automático dos campos de destino.',
-        '<strong>Estado em LocalStorage</strong>, permitindo guardar e restaurar o último preenchimento e sincronizar entre abas.',
-        'Tratamento de exceção por campo: se o seletor mudou, o script avisa em vez de preencher errado.',
-        'Distribuição via atalho no navegador — <strong>adoção sem treinamento formal</strong>, porque o benefício é imediato.'
+        '<strong>Estado em LocalStorage</strong>, permitindo guardar e restaurar o último preenchimento.',
+        'Tratamento de exceção por campo: se o seletor muda, o script avisa em vez de preencher errado.'
       ],
       result:
-        'Menos digitação, menos retrabalho e curva de aprendizado menor para quem entrava na equipe. Foi a prova prática de que a melhor ferramenta às vezes é a que não precisa de infraestrutura nenhuma: só um navegador e conhecimento de DOM.',
+        'Reduziu a minha digitação e o meu retrabalho enquanto eu estava na operação. Não virou ferramenta oficial da equipe — e tudo bem: a lição que ficou é que a melhor automação às vezes é a que não precisa de infraestrutura nenhuma, só de um navegador e conhecimento de DOM.',
       stack: ['JavaScript', 'DOM API', 'LocalStorage', 'Eruda', 'Bookmarklet'],
       links: []
     },
 
     sysacad: {
-      kicker: 'Estruturas de dados aplicadas · ETEC/UNIP',
+      kicker: 'Trabalho acadêmico · estruturas de dados',
       title: 'SysAcad — gestão acadêmica em C++',
       summary:
-        'Um sistema acadêmico completo rodando no terminal: login, alunos, matérias, turmas, notas e relatórios — com persistência em arquivo e JSON, escrito em C++ com orientação a objetos.',
-      badges: [
-        ['C++', 'blue'],
-        ['estruturas de dados', 'violet'],
-        ['projeto acadêmico', 'cyan']
-      ],
+        'Sistema acadêmico completo rodando no terminal: login, alunos, matérias, turmas, notas e relatórios — com persistência em arquivo e JSON. O desafio não era a interface, era manter tudo consistente sem banco de dados.',
+      badges: [['C++', 'blue'], ['estruturas de dados', 'violet'], ['acadêmico', 'cyan']],
       meta: [['Meu papel', 'desenvolvimento solo'], ['Ano', '2026'], ['Contexto', 'trabalho acadêmico']],
       metrics: [
         ['C++', 'linguagem'],
@@ -501,72 +690,63 @@
         ['cJSON', 'persistência e login']
       ],
       problem:
-        'O enunciado pedia um sistema de gestão acadêmica com persistência real. A parte difícil não foi a interface de terminal: foi manter consistência entre matrícula, turma, matéria e nota sem banco de dados.',
+        'O enunciado pedia um sistema de gestão acadêmica com persistência real. A parte difícil foi manter consistência entre matrícula, turma, matéria e nota sem um banco de dados.',
       built: [
         '<strong>Autenticação</strong> de usuários com cadastro, leitura e escrita em JSON via <strong>cJSON</strong>.',
         '<strong>Structs e vetores</strong> para alunos, matérias e turmas, com validação de entrada e tratamento de erro de digitação.',
         '<strong>CRUD completo</strong> com matrícula única, associação aluno–turma e lançamento de notas com faltas.',
         '<strong>Relatórios</strong> gerados em arquivo texto a partir dos dados em memória.',
-        '<strong>Menu hierárquico</strong> com navegação por estado, sem dependência de biblioteca de interface.',
         'Organização em <strong>homepage.cpp</strong> (login) e <strong>funcoes.cpp</strong> (regras), separando responsabilidade.'
       ],
       result:
-        'Aprendi na marra por que estrutura de dados importa: cada nova entidade exigia decidir como persistir e como manter tudo coerente. Foi a base que depois facilitou entender modelagem relacional de verdade.',
+        'Aprendi na marra por que estrutura de dados importa: cada nova entidade exigia decidir como persistir e como manter coerência. Foi a base que depois facilitou entender modelagem relacional de verdade.',
       stack: ['C++', 'cJSON', 'STL', 'File I/O', 'POO'],
       links: [['Código', 'https://github.com/Isaque-Medeiros/Meus-ProjetosAcad', 'github']]
     },
 
     climo: {
-      kicker: 'IA aplicada · dentro do Refresh 2026',
-      title: 'Climo — agente de IA da operação',
+      kicker: 'Protótipo · IA aplicada',
+      title: 'Climo — assistente de operação',
       summary:
-        'O gerente precisava responder “quantas máquinas deste SPON já fecharam checklist hoje?”. Antes, isso significava abrir três telas. O Climo responde em linguagem natural, com o contexto montado no servidor.',
-      badges: [
-        ['LLM', 'violet'],
-        ['server-side', 'blue'],
-        ['em produção', 'live']
-      ],
-      meta: [['Meu papel', 'arquitetura do contexto e integração'], ['Ano', '2026'], ['Contexto', 'módulo do sistema Refresh']],
+        'Um chatbot que projetei para consultar procedimentos e códigos de erro da operação em linguagem natural. Não terminei e ele nunca passou por aprovação interna — ficou como estudo de LLM, e é honesto dizer isso.',
+      badges: [['protótipo', 'amber'], ['não concluído', 'violet'], ['aprendizado', 'blue']],
+      meta: [['Meu papel', 'concepção e protótipo'], ['Ano', '2025 — 2026'], ['Status', 'não concluído']],
       metrics: [
         ['LLM', 'modelo de linguagem'],
         ['servidor', 'contexto montado no backend'],
-        ['SQL', 'fonte da verdade'],
-        ['Markdown', 'renderização segura']
+        ['0', 'chave exposta no cliente'],
+        ['—', 'nunca implantado']
       ],
       problem:
-        'Assistentes de IA que recebem o estado da tela pelo navegador respondem com dado truncado, desatualizado ou inventado. Para uso operacional, isso é pior do que não ter assistente.',
+        'Responder “qual o procedimento para este código de erro?” exigia procurar em manuais extensos ou perguntar para quem já sabia. O conhecimento ficava concentrado em poucas pessoas.',
       built: [
-        '<strong>Contexto montado no servidor</strong> a partir do banco: todas as máquinas, contagem por dia e a ficha completa do SPON citado na pergunta.',
-        '<strong>Chave da IA somente no servidor</strong> — o cliente nunca recebe credencial nem payload bruto.',
-        'Rota dedicada <code>POST /api/climo</code> com validação de entrada e limite de tamanho de contexto.',
-        '<strong>Renderizador de Markdown seguro</strong> no frontend, sem injeção de HTML arbitrário na resposta do modelo.',
-        'Integração com a interface operacional: a resposta referencia as mesmas máquinas do painel, e não uma cópia.',
-        'Degradação controlada: se o provedor de IA falhar, o painel continua funcionando.'
+        'Protótipo de <strong>chat com LLM</strong> alimentado com manuais técnicos e tabelas de contingência da operação.',
+        '<strong>Contexto montado no servidor</strong>, a partir de dados reais — a chave da IA nunca iria para o navegador.',
+        '<strong>Renderização de Markdown segura</strong> na resposta, sem injeção de HTML arbitrário.',
+        'Experimentos de <strong>engenharia de prompt</strong> para melhorar precisão em perguntas de procedimento.'
       ],
       result:
-        'Consulta operacional em linguagem natural sem abrir mão de rastreabilidade — a resposta vem do mesmo banco que o painel usa. Foi onde consolidei a diferença entre “usar IA” e “usar IA com engenharia”.',
-      stack: ['LLM API', 'Node.js serverless', 'PostgreSQL', 'Prompt engineering', 'Markdown seguro'],
-      links: [['Ver no sistema', 'https://refreshtotvs2026.vercel.app', 'external']]
+        'Não chegou a ser usado oficialmente e eu não terminei. O que ficou foi o entendimento de como montar contexto no servidor e por que a chave da IA não pode ir para o cliente — conhecimento que apliquei depois na ferramenta de bancada que o time usa hoje.',
+      stack: ['LLM API', 'Node.js', 'Prompt engineering', 'Markdown seguro'],
+      links: []
     }
   };
 
-  /* ---------------- 9. Modal ---------------- */
+  /* ---------------- 14. Modal ---------------- */
   function initModal() {
     const modal = $('#modal');
     const body = $('#modal-body');
     if (!modal || !body) return;
-
     let lastFocus = null;
 
     const badgeCls = (v) => 'badge badge--' + (v || 'blue');
-    const iconFor = (k) => (k === 'github' ? '#i-github' : k === 'mail' ? '#i-mail' : '#i-external');
+    const iconFor = (k) =>
+      k === 'github' ? '#i-github' : k === 'book' ? '#i-book' : k === 'mail' ? '#i-mail' : '#i-external';
 
     const build = (p) => {
       const badges = p.badges.map((b) => `<span class="${badgeCls(b[1])}">${b[0]}</span>`).join('');
       const metaChips = (p.meta || []).map((m) => `<span class="chip">${m[0]}: ${m[1]}</span>`).join('');
-      const metrics = (p.metrics || [])
-        .map((m) => `<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`)
-        .join('');
+      const metrics = (p.metrics || []).map((m) => `<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
       const built = (p.built || []).map((b) => `<li>${b}</li>`).join('');
       const stack = (p.stack || []).map((s) => `<span class="chip">${s}</span>`).join('');
       const links = (p.links || [])
@@ -591,11 +771,11 @@
             <p>${p.problem}</p>
           </div>
           <div class="mblock">
-            <h3>Como foi feito</h3>
+            <h3>O que eu construí</h3>
             <ul>${built}</ul>
           </div>
           <div class="mblock">
-            <h3>Resultado</h3>
+            <h3>Resultado — sem maquiagem</h3>
             <div class="metrics">${metrics}</div>
             <p style="margin-top:14px">${p.result}</p>
           </div>
@@ -604,7 +784,7 @@
             <div class="stack-extra" style="margin-top:0">${stack}</div>
           </div>
         </div>
-        ${links ? `<div class="mfoot" style="border:0;padding-top:0;margin-top:12px">${links}</div>` : ''}
+        ${links ? `<div class="mfoot">${links}</div>` : `<div class="mfoot"><span class="chip">código e dados não públicos</span></div>`}
       `;
     };
 
@@ -630,19 +810,13 @@
     };
 
     $$('[data-open]').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        open(btn.dataset.open);
-      });
+      btn.addEventListener('click', (e) => { e.preventDefault(); open(btn.dataset.open); });
     });
     $$('[data-close-modal]').forEach((el) => el.addEventListener('click', close));
 
     document.addEventListener('keydown', (e) => {
       if (!modal.classList.contains('is-open')) return;
-      if (e.key === 'Escape') {
-        close();
-        return;
-      }
+      if (e.key === 'Escape') { close(); return; }
       if (e.key !== 'Tab') return;
       const focusables = $$('a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])', modal).filter(
         (el) => el.offsetParent !== null
@@ -650,23 +824,17 @@
       if (!focusables.length) return;
       const first = focusables[0];
       const last = focusables[focusables.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
 
-    // deep link: #projeto-id
     if (location.hash.startsWith('#projeto-')) {
       const id = location.hash.replace('#projeto-', '');
       if (PROJECTS[id]) setTimeout(() => open(id), 400);
     }
   }
 
-  /* ---------------- 10. Command palette ---------------- */
+  /* ---------------- 15. Command palette ---------------- */
   function initPalette() {
     const palette = $('#palette');
     const input = $('#palette-input');
@@ -682,12 +850,12 @@
       { label: 'Formação e certificações', hint: '05', href: '#formacao', icon: '#i-graduation' },
       { label: 'Contato', hint: '06', href: '#contato', icon: '#i-mail' },
       { label: 'Currículo (versão impressa)', hint: 'PDF', href: 'curriculo.html', icon: '#i-download' },
-      { label: 'Field Refresh 2026 — estudo de caso', hint: 'projeto', action: () => openProject('refresh'), icon: '#i-terminal' },
-      { label: 'Barbe City Jaraguá v2 — estudo de caso', hint: 'projeto', action: () => openProject('barbe'), icon: '#i-window' },
-      { label: 'BSFM — estudo de caso', hint: 'projeto', action: () => openProject('bsfm'), icon: '#i-sparkles' },
-      { label: 'Motor Híbrido 4DX — estudo de caso', hint: 'projeto', action: () => openProject('dx4'), icon: '#i-zap' },
-      { label: 'SysAcad — estudo de caso', hint: 'projeto', action: () => openProject('sysacad'), icon: '#i-code' },
-      { label: 'Climo IA — estudo de caso', hint: 'projeto', action: () => openProject('climo'), icon: '#i-bot' },
+      { label: 'BSFM — app, docs e código', hint: 'projeto', action: () => openProject('bsfm'), icon: '#i-sparkles' },
+      { label: 'Barbe City Jaraguá v2', hint: 'projeto', action: () => openProject('barbe'), icon: '#i-window' },
+      { label: 'Controle de bancada (interno)', hint: 'projeto', action: () => openProject('refresh'), icon: '#i-terminal' },
+      { label: 'Motor Híbrido 4DX', hint: 'projeto', action: () => openProject('dx4'), icon: '#i-code' },
+      { label: 'SysAcad (C++)', hint: 'projeto', action: () => openProject('sysacad'), icon: '#i-code' },
+      { label: 'Climo (protótipo)', hint: 'projeto', action: () => openProject('climo'), icon: '#i-bot' },
       { label: 'GitHub', hint: 'github.com/Isaque-Medeiros', href: 'https://github.com/Isaque-Medeiros', icon: '#i-github', ext: true },
       { label: 'LinkedIn', hint: 'in/isaque-medeiros', href: 'https://www.linkedin.com/in/isaque-medeiros-a99421268/', icon: '#i-linkedin', ext: true },
       { label: 'Enviar e-mail', hint: 'medeiroisaque765@gmail.com', href: 'mailto:medeiroisaque765@gmail.com', icon: '#i-mail' }
@@ -695,6 +863,12 @@
 
     let filtered = items.slice();
     let selected = 0;
+
+    const openProject = (id) => {
+      close();
+      const btn = $(`[data-open="${id}"]`);
+      if (btn) btn.click();
+    };
 
     const render = () => {
       list.innerHTML = filtered.length
@@ -707,12 +881,6 @@
             )
             .join('')
         : '<p class="palette__empty">Nada encontrado por aqui.</p>';
-    };
-
-    const openProject = (id) => {
-      close();
-      const btn = $(`[data-open="${id}"]`);
-      if (btn) btn.click();
     };
 
     const open = () => {
@@ -733,11 +901,7 @@
 
     const run = (it) => {
       if (!it) return;
-      if (it.action) {
-        close();
-        it.action();
-        return;
-      }
+      if (it.action) { close(); it.action(); return; }
       close();
       if (it.ext || it.href.startsWith('http') || it.href.startsWith('mailto')) {
         window.open(it.href, it.ext ? '_blank' : '_self', 'noopener');
@@ -758,11 +922,7 @@
         palette.classList.contains('is-open') ? close() : open();
         return;
       }
-      if (e.key === '/' && !typing) {
-        e.preventDefault();
-        open();
-        return;
-      }
+      if (e.key === '/' && !typing) { e.preventDefault(); open(); return; }
       if (!palette.classList.contains('is-open')) return;
       if (e.key === 'Escape') close();
       if (e.key === 'ArrowDown') {
@@ -775,10 +935,7 @@
         selected = (selected - 1 + filtered.length) % Math.max(filtered.length, 1);
         render();
       }
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        run(filtered[selected]);
-      }
+      if (e.key === 'Enter') { e.preventDefault(); run(filtered[selected]); }
     });
 
     input.addEventListener('input', () => {
@@ -798,22 +955,16 @@
       const btn = e.target.closest('.palette__item');
       if (!btn) return;
       const i = Number(btn.dataset.i);
-      if (i !== selected) {
-        selected = i;
-        render();
-      }
+      if (i !== selected) { selected = i; render(); }
     });
 
-    palette.addEventListener('click', (e) => {
-      if (e.target === palette) close();
-    });
+    palette.addEventListener('click', (e) => { if (e.target === palette) close(); });
   }
 
-  /* ---------------- 11. Copiar / toast ---------------- */
+  /* ---------------- 16. Copiar / toast ---------------- */
   function initCopy() {
     const toast = $('#toast');
     let timer = null;
-
     const show = (msg) => {
       if (!toast) return;
       toast.textContent = msg;
@@ -834,11 +985,7 @@
           ta.style.opacity = '0';
           document.body.appendChild(ta);
           ta.select();
-          try {
-            document.execCommand('copy');
-          } catch (e) {
-            /* ignora */
-          }
+          try { document.execCommand('copy'); } catch (e) { /* ignora */ }
           ta.remove();
         }
         btn.classList.add('is-done');
@@ -853,7 +1000,7 @@
     });
   }
 
-  /* ---------------- 12. Ano no rodapé ---------------- */
+  /* ---------------- 17. Ano ---------------- */
   function initYear() {
     const el = $('#year');
     if (el) el.textContent = String(new Date().getFullYear());
@@ -863,10 +1010,15 @@
   function boot() {
     initHeroTitle();
     initTerminal();
+    initHeroSpot();
     initLaptopTilt();
     initReveals();
     initCounters();
     initNav();
+    initScramble();
+    initMagnetic();
+    initCardTilt();
+    initTimelineProgress();
     initFilters();
     initModal();
     initPalette();

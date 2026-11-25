@@ -1,10 +1,15 @@
 # Portfólio — Isaque de Medeiros Pinto
 
-Site pessoal e portfólio técnico de **Isaque de Medeiros Pinto** — analista de sistemas e desenvolvedor full stack.
-Atualmente no projeto **Refresh 2026** da **TOTVS**, contratado via **DB4 SERV**.
+Site pessoal e portfólio técnico de **Isaque de Medeiros Pinto** — estudante de Análise e Desenvolvimento
+de Sistemas (UNIP) e analista de suporte em TI. Atualmente no projeto **Refresh 2026** da **TOTVS**,
+contratado via **DB4 SERV**.
 
 🔗 **Site publicado:** https://isaque-medeiros.github.io/Meus-ProjetosAcad/
-📄 **Currículo (PDF):** https://isaque-medeiros.github.io/Meus-ProjetosAcad/curriculo.html
+📄 **Currículo:** https://isaque-medeiros.github.io/Meus-ProjetosAcad/curriculo.html
+
+> **Transparência:** os projetos apresentados são próprios ou acadêmicos, em uso funcional. Nenhum foi
+> vendido, licenciado ou aprovado por comitê interno. O objetivo do site é mostrar capacidade de entrega
+> e honestidade técnica, não senioridade.
 
 ---
 
