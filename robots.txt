@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://isaque-medeiros.github.io/Meus-ProjetosAcad/sitemap.xml

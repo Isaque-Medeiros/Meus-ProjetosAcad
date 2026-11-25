@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo — Isaque de Medeiros Pinto | Analista de Sistemas & Desenvolvedor .NET</title>
+<meta name="description" content="Currículo de Isaque de Medeiros Pinto — Analista de Suporte Field Service Jr. na TOTVS (Refresh 2026, via DB4 SERV) e desenvolvedor full stack (.NET/C#, Python, PostgreSQL, JavaScript).">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://isaque-medeiros.github.io/Meus-ProjetosAcad/curriculo.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #10151f;
+    --body: #2b3446;
+    --muted: #5d6a80;
+    --line: #dfe4ec;
+    --accent: #1d4ed8;
+    --accent-soft: #eef3ff;
+    --paper: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
+    background: #eef1f6;
+    color: var(--body);
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 28px 16px 60px;
+  }
+  .toolbar {
+    max-width: 820px; margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-size: 13px; color: var(--muted);
+  }
+  .toolbar a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .toolbar a:hover { text-decoration: underline; }
+  .toolbar .btns { display: flex; gap: 8px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 15px; border-radius: 9px; border: 1px solid transparent;
+    background: var(--accent); color: #fff; font-size: 13.5px; font-weight: 600;
+    cursor: pointer; font-family: inherit; text-decoration: none;
+  }
+  .btn:hover { background: #1740b8; }
+  .btn--ghost { background: #fff; color: var(--ink); border-color: var(--line); }
+  .btn--ghost:hover { background: #f7f9fc; }
+  .btn svg { width: 15px; height: 15px; }
+
+  .sheet {
+    max-width: 820px; margin: 0 auto; background: var(--paper);
+    border-radius: 6px; box-shadow: 0 20px 50px -30px rgba(16, 21, 31, .45);
+    padding: 46px 52px 52px;
+  }
+
+  .doc-head { border-bottom: 2px solid var(--ink); padding-bottom: 18px; margin-bottom: 24px; }
+  .doc-head h1 {
+    font-size: 30px; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); font-weight: 700;
+  }
+  .doc-head .role {
+    margin-top: 6px; font-size: 14.5px; font-weight: 500; color: var(--accent); letter-spacing: -0.005em;
+  }
+  .contact {
+    margin-top: 14px; display: flex; flex-wrap: wrap; gap: 4px 18px;
+    font-size: 12.8px; color: var(--muted); list-style: none;
+  }
+  .contact li { display: inline-flex; align-items: center; gap: 6px; }
+  .contact li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #c3ccdb; }
+  .contact a { color: var(--muted); text-decoration: none; }
+  .contact a:hover { color: var(--accent); }
+
+  section { margin-bottom: 22px; page-break-inside: auto; }
+  h2 {
+    font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--ink); font-weight: 700; margin-bottom: 10px;
+    padding-bottom: 5px; border-bottom: 1px solid var(--line);
+  }
+  p { font-size: 13.6px; }
+  p + p { margin-top: 7px; }
+
+  .job { margin-bottom: 16px; page-break-inside: avoid; }
+  .job:last-child { margin-bottom: 0; }
+  .job__top {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 14px;
+  }
+  .job__title { font-size: 14.5px; font-weight: 650; color: var(--ink); letter-spacing: -0.01em; }
+  .job__period {
+    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11.5px; color: var(--muted);
+    white-space: nowrap;
+  }
+  .job__org { font-size: 12.8px; color: var(--accent); font-weight: 500; margin-top: 2px; }
+  .job__org span { color: var(--muted); font-weight: 400; }
+  ul.bullets { margin-top: 7px; padding-left: 0; list-style: none; }
+  ul.bullets li {
+    position: relative; padding-left: 14px; font-size: 13.2px; line-height: 1.62;
+    margin-bottom: 3px; color: var(--body);
+  }
+  ul.bullets li::before {
+    content: ""; position: absolute; left: 2px; top: 0.6em;
+    width: 4px; height: 4px; border-radius: 50%; background: #9fb0cc;
+  }
+  ul.bullets li strong { color: var(--ink); font-weight: 600; }
+
+  .skill-table { display: grid; gap: 7px; }
+  .skill-row { display: grid; grid-template-columns: 152px minmax(0, 1fr); gap: 12px; align-items: baseline; }
+  .skill-row dt {
+    font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--muted); font-weight: 600; padding-top: 2px;
+  }
+  .skill-row dd { font-size: 13.2px; color: var(--body); }
+
+  .edu { margin-bottom: 9px; page-break-inside: avoid; }
+  .edu:last-child { margin-bottom: 0; }
+  .edu__line { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }
+  .edu__t { font-size: 13.8px; font-weight: 600; color: var(--ink); }
+  .edu__p { font-family: "JetBrains Mono", monospace; font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+  .edu__s { font-size: 12.8px; color: var(--muted); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+
+  .proj { margin-bottom: 9px; page-break-inside: avoid; }
+  .proj__t { font-size: 13.4px; font-weight: 600; color: var(--ink); }
+  .proj__d { font-size: 12.9px; color: var(--body); }
+  .proj__s { font-size: 11.8px; color: var(--muted); font-family: "JetBrains Mono", monospace; }
+
+  .note {
+    margin-top: 4px; font-size: 12px; color: var(--muted);
+    border-left: 2px solid var(--accent-soft); padding-left: 10px;
+  }
+
+  .foot {
+    margin-top: 26px; padding-top: 12px; border-top: 1px solid var(--line);
+    font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  .foot a { color: var(--muted); text-decoration: none; }
+
+  @media (max-width: 620px) {
+    body { padding: 14px 10px 40px; }
+    .sheet { padding: 28px 22px 34px; }
+    .doc-head h1 { font-size: 24px; }
+    .skill-row { grid-template-columns: 1fr; gap: 2px; }
+    .two-col { grid-template-columns: 1fr; gap: 18px; }
+    .toolbar { flex-direction: column; align-items: flex-start; }
+  }
+
+  @page { size: A4; margin: 11mm 13mm 10mm; }
+
+  @media print {
+    body { background: #fff; padding: 0; font-size: 9.6pt; color: #1b2230; }
+    .toolbar { display: none !important; }
+    .sheet { max-width: none; box-shadow: none; border-radius: 0; padding: 0; }
+    .doc-head { padding-bottom: 12px; margin-bottom: 15px; }
+    .doc-head h1 { font-size: 19pt; }
+    .doc-head .role { font-size: 9.8pt; }
+    .contact { font-size: 8.4pt; gap: 1px 12px; margin-top: 9px; }
+    h2 { font-size: 8pt; margin-bottom: 6px; padding-bottom: 3px; }
+    p { font-size: 9pt; }
+    p + p { margin-top: 3px; }
+    section { margin-bottom: 10px; }
+    .job { margin-bottom: 8px; page-break-inside: auto; break-inside: auto; }
+    .job__top, .job__org { break-after: avoid; page-break-after: avoid; }
+    .job__title { font-size: 9.8pt; }
+    .job__period, .edu__p { font-size: 7.9pt; }
+    .job__org { font-size: 8.7pt; margin-top: 1px; }
+    ul.bullets { margin-top: 4px; }
+    ul.bullets li { font-size: 8.7pt; line-height: 1.45; margin-bottom: 0.5px; }
+    .skill-table { gap: 4px; }
+    .skill-row { grid-template-columns: 128px minmax(0, 1fr); gap: 10px; }
+    .skill-row dt { font-size: 7.6pt; }
+    .skill-row dd { font-size: 8.7pt; }
+    .edu { margin-bottom: 5px; }
+    .edu__t, .proj__t { font-size: 9.2pt; }
+    .edu__s, .proj__d { font-size: 8.6pt; }
+    .proj { margin-bottom: 5px; }
+    .proj__s { font-size: 7.9pt; }
+    .two-col { gap: 16px; }
+    .note { font-size: 8.2pt; margin-top: 2px; }
+    .foot { font-size: 7.6pt; margin-top: 10px; padding-top: 8px; }
+    a { color: inherit !important; text-decoration: none; }
+    .job__org { color: #1d4ed8; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="index.html">← Voltar ao portfólio</a>
+  <div class="btns">
+    <button class="btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+      Salvar em PDF
+    </button>
+    <a class="btn btn--ghost" href="assets/curriculo-isaque-medeiros.pdf" download>Baixar PDF</a>
+    <a class="btn btn--ghost" href="mailto:medeiroisaque765@gmail.com">Enviar e-mail</a>
+  </div>
+</div>
+
+<main class="sheet" itemscope itemtype="https://schema.org/Person">
+  <header class="doc-head">
+    <h1 itemprop="name">Isaque de Medeiros Pinto</h1>
+    <p class="role" itemprop="jobTitle">Analista de Sistemas · Desenvolvedor Full Stack (.NET / C#)</p>
+    <ul class="contact">
+      <li>São Paulo — SP, Brasil</li>
+      <li><a href="mailto:medeiroisaque765@gmail.com" itemprop="email">medeiroisaque765@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/isaque-medeiros-a99421268/" target="_blank" rel="noopener">linkedin.com/in/isaque-medeiros-a99421268</a></li>
+      <li><a href="https://github.com/Isaque-Medeiros" target="_blank" rel="noopener">github.com/Isaque-Medeiros</a></li>
+      <li><a href="https://isaque-medeiros.github.io/Meus-ProjetosAcad/" target="_blank" rel="noopener">isaque-medeiros.github.io/Meus-ProjetosAcad</a></li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>Resumo profissional</h2>
+    <p>
+      Analista de sistemas e desenvolvedor full stack, graduado em Análise e Desenvolvimento de Sistemas (UNIP, 2026)
+      e técnico em Manutenção e Suporte em Informática (ETEC), com formação complementar em Design Gráfico (SAGA).
+      Atualmente atuo como Analista de Suporte Field Service Jr. na TOTVS, contratado via DB4 SERV, no projeto
+      Refresh 2026 — padronização de imagens corporativas, sanitização segura de mídias, substituição de parque
+      e suporte N1/N2 no ecossistema TOTVS/Protheus.
+    </p>
+    <p>
+      Desenvolvo sistemas em produção com C#/.NET, Python, PostgreSQL, Node.js e JavaScript: painel de gestão de
+      bancada usado em operação real (com autenticação por papéis e agente de IA), plataforma de nutrição com visão
+      computacional (.NET 8 + YOLO) e sistema de agendamento com pagamento Pix para cliente real. Histórico de
+      automações que reduziram tempo de atendimento e retrabalho em operação de companhia aérea.
+    </p>
+  </section>
+
+  <section>
+    <h2>Competências técnicas</h2>
+    <dl class="skill-table">
+      <div class="skill-row"><dt>Linguagens</dt><dd>C#, Python, JavaScript (ES6+), TypeScript, C/C++, SQL (T-SQL), Lua, PowerShell, Batch</dd></div>
+      <div class="skill-row"><dt>Backend &amp; APIs</dt><dd>.NET 8 / ASP.NET Core, REST APIs, Node.js 24 + Express, arquitetura em camadas, autenticação (JWT/scrypt/bcrypt), OAuth 2.0, sessão HttpOnly</dd></div>
+      <div class="skill-row"><dt>Bancos de dados</dt><dd>PostgreSQL (Neon), SQL Server / T-SQL (stored procedures, views, triggers), SQLite, modelagem relacional e migração de dados legados</dd></div>
+      <div class="skill-row"><dt>Frontend</dt><dd>HTML5 semântico, CSS3 (Grid, Flexbox, responsivo), JavaScript, React, acessibilidade (WCAG), Tailwind CSS</dd></div>
+      <div class="skill-row"><dt>IA &amp; dados</dt><dd>LLMs e prompt engineering, agentes com contexto server-side, YOLO / visão computacional (ONNX), Pandas, análise de dados com Python</dd></div>
+      <div class="skill-row"><dt>Infra &amp; DevOps</dt><dd>Windows corporativo e Active Directory, imagens de sistema, sanitização de mídia (HDD/SSD), redes LAN, Docker, Git/GitHub, Vercel, Render, CI/CD básico</dd></div>
+      <div class="skill-row"><dt>Suporte &amp; ITSM</dt><dd>Field service, ciclo de vida de ativos, diagnóstico de hardware, suporte N1/N2, Protheus, Allegro e Sabre (análise de logs e bilhetagem), LGPD</dd></div>
+      <div class="skill-row"><dt>Métodos</dt><dd>POO, MVC, TDD/SDD, engenharia de prompt, documentação técnica (MkDocs), Excel avançado e VBA</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Experiência profissional</h2>
+
+    <article class="job">
+      <div class="job__top">
+        <span class="job__title">Analista de Suporte Field Service Jr.</span>
+        <span class="job__period">set/2026 — atual</span>
+      </div>
+      <p class="job__org">DB4 SERV <span>· alocado na TOTVS · projeto Refresh 2026 · PJ/MEI</span></p>
+      <ul class="bullets">
+        <li>Implantação e padronização de <strong>imagens corporativas</strong> Windows, com ingresso em domínio e validação de perfil de usuário.</li>
+        <li><strong>Sanitização segura</strong> de HDDs e SSDs de ativos descontinuados antes da destinação, com registro de evidência.</li>
+        <li>Substituição preventiva e corretiva de hardware, diagnóstico de falhas e configuração de periféricos no parque fabril.</li>
+        <li>Suporte presencial e remoto <strong>N1/N2</strong> no ecossistema TOTVS, incluindo ambientes integrados ao <strong>Protheus</strong>.</li>
+        <li>Desenvolvimento do <strong>sistema web de gestão de bancada</strong> do projeto: painel em tempo real, PostgreSQL, autenticação por papéis, checklist por máquina, relatórios e agente de IA sobre a base operacional.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job__top">
+        <span class="job__title">Operador Analista · Suporte Sistêmico N2 (Backoffice)</span>
+        <span class="job__period">jan/2025 — out/2026</span>
+      </div>
+      <p class="job__org">Konecta Brazil <span>· operação LATAM Airlines · 3 promoções no mesmo contrato</span></p>
+      <ul class="bullets">
+        <li>Evolução de <strong>Atendente → Suporte de Piso → Analista N2</strong>, com mentoria técnica de novos colaboradores e escalonamento operacional.</li>
+        <li>Leitura de <strong>logs e diagnóstico sistêmico</strong> nas plataformas <strong>Allegro</strong> e <strong>Sabre</strong>; investigação de inconsistências de bilhetagem e parametrização.</li>
+        <li>Abertura, qualificação e condução de incidentes críticos até o time <strong>N3/TI</strong>.</li>
+        <li>Criação do <strong>Motor Híbrido 4DX</strong>: bookmarklet em JavaScript com injeção de DOM e estado em LocalStorage para preencher formulários repetitivos, reduzindo digitação manual e retrabalho.</li>
+        <li>Desenvolvimento de <strong>chatbot de suporte com LLM (Gemma 4)</strong> sobre manuais técnicos e códigos de erro, reduzindo consultas ao N3.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job__top">
+        <span class="job__title">Auxiliar Administrativo</span>
+        <span class="job__period">fev/2024 — out/2024</span>
+      </div>
+      <p class="job__org">Rotina administrativa e financeira <span>· São Paulo</span></p>
+      <ul class="bullets">
+        <li>Conciliação financeira, emissão e conferência de <strong>notas fiscais</strong> e organização de acervo documental.</li>
+        <li>Desenvolvimento de planilhas com <strong>macros em VBA</strong> para relatórios de desempenho e controle operacional.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Formação acadêmica</h2>
+    <div class="edu">
+      <div class="edu__line">
+        <span class="edu__t">Tecnólogo em Análise e Desenvolvimento de Sistemas</span>
+        <span class="edu__p">2024 — 2026</span>
+      </div>
+      <p class="edu__s">UNIP — Universidade Paulista · curso concluído em nov/2026, colação de grau em dez/2026</p>
+    </div>
+    <div class="edu">
+      <div class="edu__line">
+        <span class="edu__t">Técnico em Manutenção e Suporte em Informática</span>
+        <span class="edu__p">2023 — 2024</span>
+      </div>
+      <p class="edu__s">ETEC — Escola Técnica Estadual · concluído</p>
+    </div>
+    <div class="edu">
+      <div class="edu__line">
+        <span class="edu__t">Formação Start em Design Gráfico</span>
+        <span class="edu__p">2019 — 2021</span>
+      </div>
+      <p class="edu__s">SAGA — School of Art, Game and Animation · concluído</p>
+    </div>
+    <div class="edu">
+      <div class="edu__line">
+        <span class="edu__t">Pós-graduação em Engenharia de Software Full Stack</span>
+        <span class="edu__p">planejado · 2027</span>
+      </div>
+      <p class="edu__s">FIAP · início previsto após a colação de grau</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certificações e idiomas</h2>
+    <div class="two-col">
+      <div>
+        <ul class="bullets">
+          <li>Microsoft Azure — Cloud Concepts (DIO)</li>
+          <li>Ciência de Dados com Python — Santander Bootcamp / DIO (2026)</li>
+          <li>IA Generativa com Python — Fundação Bradesco</li>
+          <li>TI e Cidadania — Instituto PROA / Senac SP</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="bullets">
+          <li><strong>Português</strong> — nativo (comunicação técnica e escrita profissional)</li>
+          <li><strong>Inglês</strong> — técnico/intermediário (leitura de documentação, logs e código)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projetos em destaque</h2>
+
+    <div class="proj">
+      <p class="proj__t">Field Refresh 2026 — gestão de bancada (TOTVS / DB4 SERV)</p>
+      <p class="proj__d">Sistema web em produção para controlar o fluxo do refresh de parque: painel em tempo real, fila por analista, checklist, quatro papéis de acesso, relatórios imprimíveis e agente de IA com contexto montado no servidor.</p>
+      <p class="proj__s">JavaScript · Node.js · PostgreSQL (Neon) · Vercel · LLM — refreshtotvs2026.vercel.app</p>
+    </div>
+
+    <div class="proj">
+      <p class="proj__t">Barbe City Jaraguá v2 — agendamento e pagamento</p>
+      <p class="proj__d">Sistema de agendamento para barbearia com calendário de disponibilidade, promoções, Pix via Mercado Pago com webhook, área do cliente, painel administrativo e conformidade LGPD. 135 agendamentos migrados do sistema anterior.</p>
+      <p class="proj__s">Node.js · Express · PostgreSQL · Mercado Pago · Google OAuth — barbe-city-jaragua-eta.vercel.app</p>
+    </div>
+
+    <div class="proj">
+      <p class="proj__t">BSFM — Brazilian System of Food Metric (.NET 8 + visão computacional)</p>
+      <p class="proj__d">Plataforma acadêmica que reconhece alimentos por imagem (YOLO/ONNX) e converte medidas caseiras em gramatura, com dashboard de IMC/TMB/TDEE, diário alimentar, plano semanal e central de LIBRAS.</p>
+      <p class="proj__s">C# · .NET 8 · ASP.NET Core · PostgreSQL/SQLite · ONNX · Render · MkDocs</p>
+    </div>
+
+    <div class="proj">
+      <p class="proj__t">Motor Híbrido 4DX — automação web (LATAM / Konecta)</p>
+      <p class="proj__d">Bookmarklet em JavaScript puro que injeta inspetor de DOM, interpreta tabelas e preenche formulários operacionais automaticamente, com estado persistido em LocalStorage. Sem instalação, sem backend.</p>
+      <p class="proj__s">JavaScript · DOM API · LocalStorage · Eruda</p>
+    </div>
+  </section>
+
+  <p class="note">
+    Portfólio completo, estudos de caso e código: <a href="https://isaque-medeiros.github.io/Meus-ProjetosAcad/">isaque-medeiros.github.io/Meus-ProjetosAcad</a>
+  </p>
+
+  <div class="foot">
+    <span>Isaque de Medeiros Pinto · São Paulo, SP</span>
+    <span>Atualizado em novembro de 2026</span>
+  </div>
+</main>
+
+</body>
+</html>

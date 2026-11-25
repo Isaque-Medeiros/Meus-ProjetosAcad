@@ -1,115 +1,71 @@
-# 🚀 Portfólio de Projetos - Desenvolvedor Full Stack (em formação)
+# Portfólio — Isaque de Medeiros Pinto
 
-Bem-vindo ao meu repositório de projetos! Aqui você encontrará uma coleção organizada de projetos acadêmicos e pessoais que demonstram minha evolução em desenvolvimento web e programação.
+Site pessoal e portfólio técnico de **Isaque de Medeiros Pinto** — analista de sistemas e desenvolvedor full stack.
+Atualmente no projeto **Refresh 2026** da **TOTVS**, contratado via **DB4 SERV**.
 
-## 👨‍💻 Sobre Mim
-
-Sou estudante de Análise e Desenvolvimento de Sistemas, apaixonado por tecnologia e com objetivo de me tornar desenvolvedor Full Stack. Atualmente foco meus estudos em front-end e lógica de programação, enquanto construo base para back-end.
-
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Python (iniciando), lógica de programação
-- **Versionamento**: Git e GitHub
-- **Design**: Fundamentos de design gráfico (SAGA)
-
-## 📁 Estrutura do Repositório
-
-```
-📦 PIM-1-Semestre/
-├── 📂 index.html              # Portfólio pessoal
-├── 📂 styles.css              # Estilos principais
-├── 📂 variables.css           # Variáveis CSS
-├── 📂 port.css                # Estilos complementares
-└── 📂 README.md               # Documentação
-```
-
-## 🏆 Projetos Destacados
-
-### 🌐 **Frontend**
-| Projeto | Tecnologias | Descrição |
-|---------|------------|-----------|
-| **Portfólio Pessoal** | HTML, CSS, JavaScript | Site pessoal com trajetória, habilidades e contato |
-| **PIM - 1º Semestre** | HTML, CSS, JavaScript | Projeto acadêmico de estruturação web |
-
-### 🐍 **Lógica e Programação**
-| Projeto | Tecnologias | Descrição |
-|---------|------------|-----------|
-| **Exercícios de Lógica** | Python, JavaScript | Desafios de algoritmos e estrutura de dados |
-| **Sistema para ONG (PIM)** | Python, JSON | Projeto acadêmico de gerenciamento |
-
-### 🔌 **Embarcados (Estudos)**
-| Projeto | Tecnologias | Descrição |
-|---------|------------|-----------|
-| **Circuitos Tinkercad** | C, Arduino | Simulações de circuitos eletrônicos |
-| **Semáforo Inteligente** | C, Eletrônica | Projeto de semáforo com Arduino |
-
-## 📚 Áreas de Estudo
-
-### **Frontend**
-- HTML semântico e acessibilidade
-- CSS moderno (Flexbox, Grid, responsividade)
-- JavaScript (manipulação do DOM, eventos)
-
-### **Python**
-- Lógica de programação e algoritmos
-- Estruturas de dados básicas
-- Projetos acadêmicos
-
-### **Cloud Computing**
-- Microsoft Azure Avançado (DIO) — curso introdutório abordando API Management, AKS, Functions, WebServices e DB em nuvem
-- Conceitos fundamentais de cloud
-
-### **Bootcamps Realizados**
-- **Santander Bootcamp (DIO)** — Ciência de Dados com Python
-- **Bradesco Bootcamp (DIO)** — Gen & IA (Geração e Inteligência Artificial)
-- **Microsoft Azure Avançado (DIO)** — Cloud computing e infraestrutura
-
-## 🛠️ Tecnologias em Aprendizado
-
-### **Linguagens**
-- **HTML/CSS**: Intermediário - 1+ ano de estudos
-- **JavaScript**: Básico - Estudos autônomos e acadêmicos
-- **Python**: Básico - Primeiro contato em 2024
-- **C/C++**: Básico - Primeiro contato na ETEC (2023)
-- **C#**: Iniciando estudos
-
-### **Ferramentas**
-- **Git/GitHub**: Versionamento básico
-- **VS Code**: Editor principal
-- **Figma**: Noções de design
-
-## 🎯 Objetivos Profissionais
-
-1. **Conquistar oportunidade de estágio** em desenvolvimento de software
-2. **Aprofundar conhecimentos** em JavaScript moderno e frameworks
-3. **Desenvolver projetos práticos** para consolidar aprendizado
-4. **Evoluir como desenvolvedor Full Stack** unindo front-end e back-end
-
-## 📊 Estatísticas do Repositório
-
-- **Total de Projetos**: 5+ projetos organizados
-- **Linguagens**: HTML, CSS, JavaScript, Python
-- **Áreas**: Frontend, Lógica de Programação, Embarcados (iniciante)
-- **Status**: Em constante evolução
-
-## 🤝 Como Navegar
-
-1. **Para recrutadores**: O portfólio principal está no `index.html`
-2. **Para desenvolvedores**: Confira os projetos e exercícios de lógica
-3. **Para colaboração**: Feedbacks e sugestões são bem-vindos!
-
-## 📞 Contato
-
-- **GitHub**: [github.com/Isaque-Medeiros](https://github.com/Isaque-Medeiros)
-- **LinkedIn**: [linkedin.com/in/isaque-medeiros-a99421268](https://linkedin.com/in/isaque-medeiros-a99421268)
-- **Portfólio**: [isaque-medeiros.github.io/PIM-1-Semestre](https://isaque-medeiros.github.io/PIM-1-Semestre/)
-- **Email**: medeiroisaque765@gmail.com
+🔗 **Site publicado:** https://isaque-medeiros.github.io/Meus-ProjetosAcad/
+📄 **Currículo (PDF):** https://isaque-medeiros.github.io/Meus-ProjetosAcad/curriculo.html
 
 ---
 
-🔧 **Em constante evolução**: Este repositório é atualizado regularmente com novos aprendizados e projetos.
+## Sobre este repositório
 
-🚀 **Pronto para desafios**: Estou aberto a oportunidades de estágio que me permitam crescer profissionalmente.
+Além de hospedar o portfólio no GitHub Pages, este repositório guarda o **acervo acadêmico e técnico**
+dos projetos desenvolvidos entre ETEC, UNIP e estudos autônomos.
+
+```
+.
+├── index.html              # portfólio (página principal)
+├── styles.css              # design system do portfólio
+├── script.js               # interações (reveals, terminal, modal, command palette)
+├── curriculo.html          # currículo otimizado para impressão / ATS
+├── assets/                 # favicon, imagem Open Graph, currículo em PDF
+├── projects/               # projetos organizados por área
+│   ├── backend-python/     # ONG (PIM), SysAcad, organização de planilhas
+│   ├── cloud/              # relatório AWS
+│   ├── embedded/           # Tinkercad (C/Arduino)
+│   ├── frontend/           # HTML/CSS, dashboard Excel/VBA, wiki de insetos
+│   └── university/         # trabalhos da UNIP
+├── studies/                # trilhas de estudo (Azure, ML, Python)
+├── archive/                # versões anteriores do portfólio
+└── Meus-ProjetosAcad/      # acervo histórico (ETEC / primeiros semestres)
+```
+
+## Stack do site
+
+Sem frameworks, sem build, sem dependências de runtime — HTML, CSS e JavaScript puro.
+
+- **Design system** próprio em CSS (tokens, dark theme, grid, tipografia fluida)
+- **Animações** com CSS + IntersectionObserver, respeitando `prefers-reduced-motion`
+- **Terminal animado** em SVG/CSS no hero, com typewriter em JS
+- **Command palette** (`Ctrl` + `K` ou `/`) para navegação rápida
+- **Filtro de projetos** por categoria e **modal de estudo de caso** com foco acessível
+- **SEO**: Open Graph, Twitter Card, JSON-LD (`Person`), canonical, favicon SVG
+- **Acessibilidade**: landmarks, skip link, `aria-*`, foco visível, contraste AA
+- **Impressão**: `curriculo.html` gera um currículo de 2 páginas em A4
+
+## Rodando localmente
+
+Basta abrir `index.html` no navegador — não há etapa de build.
+
+Para servir via HTTP (recomendado para testar fontes e links):
+
+```bash
+# Python 3
+python -m http.server 8080
+
+# ou Node.js
+npx serve .
+```
+
+Depois acesse `http://localhost:8080`.
+
+## Contato
+
+- **E-mail:** medeiroisaque765@gmail.com
+- **LinkedIn:** [linkedin.com/in/isaque-medeiros-a99421268](https://www.linkedin.com/in/isaque-medeiros-a99421268/)
+- **GitHub:** [github.com/Isaque-Medeiros](https://github.com/Isaque-Medeiros)
 
 ---
 
-*Última atualização: Abril 2026*
+<sub>Última atualização: novembro de 2026 · São Paulo, SP</sub>
