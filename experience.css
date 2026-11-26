@@ -200,6 +200,26 @@
 .lab__summary { margin-top: 8px; font-size: 0.885rem; line-height: 1.62; color: var(--muted); max-width: 68ch; }
 .lab__badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 
+.lab__proof {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.lab__proof svg { width: 13px; height: 13px; color: var(--accent-t); flex: none; }
+
+.chip--soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-color: rgba(148, 163, 184, 0.22);
+  color: var(--muted);
+}
+.chip--soft svg { width: 11px; height: 11px; }
+
 .lab__tabs {
   display: flex;
   gap: 4px;
@@ -902,6 +922,7 @@ body.is-recruiter .dock { display: none; }
 .hero__status {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 14px;
   padding: 0;
@@ -917,20 +938,26 @@ body.is-recruiter .dock { display: none; }
 .hero__status .rec-link {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  flex: none;
+  white-space: nowrap;
   margin-left: 2px;
-  padding: 3px 8px;
-  border: 1px solid rgba(148, 163, 184, 0.24);
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid rgba(34, 211, 238, 0.5);
   border-radius: 999px;
-  color: var(--text-soft);
+  background: rgba(34, 211, 238, 0.12);
+  color: #a5f3fc;
   font-family: var(--font-mono);
   font-size: 0.66rem;
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: var(--dur-2) var(--ease);
 }
-.hero__status .rec-link::before { content: "▸"; color: var(--cyan); font-size: 0.66rem; }
-.hero__status .rec-link:hover { color: #fff; border-color: var(--cyan); background: rgba(34, 211, 238, 0.1); }
+.hero__status .rec-link::before { content: "▸"; color: var(--cyan); font-size: 0.7rem; }
+.hero__status .rec-link:hover { color: #04060d; background: var(--cyan); border-color: var(--cyan); }
+.hero__status .rec-link:hover::before { content: "▶"; color: #04060d; }
 .hero__status .rec-link[aria-pressed="true"] { color: #04060d; background: var(--cyan); border-color: var(--cyan); }
 .hero__status .rec-link[aria-pressed="true"]::before { content: "✓"; }
 

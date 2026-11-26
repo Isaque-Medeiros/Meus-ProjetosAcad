@@ -807,14 +807,19 @@
       const links = (p.links || [])
         .map(
           (l) =>
-            `<a class="btn btn--ghost btn--sm" href="${l[1]}" target="_blank" rel="noopener noreferrer">${icon(
+            `<a class="btn btn--ghost btn--sm" href="${l[1]}" target="_blank" rel="noopener noreferrer"${
+              l[3] ? ` title="${esc(l[3])}"` : ''
+            }>${icon(
               l[2] === 'github' ? 'github' : l[2] === 'book' ? 'book' : 'external'
             )} ${esc(l[0])}</a>`
         )
         .join('');
+      const privateChip = (p.links || []).length
+        ? ''
+        : '<span class="chip chip--soft">' + icon('lock') + ' código privado · dados reais</span>';
       return `<div class="lab__foot">
         <div class="lab__stack">${p.stack.map((s) => `<span class="chip">${esc(s)}</span>`).join('')}</div>
-        <div class="lab__actions">${links}
+        <div class="lab__actions">${privateChip}${links}
           <button class="btn btn--primary btn--sm" type="button" data-case>Estudo de caso completo ${icon('arrow-right')}</button>
         </div>
       </div>`;
@@ -875,6 +880,7 @@
           <h3 class="lab__title">${esc(p.title)}</h3>
           <p class="lab__summary">${esc(p.summary)}</p>
           <div class="lab__badges">${p.badges.map((b) => `<span class="badge badge--${b[1]}">${esc(b[0])}</span>`).join('')}</div>
+          ${p.proof ? `<p class="lab__proof">${icon('check')}<span>${esc(p.proof)}</span></p>` : ''}
         </div>
         ${paintTabs(p)}
         ${paintPanel(p)}

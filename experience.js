@@ -37,7 +37,7 @@
       if (toggle) {
         toggle.setAttribute('aria-pressed', String(on));
         const label = $('.rec-label', toggle);
-        if (label) label.textContent = on ? 'Modo completo' : 'Modo recrutador';
+        if (label) label.textContent = on ? 'modo completo' : 'modo recrutador · 60 s';
       }
       bar.setAttribute('aria-hidden', String(!on));
       try { localStorage.setItem(STORE, on ? '1' : '0'); } catch (e) { /* modo privado */ }

@@ -331,7 +331,10 @@
     items.forEach((el) => io.observe(el));
   }
 
-  /* ---------------- 6. Números ---------------- */
+  /* ---------------- 6. Números ----------------
+     O HTML já entrega o valor final (6, 16, 3, 2+). Quando o bloco entra
+     na tela, o número "assenta" a partir de um valor próximo — sem nunca
+     voltar a zero, então JS lento (ou ausente) jamais exibe um bug. */
   function initCounters() {
     const nodes = $$('[data-count]');
     if (!nodes.length) return;
@@ -339,17 +342,19 @@
       const target = parseFloat(el.dataset.count);
       const suffix = el.dataset.suffix || '';
       if (reduce) { el.textContent = target + suffix; return; }
-      const dur = 1300;
+      const from = Math.max(0, target - Math.max(2, Math.round(target * 0.3)));
+      const dur = 700;
       const t0 = performance.now();
       const tick = (now) => {
         const p = Math.min(1, (now - t0) / dur);
         const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(target * eased) + suffix;
+        el.textContent = Math.round(from + (target - from) * eased) + suffix;
         if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = target + suffix;
       };
       requestAnimationFrame(tick);
     };
-    if (!('IntersectionObserver' in window)) { nodes.forEach(animate); return; }
+    if (!('IntersectionObserver' in window)) return;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {

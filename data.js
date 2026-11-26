@@ -14,6 +14,7 @@
       accent: 'bsfm',
       name: 'BSFM',
       kicker: 'Projeto acadêmico · UNIP · PIM 3º semestre',
+      proof: 'deploy público · documentação em MkDocs · 3 repositórios abertos',
       title: 'BSFM — Brazilian System of Food Metric',
       summary:
         'Plataforma que reconhece o alimento pela foto e converte medida caseira em gramatura. Foi o projeto integrador do 3º semestre levado até o fim: aplicação publicada, documentação em MkDocs e código aberto.',
@@ -41,7 +42,7 @@
         'Foi o projeto em que coloquei, pela primeira vez, um modelo de machine learning atrás de uma API que eu mesmo escrevi — e entendi na prática o que é latência de inferência, versionamento de modelo e documentação que outra pessoa consegue seguir. O app está no ar e a documentação explica como rodar do zero.',
       stack: ['.NET 8', 'ASP.NET Core', 'C#', 'ONNX Runtime', 'YOLO', 'PostgreSQL', 'Render', 'MkDocs', 'Leaflet'],
       links: [
-        ['Abrir o app', 'https://bsfm-nutri.onrender.com', 'external'],
+        ['Abrir o app (~30 s)', 'https://bsfm-nutri.onrender.com', 'external'],
         ['Documentação', 'https://brazilian-system-of-food-metric.github.io/software-documentation/', 'book'],
         ['Código', 'https://github.com/Brazilian-System-of-Food-Metric/BSFM-APP', 'github']
       ],
@@ -77,6 +78,7 @@
       accent: 'barbe',
       name: 'Barbe City',
       kicker: 'Projeto próprio · barbearia em Jaraguá/SP',
+      proof: 'no ar na Vercel · repositório público · 135 registros migrados',
       title: 'Barbe City Jaraguá v2 — agendamento com Pix',
       summary:
         'Sistema que desenvolvi para a barbearia do Anderson. Não é um case vendido: é um projeto próprio, rodando no negócio de verdade, com agenda online, pagamento Pix e painel administrativo.',
@@ -140,6 +142,7 @@
       accent: 'refresh',
       name: 'Refresh 2026',
       kicker: 'Ferramenta interna · equipe de field service',
+      proof: 'em uso pela equipe · código privado · sem vínculo comercial com a TOTVS',
       title: 'Controle de bancada — Refresh 2026',
       summary:
         'Painel que eu construí para o time acompanhar o andamento do refresh de máquinas. Não é produto da TOTVS, não foi licenciado e a empresa não tem envolvimento comercial com ele: é uma ferramenta interna, feita por mim, usada pela equipe.',
@@ -198,6 +201,7 @@
       accent: 'dx4',
       name: '4DX',
       kicker: 'Automação própria · operação LATAM (Konecta)',
+      proof: 'uso pessoal documentado · sem repositório público',
       title: 'Motor Híbrido 4DX',
       summary:
         'Um bookmarklet que eu usava no meu próprio fluxo de trabalho: em vez de digitar dezenas de campos repetidos, o script lia a tabela de origem e preenchia o formulário em um clique. Apresentei à equipe, mas não houve adoção oficial.',
@@ -253,6 +257,7 @@
       accent: 'sysacad',
       name: 'SysAcad',
       kicker: 'Trabalho acadêmico · estruturas de dados',
+      proof: 'acervo público no GitHub · código em C++',
       title: 'SysAcad — gestão acadêmica em C++',
       summary:
         'Sistema acadêmico completo rodando no terminal: login, alunos, matérias, turmas, notas e relatórios — com persistência em arquivo e JSON. O desafio não era a interface, era manter tudo consistente sem banco de dados.',
@@ -308,6 +313,7 @@
       accent: 'climo',
       name: 'Climo',
       kicker: 'Protótipo · IA aplicada',
+      proof: 'protótipo encerrado · aprendizados aplicados na ferramenta interna',
       title: 'Climo — assistente de operação',
       summary:
         'Protótipo de assistente para consultar procedimentos e códigos de erro da operação em linguagem natural. Não evoluiu para produção e nunca passou por aprovação interna — ficou como estudo de LLM e de engenharia de contexto.',
