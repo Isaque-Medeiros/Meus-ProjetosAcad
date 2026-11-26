@@ -850,6 +850,21 @@
         b.tabIndex = on ? 0 : -1;
       });
 
+      // mantém o item ativo visível na trilha horizontal (mobile)
+      if (indexEl.scrollWidth > indexEl.clientWidth + 4) {
+        const on = $(`#idx-${id}`, indexEl);
+        if (on) {
+          const cr = indexEl.getBoundingClientRect();
+          const ir = on.getBoundingClientRect();
+          if (ir.left < cr.left + 8 || ir.right > cr.right - 8) {
+            indexEl.scrollTo({
+              left: indexEl.scrollLeft + (ir.left - cr.left) - 16,
+              behavior: reduce ? 'auto' : 'smooth'
+            });
+          }
+        }
+      }
+
       stageEl.className = 'lab__stage acc-' + p.accent + (first || reduce ? '' : dir > 0 ? ' is-next' : dir < 0 ? ' is-prev' : '');
       stageEl.innerHTML = `
         <div class="lab__head">

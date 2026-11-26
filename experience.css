@@ -891,12 +891,11 @@ body.is-recruiter .dock { display: none; }
   align-items: center;
   gap: 8px;
   margin-bottom: 14px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(148, 163, 184, 0.05);
+  padding: 0;
+  border: 0;
+  background: none;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   letter-spacing: 0.04em;
   color: var(--muted);
 }
@@ -945,6 +944,9 @@ body.is-recruiter .dock { display: none; }
 
 /* ---------- 36b. Correções de estrutura ---------- */
 .bar { display: block; }
+
+/* âncoras não ficam escondidas atrás da navegação fixa */
+section[id], main > div[id] { scroll-margin-top: calc(var(--nav-h) + 10px); }
 
 .stack-row--btn {
   width: 100%;
