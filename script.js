@@ -125,8 +125,8 @@
       { c: 'dim', t: '→ ou clique em "Falar comigo" no topo' }
     ],
     projetos: [
-      { c: 'info', t: 'role até a seção 03 — cada card abre um estudo de caso' },
-      { c: 'dim', t: 'inclui o que deu certo e o que não terminou' }
+      { c: 'info', t: 'seção 03 — cada card abre um estudo de caso' },
+      { c: 'dim', t: 'contexto, decisão técnica e resultado' }
     ],
     sobre: [
       { c: 'info', t: 'seção 01 — quem eu sou, sem maquiagem' }
@@ -376,6 +376,11 @@
       const max = document.documentElement.scrollHeight - window.innerHeight;
       if (progress) progress.style.setProperty('--p', max > 0 ? (y / max) * 100 + '%' : '0%');
       nav.classList.toggle('is-scrolled', y > 12);
+      // no topo da página nenhuma seção está ativa
+      if (y < 140) {
+        $$('.nav__links a').forEach((l) => l.classList.remove('is-active'));
+        $$('.rail-nav a').forEach((r) => r.classList.remove('is-active'));
+      }
       const menuOpen = mobile && mobile.classList.contains('is-open');
       if (!menuOpen) {
         if (y > lastY && y > 260) nav.classList.add('is-hidden');
@@ -671,7 +676,7 @@
         'Tratamento de exceção por campo: se o seletor muda, o script avisa em vez de preencher errado.'
       ],
       result:
-        'Reduziu a minha digitação e o meu retrabalho enquanto eu estava na operação. Não virou ferramenta oficial da equipe — e tudo bem: a lição que ficou é que a melhor automação às vezes é a que não precisa de infraestrutura nenhuma, só de um navegador e conhecimento de DOM.',
+        'Reduziu a minha digitação e o meu retrabalho enquanto eu estava na operação. Não virou ferramenta oficial da equipe; o aprendizado foi que a automação mais eficaz às vezes é a que não exige infraestrutura — só um navegador e conhecimento de DOM.',
       stack: ['JavaScript', 'DOM API', 'LocalStorage', 'Eruda', 'Bookmarklet'],
       links: []
     },
@@ -708,14 +713,14 @@
       kicker: 'Protótipo · IA aplicada',
       title: 'Climo — assistente de operação',
       summary:
-        'Um chatbot que projetei para consultar procedimentos e códigos de erro da operação em linguagem natural. Não terminei e ele nunca passou por aprovação interna — ficou como estudo de LLM, e é honesto dizer isso.',
-      badges: [['protótipo', 'amber'], ['não concluído', 'violet'], ['aprendizado', 'blue']],
-      meta: [['Meu papel', 'concepção e protótipo'], ['Ano', '2025 — 2026'], ['Status', 'não concluído']],
+        'Um protótipo de assistente para consultar procedimentos e códigos de erro da operação em linguagem natural. Não evoluiu para produção e nunca passou por aprovação interna — ficou como estudo de LLM e de engenharia de contexto.',
+      badges: [['protótipo', 'amber'], ['IA aplicada', 'violet'], ['estudo', 'blue']],
+      meta: [['Meu papel', 'concepção e protótipo'], ['Ano', '2025 — 2026'], ['Status', 'protótipo encerrado']],
       metrics: [
         ['LLM', 'modelo de linguagem'],
         ['servidor', 'contexto montado no backend'],
         ['0', 'chave exposta no cliente'],
-        ['—', 'nunca implantado']
+        ['—', 'não chegou à produção']
       ],
       problem:
         'Responder “qual o procedimento para este código de erro?” exigia procurar em manuais extensos ou perguntar para quem já sabia. O conhecimento ficava concentrado em poucas pessoas.',
@@ -726,7 +731,7 @@
         'Experimentos de <strong>engenharia de prompt</strong> para melhorar precisão em perguntas de procedimento.'
       ],
       result:
-        'Não chegou a ser usado oficialmente e eu não terminei. O que ficou foi o entendimento de como montar contexto no servidor e por que a chave da IA não pode ir para o cliente — conhecimento que apliquei depois na ferramenta de bancada que o time usa hoje.',
+        'O protótipo não evoluiu para uso oficial e ficou incompleto. O aprendizado técnico — contexto no servidor, chave protegida e por que dado truncado do navegador inviabiliza uso operacional — foi aplicado depois na ferramenta de bancada que o time usa hoje.',
       stack: ['LLM API', 'Node.js', 'Prompt engineering', 'Markdown seguro'],
       links: []
     }
@@ -775,7 +780,7 @@
             <ul>${built}</ul>
           </div>
           <div class="mblock">
-            <h3>Resultado — sem maquiagem</h3>
+            <h3>Resultado</h3>
             <div class="metrics">${metrics}</div>
             <p style="margin-top:14px">${p.result}</p>
           </div>

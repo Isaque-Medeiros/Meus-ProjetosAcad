@@ -2288,6 +2288,212 @@ svg[aria-hidden="true"]:not(.orbits) [fill="currentColor"] { stroke: none; }
   .statusbar .sb__right { margin-left: 0; }
 }
 
+/* ============================================================
+   25. v3 — responsividade ampla + refinamento visual
+   ============================================================ */
+
+/* ---- tipografia e largura fluidas ---- */
+html { font-size: 16px; }
+@media (min-width: 1440px) { html { font-size: 16.5px; } }
+@media (min-width: 1800px) { html { font-size: 17px; } }
+@media (min-width: 1500px) { :root { --wrap: 1260px; } }
+
+/* ---- grade de projetos com colunas explícitas ---- */
+.project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* ---- cartões: brilho interno e borda consistente ---- */
+.pcard,
+.tl-card,
+.stack-card,
+.edu-card,
+.principle,
+.cert,
+.clink {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+.pcard:hover,
+.tl-card:hover,
+.edu-card:hover {
+  border-color: rgba(77, 134, 255, 0.36);
+}
+.pcard__badges .badge {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 3px 12px -6px #000;
+}
+
+/* ---- separador luminoso no topo de cada seção ---- */
+.section--bordered { position: relative; }
+.section--bordered::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(940px, 88%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(77, 134, 255, 0.5), rgba(34, 211, 238, 0.32), transparent);
+  pointer-events: none;
+}
+
+/* ---- barras de rolagem discretas ---- */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: #060912; }
+::-webkit-scrollbar-thumb {
+  background: #1b2740;
+  border-radius: 8px;
+  border: 3px solid #060912;
+}
+::-webkit-scrollbar-thumb:hover { background: #2b3b5c; }
+
+/* ---- filtros com rolagem horizontal no celular ---- */
+@media (max-width: 620px) {
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter { flex: none; }
+  .projects__bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* ---- alvos de toque confortáveis ---- */
+@media (max-width: 940px) {
+  .filter { padding: 9px 14px; }
+  .mini-icon { width: 38px; height: 38px; border-radius: 10px; }
+  .mini-icon svg { width: 16px; height: 16px; }
+  .icon-link { width: 42px; height: 42px; }
+  .copy-btn { padding: 8px 10px; }
+}
+
+/* ---- tablet ---- */
+@media (max-width: 1080px) {
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1000px) {
+  .about { grid-template-columns: 1fr; }
+  .now-card { max-width: 100%; }
+  .contact__inner { grid-template-columns: 1fr; gap: 30px; }
+}
+@media (max-width: 940px) {
+  .hero__art { margin-top: 14px; min-height: 0; }
+  .hero__title { letter-spacing: -0.03em; }
+}
+
+/* ---- celular ---- */
+@media (max-width: 720px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .section { padding-block: clamp(52px, 12vw, 80px); }
+  .section__head { gap: 12px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stat { padding: 18px 16px; }
+  .tl-card__top { gap: 6px; }
+  .tl-card__period { font-size: 0.66rem; }
+  .term__body,
+  .term__prompt,
+  .term__input { font-size: 9.2px; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding-inline: 18px; }
+  .hero__title { font-size: clamp(1.85rem, 8.8vw, 2.35rem); }
+  .hero__lead { font-size: 0.96rem; }
+  .btn { padding: 11px 16px; font-size: 0.86rem; }
+  .hero__actions .btn { flex: 1 1 auto; justify-content: center; }
+  .stat__n { font-size: 1.45rem; }
+  .tl-item { padding-left: 32px; }
+  .timeline::before { left: 9px; }
+  .tl-item__dot { left: 2px; width: 13px; height: 13px; }
+  .timeline__progress { left: 9px; }
+  .footer__inner { flex-direction: column; align-items: flex-start; }
+  .footer__links { flex-wrap: wrap; gap: 12px; }
+  .contact__title { font-size: clamp(1.6rem, 8vw, 2rem); }
+  .nav__inner { gap: 8px; }
+  .nav__actions { gap: 6px; }
+  .nav__actions .btn--primary { padding: 8px 12px; font-size: 0.78rem; }
+}
+
+.cta-short { display: none; }
+
+/* telas muito estreitas: CTA curta e nome preservado */
+@media (max-width: 420px) {
+  .brand__mark { width: 34px; height: 34px; }
+  .brand__text strong { font-size: 0.8rem; }
+  .brand { gap: 9px; }
+  .cta-full { display: none; }
+  .cta-short { display: inline; }
+}
+
+/* ---- modal em tela cheia no celular ---- */
+@media (max-width: 640px) {
+  .modal { padding: 0; }
+  .modal__panel {
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: 0;
+  }
+  .modal__body { padding: 0 18px 32px; }
+  .modal__close { top: 10px; margin-right: 10px; width: 38px; height: 38px; }
+  .mfoot { flex-direction: column; align-items: stretch; }
+  .mfoot .btn { justify-content: center; }
+}
+
+/* ---- telas grandes: mais ar e presença ---- */
+@media (min-width: 1500px) {
+  .section { padding-block: clamp(90px, 8vw, 140px); }
+  .hero__title { max-width: 15ch; }
+  .marquee__track { gap: 52px; }
+  .pcard__body { padding: 20px 20px 18px; }
+}
+
+/* ---- impressão: garante que as regras acima não escapem ---- */
+@media print {
+  .section--bordered::before { display: none; }
+  .project-grid { grid-template-columns: 1fr 1fr; }
+  .pcard, .tl-card, .stack-card, .edu-card, .principle, .cert, .clink { box-shadow: none; }
+}
+
+/* ---- micro-interações de acabamento ---- */
+.pcard:hover .pcard__title { color: #ffffff; }
+.pcard__title { transition: color 0.25s ease; }
+
+.tl-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--blue-bright), var(--cyan));
+  opacity: 0;
+  transition: opacity 0.35s var(--ease);
+}
+.tl-card:hover::before,
+.tl-item.is-current .tl-card::before { opacity: 0.95; }
+
+.edu-card:hover { transform: translateY(-2px); }
+.principle:hover { transform: translateY(-3px); }
+
+.stack-card .bar > i { box-shadow: 0 0 12px -3px rgba(43, 105, 251, 0.8); }
+
+.clink:hover .clink__go { color: var(--cyan); transform: translate(2px, -2px); }
+.clink__go { transition: color 0.25s ease, transform 0.25s var(--ease); }
+
+.icon-link,
+.mini-icon { transition: transform 0.25s var(--ease), color 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
+.icon-link:hover,
+.mini-icon:hover { transform: translateY(-2px); }
+
+.others__row:hover .others__name { color: #fff; }
+.others__name { transition: color 0.2s ease; }
+
 /* ---------- 23. Impressão ---------- */
 @media print {
   .nav, .palette, .modal, .toast, .bg-fx, .bg-grid, .bg-noise, .marquee, .hero__scroll { display: none !important; }
