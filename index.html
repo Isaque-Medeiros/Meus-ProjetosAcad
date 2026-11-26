@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Isaque de Medeiros — Estudante de ADS &amp; Desenvolvedor em Formação (.NET)</title>
-<meta name="description" content="Portfólio de Isaque de Medeiros Pinto: estudante de Análise e Desenvolvimento de Sistemas (UNIP) e analista de suporte em TI. Projetos reais em C#/.NET, Python, PostgreSQL e JavaScript — com código, documentação e aplicações publicadas.">
+<meta name="description" content="Portfólio de Isaque de Medeiros Pinto: estudante de Análise e Desenvolvimento de Sistemas (UNIP) e analista de suporte em TI. Seis projetos com demonstração interativa — .NET, Python, PostgreSQL e JavaScript.">
 <meta name="author" content="Isaque de Medeiros Pinto">
-<meta name="keywords" content="Isaque Medeiros, estudante ADS, desenvolvedor júnior, .NET, C#, portfólio, TOTVS, field service, PostgreSQL, BSFM, projetos acadêmicos">
+<meta name="keywords" content="Isaque Medeiros, estudante ADS, desenvolvedor júnior, .NET, C#, portfólio interativo, TOTVS, field service, PostgreSQL, BSFM, projetos acadêmicos">
 <meta name="theme-color" content="#060912">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
@@ -16,11 +16,12 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Isaque de Medeiros — Estudante de ADS &amp; Desenvolvedor em Formação">
-<meta property="og:description" content="Sistemas reais construídos na prática: BSFM (.NET 8 + visão computacional), Barbe City (Node + Pix) e ferramentas internas de operação. Código e documentação públicas.">
+<meta property="og:description" content="Sistemas reais construídos na prática: BSFM (.NET 8 + visão computacional), Barbe City (Node + Pix) e ferramentas internas de operação — cada um com uma demo que roda no seu navegador.">
 <meta property="og:url" content="https://isaque-medeiros.github.io/Meus-ProjetosAcad/">
 <meta property="og:image" content="https://isaque-medeiros.github.io/Meus-ProjetosAcad/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Project Lab do portfólio de Isaque Medeiros: lista de projetos e demo interativa do BSFM">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Isaque de Medeiros — Estudante de ADS &amp; Desenvolvedor em Formação">
 <meta name="twitter:description" content="Projetos reais em .NET, Python e JavaScript — com app publicado, documentação e código aberto.">
@@ -34,6 +35,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="experience.css">
 
 <script type="application/ld+json">
 {
@@ -45,7 +47,7 @@
   "jobTitle": "Estudante de Análise e Desenvolvimento de Sistemas · Analista de Suporte em TI",
   "description": "Estudante de ADS (UNIP, colação em dez/2026) e analista de suporte field service na TOTVS via DB4 SERV. Desenvolve projetos próprios em C#/.NET, Python, PostgreSQL e JavaScript.",
   "url": "https://isaque-medeiros.github.io/Meus-ProjetosAcad/",
-  "email": "mailto:medeiroisaque765@gmail.com",
+  "email": "mailto:medeirosisaque765@gmail.com",
   "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
   "worksFor": { "@type": "Organization", "name": "DB4 SERV — alocado na TOTVS" },
   "alumniOf": [
@@ -131,9 +133,9 @@
     </a>
 
     <nav class="nav__links" aria-label="Navegação principal">
-      <a href="#sobre" data-scramble>Sobre</a>
-      <a href="#experiencia" data-scramble>Experiência</a>
       <a href="#projetos" data-scramble>Projetos</a>
+      <a href="#sobre" data-scramble>Sobre</a>
+      <a href="#experiencia" data-scramble>Trajetória</a>
       <a href="#stack" data-scramble>Stack</a>
       <a href="#formacao" data-scramble>Formação</a>
     </nav>
@@ -142,6 +144,9 @@
       <button class="kbd-btn" id="palette-open" aria-label="Abrir busca rápida (Ctrl + K)">
         <svg width="12" height="12" aria-hidden="true"><use href="#i-search"/></svg>
         <kbd>Ctrl</kbd><kbd>K</kbd>
+      </button>
+      <button class="kbd-btn kbd-btn--icon" id="shortcuts-open" aria-label="Atalhos de teclado e modo recrutador" title="Atalhos (?)">
+        <kbd>?</kbd>
       </button>
       <a class="btn btn--ghost btn--sm" href="curriculo.html" data-magnetic>Currículo</a>
       <a class="btn btn--primary btn--sm" href="#contato" data-magnetic>
@@ -154,9 +159,9 @@
   </div>
 
   <div class="nav__mobile" id="mobile-menu">
-    <a href="#sobre">Sobre <span>01</span></a>
-    <a href="#experiencia">Experiência <span>02</span></a>
-    <a href="#projetos">Projetos <span>03</span></a>
+    <a href="#projetos">Projetos <span>01</span></a>
+    <a href="#sobre">Sobre <span>02</span></a>
+    <a href="#experiencia">Trajetória <span>03</span></a>
     <a href="#stack">Stack <span>04</span></a>
     <a href="#formacao">Formação <span>05</span></a>
     <a href="#contato">Contato <span>06</span></a>
@@ -166,9 +171,9 @@
 
 <!-- navegação lateral por seção -->
 <nav class="rail-nav" id="rail-nav" aria-label="Seções da página">
-  <a href="#sobre" data-rail="sobre"><span></span><em>Sobre</em></a>
-  <a href="#experiencia" data-rail="experiencia"><span></span><em>Experiência</em></a>
   <a href="#projetos" data-rail="projetos"><span></span><em>Projetos</em></a>
+  <a href="#sobre" data-rail="sobre"><span></span><em>Sobre</em></a>
+  <a href="#experiencia" data-rail="experiencia"><span></span><em>Trajetória</em></a>
   <a href="#stack" data-rail="stack"><span></span><em>Stack</em></a>
   <a href="#formacao" data-rail="formacao"><span></span><em>Formação</em></a>
   <a href="#contato" data-rail="contato"><span></span><em>Contato</em></a>
@@ -181,6 +186,16 @@
   <div class="hero__spot" id="hero-spot" aria-hidden="true"></div>
   <div class="hero__inner">
     <div class="hero__copy">
+      <p class="hero__status">
+        <span class="led" aria-hidden="true"></span>
+        <span>Aberto a vaga júnior (.NET / full stack)</span>
+        <span aria-hidden="true">·</span>
+        <span>São Paulo <b id="local-time">--:--</b></span>
+        <button class="rec-link" id="rec-toggle" type="button" aria-pressed="false" title="Modo recrutador (R)">
+          <span class="rec-label">modo recrutador</span>
+        </button>
+      </p>
+
       <p class="pill">
         <span class="pill__dot" aria-hidden="true"></span>
         <span class="pill__txt">Estudante de ADS · hoje na <b>TOTVS</b> (Refresh 2026, via <b>DB4 SERV</b>)</span>
@@ -200,14 +215,14 @@
 
       <div class="hero__actions">
         <a class="btn btn--primary" href="#projetos" data-magnetic>
-          Ver projetos
+          Explorar projetos
           <svg aria-hidden="true"><use href="#i-arrow-right"/></svg>
         </a>
         <a class="btn btn--ghost" href="curriculo.html" data-magnetic>
           <svg aria-hidden="true"><use href="#i-download"/></svg>
           Currículo
         </a>
-        <a class="btn btn--ghost" href="mailto:medeiroisaque765@gmail.com" data-magnetic>
+        <a class="btn btn--ghost" href="mailto:medeirosisaque765@gmail.com" data-magnetic>
           <svg aria-hidden="true"><use href="#i-mail"/></svg>
           E-mail
         </a>
@@ -227,11 +242,11 @@
         <a class="icon-link" href="https://www.linkedin.com/in/isaque-medeiros-a99421268/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Isaque Medeiros">
           <svg aria-hidden="true"><use href="#i-linkedin"/></svg>
         </a>
-        <a class="icon-link" href="mailto:medeiroisaque765@gmail.com" aria-label="Enviar e-mail">
+        <a class="icon-link" href="mailto:medeirosisaque765@gmail.com" aria-label="Enviar e-mail">
           <svg aria-hidden="true"><use href="#i-mail"/></svg>
         </a>
         <span class="sep" aria-hidden="true"></span>
-        <a class="mail" href="mailto:medeiroisaque765@gmail.com">medeiroisaque765@gmail.com</a>
+        <a class="mail" href="mailto:medeirosisaque765@gmail.com">medeirosisaque765@gmail.com</a>
       </div>
     </div>
 
@@ -315,12 +330,101 @@
   </div>
 </div>
 
+<!-- ============ PROJETOS · PROJECT LAB ============ -->
+<section class="section section--bordered" id="projetos">
+  <div class="wrap">
+    <div class="section__head">
+      <div class="reveal">
+        <p class="eyebrow"><span class="eyebrow__n">01</span> — Portfólio</p>
+        <h2 class="h2">Seis projetos —<br>todos abrem<br>e funcionam aqui.</h2>
+      </div>
+      <p class="section__desc reveal" style="--d:1">
+        Não é galeria de imagem: cada projeto tem uma demonstração que roda no seu navegador.
+        Escolha um na lista, mexa na demo e veja a decisão técnica por trás. Tudo é simulação
+        local — sem backend, sem promessa que eu não possa sustentar.
+      </p>
+    </div>
+
+    <div class="lab" id="lab">
+      <div class="lab__side">
+        <p class="lab__side-h"><span>índice</span><b>6 projetos</b></p>
+        <div class="lab__index" id="lab-index" role="tablist" aria-label="Projetos" aria-orientation="vertical"></div>
+        <button class="lab__case" id="lab-case" type="button">Ver estudo de caso completo</button>
+        <p class="lab__note" id="lab-note" hidden></p>
+      </div>
+      <div class="lab__stage" id="lab-stage"></div>
+      <p class="sr-only" id="lab-status" aria-live="polite"></p>
+    </div>
+
+    <p class="lab__arch-note" style="margin-top:14px">
+      Atalhos no laboratório: <kbd>←</kbd> <kbd>→</kbd> trocam de projeto · <kbd>1</kbd>–<kbd>6</kbd> vão direto · <kbd>?</kbd> lista todos.
+    </p>
+
+    <details class="others is-secondary" style="margin-top:34px">
+      <summary class="others__head">
+        <span>Outros projetos e experimentos</span>
+        <span class="others__sum-hint">08 itens · abrir</span>
+      </summary>
+      <div class="others__list">
+        <div class="others__row">
+          <div class="others__name">ONG · Sistema de gestão de cursos (PIM 1º semestre)
+            <small>Cadastro de alunos e cursos com persistência em JSON, validação e relatórios em Python.</small>
+          </div>
+          <div class="others__stack"><span class="chip">Python</span><span class="chip">JSON</span></div>
+        </div>
+        <div class="others__row">
+          <div class="others__name">Dashboard de atendimento (Excel + VBA)
+            <small>Automação de relatórios operacionais e consolidação de indicadores com macros.</small>
+          </div>
+          <div class="others__stack"><span class="chip">Excel</span><span class="chip">VBA</span></div>
+        </div>
+        <div class="others__row">
+          <div class="others__name">Otimização de custos em AWS (DIO)
+            <small>Relatório técnico com EC2 Auto Scaling, S3 Intelligent-Tiering e monitoramento de gasto.</small>
+          </div>
+          <div class="others__stack"><span class="chip">AWS</span><span class="chip">Cloud</span></div>
+        </div>
+        <div class="others__row">
+          <div class="others__name">Circuito semáforo com Arduino (Tinkercad)
+            <small>Simulação embarcada em C com temporização, botoeira de pedestre e lógica de estados.</small>
+          </div>
+          <div class="others__stack"><span class="chip">C</span><span class="chip">Arduino</span></div>
+        </div>
+        <div class="others__row">
+          <div class="others__name">Assistente IA Santander (Streamlit)
+            <small>Protótipo de assistente com tutorial interativo sobre Spec-Driven Development.</small>
+          </div>
+          <div class="others__stack"><span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">LLM</span></div>
+        </div>
+        <div class="others__row">
+          <div class="others__name">Wiki de insetos — estudo de HTML/CSS
+            <small>Site navegável com componentes nativos e layout responsivo, feito para praticar semântica.</small>
+          </div>
+          <div class="others__stack"><span class="chip">HTML</span><span class="chip">CSS</span></div>
+        </div>
+        <div class="others__row">
+          <div class="others__name">Chat com visão computacional (Groq + Llama 3.2 Vision)
+            <small>App Streamlit que conversa sobre imagens enviadas, com Docker e tratamento de rate limit.</small>
+          </div>
+          <div class="others__stack"><span class="chip">Python</span><span class="chip">Docker</span><span class="chip">LLM</span></div>
+        </div>
+        <div class="others__row">
+          <div class="others__name">Gerador de CUV · automação de documento
+            <small>Geração automatizada de comprovante operacional, reduzindo erro de digitação manual.</small>
+          </div>
+          <div class="others__stack"><span class="chip">JavaScript</span><span class="chip">Automação</span></div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
 <!-- ============ SOBRE ============ -->
 <section class="section" id="sobre">
   <div class="wrap">
     <div class="section__head">
       <div class="reveal">
-        <p class="eyebrow"><span class="eyebrow__n">01</span> — Sobre</p>
+        <p class="eyebrow"><span class="eyebrow__n">02</span> — Sobre</p>
         <h2 class="h2">Estudante de ADS,<br>com código rodando<br>fora da sala de aula.</h2>
       </div>
       <p class="section__desc reveal" style="--d:1">
@@ -348,13 +452,13 @@
           parceiro tenho acesso à trilha de cursos da TOTVS e venho estudando <em>Protheus</em> por ali —
           formação, não atuação.
         </p>
-        <p>
+        <p class="deep">
           Todos os sistemas que desenvolvi são <strong>projetos próprios ou acadêmicos</strong> — nenhum
           vendido, licenciado ou aprovado por comitê interno. Alguns rodam todos os dias com a minha
           equipe; outros pararam no protótipo. O que eles demonstram é o ciclo completo: entender o
           problema, modelar os dados, escrever o código, documentar e colocar no ar.
         </p>
-        <p>
+        <p class="deep">
           Busco minha primeira oportunidade como <strong>desenvolvedor júnior</strong>, de preferência
           em backend .NET, em um time com code review e mentoria. Meus próximos focos de estudo são
           testes automatizados, arquitetura e cloud — está tudo listado ao lado, com o nível real de
@@ -408,7 +512,7 @@
 
     <div class="stats reveal">
       <div class="stat"><span class="stat__n" data-count="6">0</span><span class="stat__l">projetos próprios publicados ou em uso</span></div>
-      <div class="stat"><span class="stat__n" data-count="15">0</span><span class="stat__l">repositórios no GitHub</span></div>
+      <div class="stat"><span class="stat__n" data-count="16">0</span><span class="stat__l">repositórios no GitHub</span></div>
       <div class="stat"><span class="stat__n" data-count="3">0</span><span class="stat__l">formações em TI e design</span></div>
       <div class="stat"><span class="stat__n" data-count="2" data-suffix="+">0</span><span class="stat__l">anos em operação de TI corporativa</span></div>
     </div>
@@ -443,7 +547,7 @@
   <div class="wrap">
     <div class="section__head">
       <div class="reveal">
-        <p class="eyebrow"><span class="eyebrow__n">02</span> — Trajetória</p>
+        <p class="eyebrow"><span class="eyebrow__n">03</span> — Trajetória</p>
         <h2 class="h2">Onde eu já trabalhei<br>e o que aprendi lá.</h2>
       </div>
       <p class="section__desc reveal" style="--d:1">
@@ -565,514 +669,6 @@
   </div>
 </section>
 
-<!-- ============ PROJETOS ============ -->
-<section class="section section--bordered" id="projetos">
-  <div class="wrap">
-    <div class="section__head">
-      <div class="reveal">
-        <p class="eyebrow"><span class="eyebrow__n">03</span> — Portfólio</p>
-        <h2 class="h2">Seis projetos —<br>do app publicado<br>à ferramenta interna.</h2>
-      </div>
-      <p class="section__desc reveal" style="--d:1">
-        Dois têm app no ar, documentação pública e código aberto. Dois são ferramentas internas de
-        operação. Dois são acadêmicos. Em todos, o mesmo critério: contexto, decisão técnica e
-        resultado — inclusive quando o projeto parou no protótipo.
-      </p>
-    </div>
-
-    <div class="projects__bar reveal">
-      <div class="filters" role="group" aria-label="Filtrar projetos por categoria">
-        <button class="filter is-on" data-filter="all">Todos <span class="filter__c" data-proj-total>6</span></button>
-        <button class="filter" data-filter="publico">Com link público</button>
-        <button class="filter" data-filter="interno">Uso interno</button>
-        <button class="filter" data-filter="academico">Acadêmico</button>
-        <button class="filter" data-filter="ia">IA</button>
-      </div>
-      <span class="projects__count" id="proj-count">6 projetos</span>
-    </div>
-
-    <div class="project-grid" id="project-grid">
-
-      <!-- 1. BSFM -->
-      <article class="pcard reveal" data-cat="publico academico ia" data-project="bsfm">
-        <div class="pcard__visual">
-          <div class="pcard__badges">
-            <span class="badge badge--live">app publicado</span>
-            <span class="badge badge--blue">.NET 8</span>
-          </div>
-          <svg viewBox="0 0 400 240" role="img" aria-label="Prévia do BSFM com detecção de alimentos por visão computacional">
-            <defs>
-              <linearGradient id="pv3bg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#0a1414"/><stop offset="1" stop-color="#060b10"/>
-              </linearGradient>
-              <linearGradient id="pv3ring" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#2b69fb"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="240" fill="url(#pv3bg)"/>
-            <rect x="18" y="18" width="180" height="204" rx="10" fill="#08131a" stroke="#1b3440"/>
-            <rect x="26" y="26" width="164" height="118" rx="7" fill="#0d2028"/>
-            <circle cx="108" cy="86" r="34" fill="#143038"/>
-            <ellipse cx="108" cy="84" rx="22" ry="15" fill="#2b6b5c" opacity=".8"/>
-            <g stroke="#34d399" stroke-width="1.3" fill="none">
-              <rect x="62" y="54" width="92" height="66" rx="3"/>
-            </g>
-            <rect x="62" y="46" width="46" height="9" rx="2" fill="#34d399" opacity=".9"/>
-            <text x="65" y="52.5" font-family="monospace" font-size="5.5" fill="#04120c">arroz 0.94</text>
-            <rect x="26" y="152" width="76" height="6" rx="3" fill="#d1fae5" opacity=".55"/>
-            <rect x="26" y="166" width="120" height="4" rx="2" fill="#2f5a66"/>
-            <rect x="26" y="178" width="96" height="4" rx="2" fill="#2f5a66"/>
-            <rect x="26" y="194" width="60" height="16" rx="6" fill="#22d3ee" opacity=".2" stroke="#22d3ee" stroke-opacity=".5"/>
-            <g>
-              <circle cx="292" cy="96" r="54" fill="none" stroke="#12303c" stroke-width="12"/>
-              <circle cx="292" cy="96" r="54" fill="none" stroke="url(#pv3ring)" stroke-width="12" stroke-linecap="round" stroke-dasharray="220 340" transform="rotate(-90 292 96)"/>
-              <rect x="266" y="86" width="52" height="10" rx="3" fill="#d1fae5" opacity=".85"/>
-              <rect x="274" y="101" width="36" height="4" rx="2" fill="#3d6b78"/>
-            </g>
-            <g>
-              <rect x="216" y="164" width="152" height="58" rx="8" fill="#08131a" stroke="#1b3440"/>
-              <rect x="226" y="174" width="42" height="5" rx="2.5" fill="#2f5a66"/>
-              <rect x="226" y="188" width="28" height="22" rx="3" fill="#22d3ee" opacity=".18"/>
-              <rect x="260" y="188" width="28" height="22" rx="3" fill="#2b69fb" opacity=".18"/>
-              <rect x="294" y="188" width="28" height="22" rx="3" fill="#a78bfa" opacity=".18"/>
-              <rect x="328" y="188" width="28" height="22" rx="3" fill="#34d399" opacity=".18"/>
-            </g>
-            <text x="60" y="152" font-family="monospace" font-size="9" fill="#5eead4" opacity=".9">YOLO · USDA</text>
-          </svg>
-        </div>
-        <div class="pcard__body">
-          <p class="pcard__kicker">Projeto acadêmico · app + docs públicos</p>
-          <h3 class="pcard__title">BSFM — medidas caseiras em nutrição</h3>
-          <p class="pcard__desc">Plataforma que reconhece o alimento pela foto e converte medida caseira em gramatura, com dashboard nutricional. App no ar, documentação em MkDocs e código aberto.</p>
-          <div class="pcard__stack">
-            <span class="chip">.NET 8</span><span class="chip">ASP.NET Core</span><span class="chip">YOLO</span><span class="chip">PostgreSQL</span><span class="chip">MkDocs</span>
-          </div>
-          <div class="pcard__foot">
-            <button class="pcard__more" data-open="bsfm">Ver estudo de caso <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
-            <div class="pcard__links">
-              <a class="mini-icon" href="https://bsfm-nutri.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir o app BSFM"><svg aria-hidden="true"><use href="#i-external"/></svg></a>
-              <a class="mini-icon" href="https://brazilian-system-of-food-metric.github.io/software-documentation/" target="_blank" rel="noopener noreferrer" aria-label="Abrir a documentação do BSFM"><svg aria-hidden="true"><use href="#i-book"/></svg></a>
-              <a class="mini-icon" href="https://github.com/Brazilian-System-of-Food-Metric/BSFM-APP" target="_blank" rel="noopener noreferrer" aria-label="Código do BSFM no GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2. Barbe City -->
-      <article class="pcard reveal" data-cat="publico" data-project="barbe" style="--d:1">
-        <div class="pcard__visual">
-          <div class="pcard__badges">
-            <span class="badge badge--live">no ar</span>
-            <span class="badge badge--amber">projeto real</span>
-          </div>
-          <svg viewBox="0 0 400 240" role="img" aria-label="Prévia da agenda online do Barbe City Jaraguá">
-            <defs>
-              <linearGradient id="pv2bg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#171009"/><stop offset="1" stop-color="#0a0806"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="240" fill="url(#pv2bg)"/>
-            <rect x="0" y="0" width="400" height="34" fill="#0f0b07"/>
-            <circle cx="24" cy="17" r="8" fill="none" stroke="#d9a441" stroke-width="1.6"/>
-            <rect x="40" y="13" width="54" height="5" rx="2.5" fill="#d9a441"/>
-            <rect x="250" y="12" width="34" height="8" rx="4" fill="#3a2a17"/>
-            <rect x="292" y="12" width="34" height="8" rx="4" fill="#3a2a17"/>
-            <rect x="334" y="12" width="50" height="8" rx="4" fill="#d9a441" opacity=".85"/>
-            <rect x="18" y="48" width="150" height="9" rx="4.5" fill="#f5e7cd" opacity=".9"/>
-            <rect x="18" y="64" width="104" height="5" rx="2.5" fill="#7a6647"/>
-            <g>
-              <rect x="18" y="82" width="176" height="142" rx="9" fill="#120d08" stroke="#332514"/>
-              <g fill="#241a0f">
-                <rect x="26" y="90" width="160" height="14" rx="3"/>
-                <rect x="26" y="110" width="160" height="14" rx="3"/>
-                <rect x="26" y="130" width="160" height="14" rx="3"/>
-                <rect x="26" y="150" width="160" height="14" rx="3"/>
-                <rect x="26" y="170" width="160" height="14" rx="3"/>
-                <rect x="26" y="190" width="160" height="14" rx="3"/>
-              </g>
-              <g>
-                <rect x="32" y="93" width="26" height="5" rx="2.5" fill="#7a6647"/>
-                <rect x="32" y="113" width="22" height="5" rx="2.5" fill="#7a6647"/>
-                <rect x="32" y="133" width="30" height="5" rx="2.5" fill="#7a6647"/>
-                <rect x="32" y="153" width="24" height="5" rx="2.5" fill="#7a6647"/>
-                <rect x="32" y="173" width="28" height="5" rx="2.5" fill="#7a6647"/>
-                <rect x="32" y="193" width="20" height="5" rx="2.5" fill="#7a6647"/>
-              </g>
-              <g>
-                <rect x="120" y="91" width="60" height="12" rx="4" fill="#d9a441" opacity=".22" stroke="#d9a441" stroke-opacity=".55"/>
-                <rect x="120" y="111" width="60" height="12" rx="4" fill="#d9a441" opacity=".22" stroke="#d9a441" stroke-opacity=".55"/>
-                <rect x="120" y="131" width="60" height="12" rx="4" fill="#3f2f18"/>
-                <rect x="120" y="151" width="60" height="12" rx="4" fill="#d9a441" opacity=".22" stroke="#d9a441" stroke-opacity=".55"/>
-                <rect x="120" y="171" width="60" height="12" rx="4" fill="#3f2f18"/>
-                <rect x="120" y="191" width="60" height="12" rx="4" fill="#d9a441" opacity=".22" stroke="#d9a441" stroke-opacity=".55"/>
-              </g>
-            </g>
-            <g>
-              <rect x="206" y="82" width="176" height="86" rx="9" fill="#151009" stroke="#332514"/>
-              <rect x="216" y="92" width="52" height="5" rx="2.5" fill="#7a6647"/>
-              <rect x="216" y="104" width="86" height="11" rx="3" fill="#f5e7cd" opacity=".8"/>
-              <rect x="216" y="124" width="40" height="4" rx="2" fill="#7a6647"/>
-              <rect x="216" y="136" width="60" height="16" rx="5" fill="#d9a441" opacity=".9"/>
-              <g>
-                <rect x="292" y="128" width="34" height="34" rx="5" fill="#0c0906" stroke="#4a3a22"/>
-                <path d="M296 132h6v6h-6zm10 0h6v6h-6zm10 0h6v6h-6zm-20 10h6v6h-6zm14 0h6v6h-6zm6 0h6v6h-6zm-16 10h6v6h-6zm10 0h6v6h-6z" fill="#d9a441" opacity=".8"/>
-              </g>
-              <rect x="340" y="128" width="32" height="34" rx="5" fill="#0c0906" stroke="#4a3a22"/>
-              <circle cx="356" cy="145" r="7" fill="none" stroke="#d9a441" stroke-opacity=".7" stroke-width="1.4"/>
-            </g>
-            <g>
-              <rect x="206" y="178" width="176" height="46" rx="9" fill="#151009" stroke="#332514"/>
-              <circle cx="226" cy="201" r="10" fill="#d9a441" opacity=".2" stroke="#d9a441" stroke-opacity=".5"/>
-              <rect x="244" y="193" width="60" height="5" rx="2.5" fill="#f5e7cd" opacity=".75"/>
-              <rect x="244" y="203" width="84" height="4" rx="2" fill="#7a6647"/>
-              <rect x="344" y="194" width="28" height="14" rx="7" fill="#25D366" opacity=".22" stroke="#25D366" stroke-opacity=".5"/>
-            </g>
-          </svg>
-        </div>
-        <div class="pcard__body">
-          <p class="pcard__kicker">Full stack · pagamento Pix</p>
-          <h3 class="pcard__title">Barbe City Jaraguá v2</h3>
-          <p class="pcard__desc">Sistema de agendamento para uma barbearia real em Jaraguá/SP: calendário, login, Pix via Mercado Pago, painel admin e 135 agendamentos migrados.</p>
-          <div class="pcard__stack">
-            <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">PostgreSQL</span><span class="chip">Pix</span><span class="chip">LGPD</span>
-          </div>
-          <div class="pcard__foot">
-            <button class="pcard__more" data-open="barbe">Ver estudo de caso <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
-            <div class="pcard__links">
-              <a class="mini-icon" href="https://barbe-city-jaragua-eta.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Abrir Barbe City no ar"><svg aria-hidden="true"><use href="#i-external"/></svg></a>
-              <a class="mini-icon" href="https://github.com/Isaque-Medeiros/BarbeCity-2.0" target="_blank" rel="noopener noreferrer" aria-label="Código no GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 3. Refresh (interno) -->
-      <article class="pcard reveal" data-cat="interno ia" data-project="refresh" style="--d:2">
-        <div class="pcard__visual">
-          <div class="pcard__badges">
-            <span class="badge badge--amber">uso interno</span>
-            <span class="badge badge--blue">sem link público</span>
-          </div>
-          <svg viewBox="0 0 400 240" role="img" aria-label="Ilustração genérica de painel de controle de bancada">
-            <defs>
-              <linearGradient id="pv1bg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#0a1526"/><stop offset="1" stop-color="#060b14"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="240" fill="url(#pv1bg)"/>
-            <rect x="0" y="0" width="66" height="240" fill="#080f1c"/>
-            <circle cx="20" cy="22" r="6" fill="#2b69fb"/>
-            <rect x="14" y="46" width="38" height="4" rx="2" fill="#2b69fb" opacity=".85"/>
-            <rect x="14" y="60" width="30" height="4" rx="2" fill="#33415c"/>
-            <rect x="14" y="74" width="34" height="4" rx="2" fill="#33415c"/>
-            <rect x="14" y="88" width="26" height="4" rx="2" fill="#33415c"/>
-            <rect x="80" y="16" width="120" height="8" rx="4" fill="#dbeafe" opacity=".85"/>
-            <rect x="80" y="30" width="70" height="4" rx="2" fill="#405070"/>
-            <rect x="286" y="14" width="98" height="22" rx="6" fill="#2b69fb" opacity=".18" stroke="#2b69fb" stroke-opacity=".5"/>
-            <rect x="296" y="22" width="52" height="5" rx="2.5" fill="#93c5fd"/>
-            <g>
-              <rect x="80" y="52" width="88" height="42" rx="6" fill="#0e1b30" stroke="#1e3050"/>
-              <rect x="90" y="62" width="30" height="4" rx="2" fill="#4b5a78"/>
-              <rect x="90" y="74" width="46" height="10" rx="3" fill="#34d399" opacity=".85"/>
-              <rect x="176" y="52" width="88" height="42" rx="6" fill="#0e1b30" stroke="#1e3050"/>
-              <rect x="186" y="62" width="34" height="4" rx="2" fill="#4b5a78"/>
-              <rect x="186" y="74" width="40" height="10" rx="3" fill="#22d3ee" opacity=".8"/>
-              <rect x="272" y="52" width="112" height="42" rx="6" fill="#0e1b30" stroke="#1e3050"/>
-              <rect x="282" y="62" width="30" height="4" rx="2" fill="#4b5a78"/>
-              <rect x="282" y="74" width="58" height="10" rx="3" fill="#fbbf24" opacity=".8"/>
-            </g>
-            <g>
-              <rect x="80" y="106" width="304" height="118" rx="8" fill="#0a1424" stroke="#1b2a45"/>
-              <rect x="92" y="116" width="44" height="4" rx="2" fill="#405070"/>
-              <rect x="92" y="128" width="280" height="1" fill="#1b2a45"/>
-              <g fill="#16243c">
-                <rect x="92" y="136" width="280" height="16" rx="3"/>
-                <rect x="92" y="158" width="280" height="16" rx="3"/>
-                <rect x="92" y="180" width="280" height="16" rx="3"/>
-              </g>
-              <g fill="#5b7099">
-                <rect x="100" y="142" width="34" height="4" rx="2"/>
-                <rect x="150" y="142" width="46" height="4" rx="2"/>
-                <rect x="100" y="164" width="38" height="4" rx="2"/>
-                <rect x="150" y="164" width="38" height="4" rx="2"/>
-                <rect x="100" y="186" width="30" height="4" rx="2"/>
-                <rect x="150" y="186" width="50" height="4" rx="2"/>
-              </g>
-              <g>
-                <rect x="296" y="141" width="38" height="7" rx="3.5" fill="#34d399" opacity=".75"/>
-                <rect x="296" y="163" width="38" height="7" rx="3.5" fill="#22d3ee" opacity=".7"/>
-                <rect x="296" y="185" width="38" height="7" rx="3.5" fill="#fbbf24" opacity=".7"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-        <div class="pcard__body">
-          <p class="pcard__kicker">Ferramenta interna · operação real</p>
-          <h3 class="pcard__title">Controle de bancada — Refresh 2026</h3>
-          <p class="pcard__desc">Painel que a minha equipe usa para medir o andamento do refresh: fila por analista, checklist por máquina e relatórios. Código privado.</p>
-          <div class="pcard__stack">
-            <span class="chip">JavaScript</span><span class="chip">PostgreSQL</span><span class="chip">Neon</span><span class="chip">Vercel</span><span class="chip">IA</span>
-          </div>
-          <div class="pcard__foot">
-            <button class="pcard__more" data-open="refresh">Ver estudo de caso <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
-            <div class="pcard__links">
-              <span class="mini-icon" title="Projeto interno, sem acesso público" aria-label="Projeto interno, sem acesso público"><svg aria-hidden="true"><use href="#i-lock"/></svg></span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 4. 4DX -->
-      <article class="pcard reveal" data-cat="interno" data-project="dx4" style="--d:3">
-        <div class="pcard__visual">
-          <div class="pcard__badges">
-            <span class="badge badge--violet">automação própria</span>
-            <span class="badge badge--blue">JavaScript</span>
-          </div>
-          <svg viewBox="0 0 400 240" role="img" aria-label="Prévia do bookmarklet 4DX automatizando um formulário no navegador">
-            <defs>
-              <linearGradient id="pv4bg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#0d0a1a"/><stop offset="1" stop-color="#07060f"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="240" fill="url(#pv4bg)"/>
-            <rect x="14" y="22" width="372" height="200" rx="10" fill="#0b0917" stroke="#2a2348"/>
-            <rect x="14" y="22" width="372" height="26" rx="10" fill="#140f26"/>
-            <rect x="14" y="38" width="372" height="10" fill="#140f26"/>
-            <circle cx="30" cy="35" r="3.5" fill="#f472b6" opacity=".8"/>
-            <circle cx="42" cy="35" r="3.5" fill="#fbbf24" opacity=".8"/>
-            <circle cx="54" cy="35" r="3.5" fill="#34d399" opacity=".8"/>
-            <rect x="74" y="30" width="180" height="10" rx="5" fill="#241c3f"/>
-            <rect x="262" y="30" width="18" height="10" rx="3" fill="#241c3f"/>
-            <g>
-              <rect x="30" y="62" width="150" height="76" rx="6" fill="#0f0c1e" stroke="#2a2348"/>
-              <rect x="40" y="72" width="48" height="4" rx="2" fill="#4b3f77"/>
-              <rect x="40" y="84" width="130" height="14" rx="4" fill="#181233" stroke="#34d399" stroke-opacity=".7"/>
-              <rect x="40" y="104" width="48" height="4" rx="2" fill="#4b3f77"/>
-              <rect x="40" y="116" width="130" height="14" rx="4" fill="#181233" stroke="#34d399" stroke-opacity=".7"/>
-              <g fill="#34d399">
-                <rect x="150" y="87" width="12" height="8" rx="2" opacity=".9"/>
-                <rect x="150" y="119" width="12" height="8" rx="2" opacity=".9"/>
-              </g>
-            </g>
-            <g>
-              <rect x="196" y="62" width="176" height="76" rx="6" fill="#1a1030" stroke="#5b3fa8" stroke-opacity=".6"/>
-              <rect x="206" y="72" width="40" height="4" rx="2" fill="#8b7fd4"/>
-              <g fill="#8b7fd4">
-                <rect x="206" y="84" width="150" height="3" rx="1.5" opacity=".5"/>
-                <rect x="206" y="92" width="120" height="3" rx="1.5" opacity=".5"/>
-                <rect x="206" y="100" width="138" height="3" rx="1.5" opacity=".5"/>
-                <rect x="206" y="108" width="96" height="3" rx="1.5" opacity=".5"/>
-                <rect x="206" y="116" width="130" height="3" rx="1.5" opacity=".5"/>
-                <rect x="206" y="124" width="110" height="3" rx="1.5" opacity=".5"/>
-              </g>
-              <rect x="206" y="82" width="150" height="10" fill="#34d399" opacity=".12"/>
-            </g>
-            <g>
-              <rect x="30" y="152" width="342" height="54" rx="6" fill="#0f0c1e" stroke="#2a2348"/>
-              <rect x="40" y="162" width="34" height="4" rx="2" fill="#4b3f77"/>
-              <rect x="40" y="176" width="80" height="20" rx="4" fill="#181233"/>
-              <rect x="130" y="176" width="80" height="20" rx="4" fill="#181233"/>
-              <rect x="220" y="176" width="60" height="20" rx="4" fill="#181233"/>
-              <rect x="290" y="176" width="72" height="20" rx="6" fill="#7c3aed" opacity=".85"/>
-            </g>
-            <g>
-              <rect x="268" y="14" width="118" height="22" rx="11" fill="#1a1030" stroke="#7c3aed" stroke-opacity=".7"/>
-              <circle cx="282" cy="25" r="4" fill="#a78bfa"/>
-              <text x="292" y="28.5" font-family="monospace" font-size="7.5" fill="#c4b5fd">4DX · on</text>
-            </g>
-          </svg>
-        </div>
-        <div class="pcard__body">
-          <p class="pcard__kicker">Automação de processo · LATAM</p>
-          <h3 class="pcard__title">Motor Híbrido 4DX</h3>
-          <p class="pcard__desc">Bookmarklet em JavaScript puro que eu usava no meu próprio fluxo: injeta inspetor de DOM, lê a tabela de origem e preenche o formulário.</p>
-          <div class="pcard__stack">
-            <span class="chip">JavaScript</span><span class="chip">DOM</span><span class="chip">LocalStorage</span><span class="chip">Eruda</span>
-          </div>
-          <div class="pcard__foot">
-            <button class="pcard__more" data-open="dx4">Ver estudo de caso <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
-            <div class="pcard__links">
-              <span class="mini-icon" title="Sem repositório público" aria-label="Sem repositório público"><svg aria-hidden="true"><use href="#i-lock"/></svg></span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 5. SysAcad -->
-      <article class="pcard reveal" data-cat="academico" data-project="sysacad">
-        <div class="pcard__visual">
-          <div class="pcard__badges">
-            <span class="badge badge--blue">C++</span>
-            <span class="badge badge--violet">trabalho acadêmico</span>
-          </div>
-          <svg viewBox="0 0 400 240" role="img" aria-label="Prévia do SysAcad em execução no terminal">
-            <defs>
-              <linearGradient id="pv5bg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#0b0e13"/><stop offset="1" stop-color="#06080c"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="240" fill="url(#pv5bg)"/>
-            <rect x="16" y="16" width="368" height="208" rx="9" fill="#070a0f" stroke="#1e293b"/>
-            <rect x="16" y="16" width="368" height="24" rx="9" fill="#111827"/>
-            <rect x="16" y="32" width="368" height="8" fill="#111827"/>
-            <circle cx="32" cy="28" r="3.2" fill="#ef4444" opacity=".7"/>
-            <circle cx="44" cy="28" r="3.2" fill="#fbbf24" opacity=".7"/>
-            <circle cx="56" cy="28" r="3.2" fill="#34d399" opacity=".7"/>
-            <text x="72" y="31.5" font-family="monospace" font-size="7.5" fill="#64748b">SysAcad.exe — IETEP</text>
-            <g font-family="monospace" font-size="8.5">
-              <text x="28" y="60" fill="#34d399">=== SISTEMA DE GESTÃO ACADÊMICA ===</text>
-              <text x="28" y="76" fill="#94a3b8">1 - Alunos   2 - Matérias   3 - Turmas</text>
-              <text x="28" y="90" fill="#94a3b8">4 - Notas    5 - Relatórios  0 - Sair</text>
-              <text x="28" y="108" fill="#e2e8f0">Escolha: <tspan fill="#fbbf24">4</tspan></text>
-              <text x="28" y="128" fill="#64748b">matrícula  nome                 média</text>
-              <text x="28" y="142" fill="#7dd3fc">2026001    Ana Beatriz          9.5</text>
-              <text x="28" y="156" fill="#7dd3fc">2026002    Carlos Eduardo       8.1</text>
-              <text x="28" y="170" fill="#7dd3fc">2026003    Juliana Prado        7.4</text>
-              <text x="28" y="184" fill="#7dd3fc">2026004    Rafael Lima          6.8</text>
-              <text x="28" y="206" fill="#34d399">[ok] relatorio.txt gerado (4 alunos)</text>
-            </g>
-            <rect x="28" y="212" width="6" height="9" fill="#22d3ee"/>
-          </svg>
-        </div>
-        <div class="pcard__body">
-          <p class="pcard__kicker">Estruturas de dados · C++</p>
-          <h3 class="pcard__title">SysAcad — gestão acadêmica em C++</h3>
-          <p class="pcard__desc">Sistema de console com login, CRUD de alunos, matérias e turmas, lançamento de notas e relatórios — persistência em arquivo e JSON via cJSON.</p>
-          <div class="pcard__stack">
-            <span class="chip">C++</span><span class="chip">cJSON</span><span class="chip">File I/O</span><span class="chip">POO</span>
-          </div>
-          <div class="pcard__foot">
-            <button class="pcard__more" data-open="sysacad">Ver estudo de caso <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
-            <div class="pcard__links">
-              <a class="mini-icon" href="https://github.com/Isaque-Medeiros/Meus-ProjetosAcad" target="_blank" rel="noopener noreferrer" aria-label="Código no GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 6. Climo -->
-      <article class="pcard reveal" data-cat="interno ia" data-project="climo" style="--d:1">
-        <div class="pcard__visual">
-          <div class="pcard__badges">
-            <span class="badge badge--amber">protótipo</span>
-            <span class="badge badge--violet">IA aplicada</span>
-          </div>
-          <svg viewBox="0 0 400 240" role="img" aria-label="Prévia do protótipo de assistente Climo">
-            <defs>
-              <linearGradient id="pv6bg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#0a0d1c"/><stop offset="1" stop-color="#07060f"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="240" fill="url(#pv6bg)"/>
-            <rect x="16" y="16" width="368" height="44" rx="10" fill="#0d1226" stroke="#26315a"/>
-            <circle cx="40" cy="38" r="11" fill="#2b69fb" opacity=".22" stroke="#4d86ff" stroke-opacity=".6"/>
-            <path d="M35 41c2-6 8-6 10 0M40 31v3" stroke="#93c5fd" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-            <text x="60" y="35" font-family="monospace" font-size="9" fill="#c7d2fe">CLIMO</text>
-            <text x="60" y="47" font-family="monospace" font-size="6.8" fill="#5b6b96">protótipo · assistente de operação</text>
-            <circle cx="360" cy="38" r="4" fill="#fbbf24"/>
-            <g>
-              <rect x="130" y="72" width="238" height="30" rx="9" fill="#1b2340"/>
-              <rect x="142" y="82" width="180" height="4" rx="2" fill="#94a3b8" opacity=".7"/>
-              <rect x="142" y="91" width="120" height="4" rx="2" fill="#94a3b8" opacity=".4"/>
-            </g>
-            <g>
-              <rect x="16" y="112" width="272" height="62" rx="9" fill="#0e1730" stroke="#2f4a8a" stroke-opacity=".7"/>
-              <rect x="28" y="124" width="60" height="4" rx="2" fill="#60a5fa"/>
-              <rect x="28" y="136" width="220" height="3.5" rx="1.75" fill="#7f8db5" opacity=".65"/>
-              <rect x="28" y="146" width="200" height="3.5" rx="1.75" fill="#7f8db5" opacity=".55"/>
-              <rect x="28" y="156" width="140" height="3.5" rx="1.75" fill="#7f8db5" opacity=".45"/>
-              <g>
-                <rect x="180" y="158" width="46" height="10" rx="4" fill="#22d3ee" opacity=".18"/>
-                <rect x="232" y="158" width="46" height="10" rx="4" fill="#34d399" opacity=".18"/>
-              </g>
-            </g>
-            <g>
-              <rect x="16" y="184" width="368" height="40" rx="9" fill="#0a0f20" stroke="#26315a"/>
-              <rect x="28" y="196" width="140" height="5" rx="2.5" fill="#4b5a80"/>
-              <circle cx="360" cy="204" r="12" fill="#2b69fb" opacity=".9"/>
-              <path d="M355 204h10M360 199v10" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
-            </g>
-            <text x="28" y="99.5" font-family="monospace" font-size="6.5" fill="#4b5a80">rascunho · nunca aprovado</text>
-          </svg>
-        </div>
-        <div class="pcard__body">
-          <p class="pcard__kicker">IA aplicada · protótipo</p>
-          <h3 class="pcard__title">Climo — assistente de operação</h3>
-          <p class="pcard__desc">Protótipo de assistente para consultar procedimentos e códigos de erro da operação. Não evoluiu para produção; virou meu estudo de LLM com contexto no servidor.</p>
-          <div class="pcard__stack">
-            <span class="chip">LLM</span><span class="chip">Prompt</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span>
-          </div>
-          <div class="pcard__foot">
-            <button class="pcard__more" data-open="climo">Ver estudo de caso <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
-            <div class="pcard__links">
-              <span class="mini-icon" title="Protótipo, sem repositório público" aria-label="Protótipo, sem repositório público"><svg aria-hidden="true"><use href="#i-lock"/></svg></span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="others reveal">
-      <div class="others__head">
-        <span>Outros projetos e experimentos</span>
-        <span>08 itens</span>
-      </div>
-      <div class="others__list">
-        <div class="others__row">
-          <div class="others__name">ONG · Sistema de gestão de cursos (PIM 1º semestre)
-            <small>Cadastro de alunos e cursos com persistência em JSON, validação e relatórios em Python.</small>
-          </div>
-          <div class="others__stack"><span class="chip">Python</span><span class="chip">JSON</span></div>
-        </div>
-        <div class="others__row">
-          <div class="others__name">Dashboard de atendimento (Excel + VBA)
-            <small>Automação de relatórios operacionais e consolidação de indicadores com macros.</small>
-          </div>
-          <div class="others__stack"><span class="chip">Excel</span><span class="chip">VBA</span></div>
-        </div>
-        <div class="others__row">
-          <div class="others__name">Otimização de custos em AWS (DIO)
-            <small>Relatório técnico com EC2 Auto Scaling, S3 Intelligent-Tiering e monitoramento de gasto.</small>
-          </div>
-          <div class="others__stack"><span class="chip">AWS</span><span class="chip">Cloud</span></div>
-        </div>
-        <div class="others__row">
-          <div class="others__name">Circuito semáforo com Arduino (Tinkercad)
-            <small>Simulação embarcada em C com temporização, botoeira de pedestre e lógica de estados.</small>
-          </div>
-          <div class="others__stack"><span class="chip">C</span><span class="chip">Arduino</span></div>
-        </div>
-        <div class="others__row">
-          <div class="others__name">Assistente IA Santander (Streamlit)
-            <small>Protótipo de assistente com tutorial interativo sobre Spec-Driven Development.</small>
-          </div>
-          <div class="others__stack"><span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">LLM</span></div>
-        </div>
-        <div class="others__row">
-          <div class="others__name">Wiki de insetos — estudo de HTML/CSS
-            <small>Site navegável com componentes nativos e layout responsivo, feito para praticar semântica.</small>
-          </div>
-          <div class="others__stack"><span class="chip">HTML</span><span class="chip">CSS</span></div>
-        </div>
-        <div class="others__row">
-          <div class="others__name">Chat com visão computacional (Groq + Llama 3.2 Vision)
-            <small>App Streamlit que conversa sobre imagens enviadas, com Docker e tratamento de rate limit.</small>
-          </div>
-          <div class="others__stack"><span class="chip">Python</span><span class="chip">Docker</span><span class="chip">LLM</span></div>
-        </div>
-        <div class="others__row">
-          <div class="others__name">Gerador de CUV · automação de documento
-            <small>Geração automatizada de comprovante operacional, reduzindo erro de digitação manual.</small>
-          </div>
-          <div class="others__stack"><span class="chip">JavaScript</span><span class="chip">Automação</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ STACK ============ -->
 <section class="section section--bordered" id="stack">
   <div class="wrap">
@@ -1096,11 +692,11 @@
           <span class="count">05</span>
         </div>
         <div class="stack-list">
-          <div class="stack-row"><div class="stack-row__top"><span>C# / .NET</span><span>projetos</span></div><div class="bar"><i style="--v:70%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>Python</span><span>projetos</span></div><div class="bar"><i style="--v:74%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>PostgreSQL</span><span>projetos</span></div><div class="bar"><i style="--v:70%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>Node.js / Express</span><span>projetos</span></div><div class="bar"><i style="--v:70%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>SQL Server / T-SQL</span><span>acadêmico</span></div><div class="bar"><i style="--v:58%"></i></div></div>
+          <button class="stack-row stack-row--btn" type="button" data-skill="C# / .NET" aria-pressed="false"><span class="stack-row__top"><span>C# / .NET</span><span>projetos <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:70%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Python" aria-pressed="false"><span class="stack-row__top"><span>Python</span><span>projetos <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:74%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="PostgreSQL" aria-pressed="false"><span class="stack-row__top"><span>PostgreSQL</span><span>projetos <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:70%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Node.js / Express" aria-pressed="false"><span class="stack-row__top"><span>Node.js / Express</span><span>projetos <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:70%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="SQL Server / T-SQL" aria-pressed="false"><span class="stack-row__top"><span>SQL Server / T-SQL</span><span>acadêmico <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:58%"></i></span></button>
         </div>
       </article>
 
@@ -1111,10 +707,10 @@
           <span class="count">04</span>
         </div>
         <div class="stack-list">
-          <div class="stack-row"><div class="stack-row__top"><span>HTML5 semântico / CSS3</span><span>avançado</span></div><div class="bar"><i style="--v:86%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>JavaScript (ES6+)</span><span>projetos</span></div><div class="bar"><i style="--v:78%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>TypeScript</span><span>estudo</span></div><div class="bar"><i style="--v:52%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>React</span><span>estudo</span></div><div class="bar"><i style="--v:45%"></i></div></div>
+          <button class="stack-row stack-row--btn" type="button" data-skill="HTML5 semântico / CSS3" aria-pressed="false"><span class="stack-row__top"><span>HTML5 semântico / CSS3</span><span>avançado <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:86%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="JavaScript (ES6+)" aria-pressed="false"><span class="stack-row__top"><span>JavaScript (ES6+)</span><span>projetos <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:78%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="TypeScript" aria-pressed="false"><span class="stack-row__top"><span>TypeScript</span><span>estudo <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:52%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="React" aria-pressed="false"><span class="stack-row__top"><span>React</span><span>estudo <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:45%"></i></span></button>
         </div>
       </article>
 
@@ -1125,10 +721,10 @@
           <span class="count">04</span>
         </div>
         <div class="stack-list">
-          <div class="stack-row"><div class="stack-row__top"><span>LLMs &amp; prompt engineering</span><span>projetos</span></div><div class="bar"><i style="--v:66%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>Pandas / análise de dados</span><span>acadêmico</span></div><div class="bar"><i style="--v:64%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>YOLO / visão computacional</span><span>projeto</span></div><div class="bar"><i style="--v:55%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>Testes automatizados</span><span>estudo</span></div><div class="bar"><i style="--v:40%"></i></div></div>
+          <button class="stack-row stack-row--btn" type="button" data-skill="LLMs &amp; prompt engineering" aria-pressed="false"><span class="stack-row__top"><span>LLMs &amp; prompt engineering</span><span>projetos <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:66%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Pandas / análise de dados" aria-pressed="false"><span class="stack-row__top"><span>Pandas / análise de dados</span><span>acadêmico <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:64%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="YOLO / visão computacional" aria-pressed="false"><span class="stack-row__top"><span>YOLO / visão computacional</span><span>projeto <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:55%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Testes automatizados" aria-pressed="false"><span class="stack-row__top"><span>Testes automatizados</span><span>estudo <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:40%"></i></span></button>
         </div>
       </article>
 
@@ -1139,11 +735,11 @@
           <span class="count">05</span>
         </div>
         <div class="stack-list">
-          <div class="stack-row"><div class="stack-row__top"><span>Windows corporativo / AD</span><span>trabalho</span></div><div class="bar"><i style="--v:84%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>Imagens &amp; deploy de estações</span><span>trabalho</span></div><div class="bar"><i style="--v:86%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>Sanitização de mídia</span><span>trabalho</span></div><div class="bar"><i style="--v:80%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>Redes LAN / diagnóstico</span><span>sólido</span></div><div class="bar"><i style="--v:70%"></i></div></div>
-          <div class="stack-row"><div class="stack-row__top"><span>Docker</span><span>estudo</span></div><div class="bar"><i style="--v:50%"></i></div></div>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Windows corporativo / AD" aria-pressed="false"><span class="stack-row__top"><span>Windows corporativo / AD</span><span>trabalho <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:84%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Imagens &amp; deploy de estações" aria-pressed="false"><span class="stack-row__top"><span>Imagens &amp; deploy de estações</span><span>trabalho <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:86%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Sanitização de mídia" aria-pressed="false"><span class="stack-row__top"><span>Sanitização de mídia</span><span>trabalho <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:80%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Redes LAN / diagnóstico" aria-pressed="false"><span class="stack-row__top"><span>Redes LAN / diagnóstico</span><span>sólido <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:70%"></i></span></button>
+          <button class="stack-row stack-row--btn" type="button" data-skill="Docker" aria-pressed="false"><span class="stack-row__top"><span>Docker</span><span>estudo <em class="stack-ev"></em></span></span><span class="bar"><i style="--v:50%"></i></span></button>
         </div>
       </article>
     </div>
@@ -1236,7 +832,7 @@
         </div>
         <div class="cert">
           <span class="cert__icon"><svg aria-hidden="true"><use href="#i-music"/></svg></span>
-          <div><strong>Violoncelo — estudo contínuo</strong><small>Leitura de partitura, disciplina e precisão</small></div>
+          <div><strong>Músico — estudo de música</strong><small>Prática instrumental, leitura de partitura e disciplina</small></div>
         </div>
         <div class="cert">
           <span class="cert__icon"><svg aria-hidden="true"><use href="#i-cpu"/></svg></span>
@@ -1263,7 +859,7 @@
           remoto e respondo normalmente em até um dia útil.
         </p>
         <div class="contact__actions reveal" style="--d:3">
-          <a class="btn btn--primary" href="mailto:medeiroisaque765@gmail.com?subject=Contato%20via%20portf%C3%B3lio" data-magnetic>
+          <a class="btn btn--primary" href="mailto:medeirosisaque765@gmail.com?subject=Contato%20via%20portf%C3%B3lio" data-magnetic>
             <svg aria-hidden="true"><use href="#i-mail"/></svg>
             Enviar e-mail
           </a>
@@ -1271,7 +867,7 @@
             <svg aria-hidden="true"><use href="#i-download"/></svg>
             Ver currículo
           </a>
-          <button class="btn btn--ghost" data-copy="medeiroisaque765@gmail.com" data-magnetic>
+          <button class="btn btn--ghost" data-copy="medeirosisaque765@gmail.com" data-magnetic>
             <svg aria-hidden="true"><use href="#i-copy"/></svg>
             Copiar e-mail
           </button>
@@ -1279,9 +875,9 @@
       </div>
 
       <div class="contact-links reveal" style="--d:2">
-        <a class="clink" href="mailto:medeiroisaque765@gmail.com">
+        <a class="clink" href="mailto:medeirosisaque765@gmail.com">
           <span class="clink__ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
-          <span class="clink__t"><small>E-mail</small><strong>medeiroisaque765@gmail.com</strong></span>
+          <span class="clink__t"><small>E-mail</small><strong>medeirosisaque765@gmail.com</strong></span>
           <span class="clink__go"><svg aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
         </a>
         <a class="clink" href="https://www.linkedin.com/in/isaque-medeiros-a99421268/" target="_blank" rel="noopener noreferrer">
@@ -1359,6 +955,46 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<!-- ============ MODO RECRUTADOR (barra fixa) ============ -->
+<div class="recruiter-bar" id="recruiter-bar" aria-hidden="true" role="region" aria-label="Modo recrutador">
+  <span class="recruiter-bar__tag">modo recrutador · resumo em 60 s</span>
+  <a href="mailto:medeirosisaque765@gmail.com?subject=Contato%20via%20portf%C3%B3lio"><svg aria-hidden="true"><use href="#i-mail"/></svg> E-mail</a>
+  <a href="curriculo.html"><svg aria-hidden="true"><use href="#i-download"/></svg> Currículo</a>
+  <a href="https://www.linkedin.com/in/isaque-medeiros-a99421268/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a>
+  <button type="button" id="rec-exit"><svg aria-hidden="true"><use href="#i-x"/></svg> Sair (R)</button>
+</div>
+
+<!-- ============ DOCK DE SEÇÕES (mobile) ============ -->
+<div class="dock" id="dock">
+  <nav class="dock__menu" id="dock-menu" aria-label="Seções (atalho rápido)"></nav>
+  <button class="dock__btn" id="dock-toggle" type="button" aria-expanded="false" aria-controls="dock-menu" aria-label="Abrir navegação rápida">
+    <svg aria-hidden="true"><use href="#i-layers"/></svg>
+  </button>
+</div>
+
+<!-- ============ ATALHOS ============ -->
+<div class="scrim" id="shortcuts" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title" aria-hidden="true">
+  <div class="shortcuts">
+    <div class="shortcuts__head">
+      <h2 id="shortcuts-title">Atalhos e modos</h2>
+      <button type="button" data-close-shortcuts aria-label="Fechar atalhos"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="shortcuts__list">
+      <div><span>Busca rápida</span><kbd>Ctrl</kbd><kbd>K</kbd></div>
+      <div><span>Trocar de projeto</span><kbd>←</kbd><kbd>→</kbd></div>
+      <div><span>Projeto direto</span><kbd>1</kbd>–<kbd>6</kbd></div>
+      <div><span>Modo recrutador</span><kbd>R</kbd></div>
+      <div><span>Atalhos</span><kbd>?</kbd></div>
+      <div><span>Focar terminal</span><kbd>T</kbd></div>
+      <div><span>Fechar diálogo</span><kbd>esc</kbd></div>
+      <div><span>Busca por barra</span><kbd>/</kbd></div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js" defer></script>
 <script src="script.js" defer></script>
+<script src="lab.js" defer></script>
+<script src="experience.js" defer></script>
 </body>
 </html>

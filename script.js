@@ -119,7 +119,7 @@
       { c: 'dim', t: '}' }
     ],
     contato: [
-      { c: 'ok', t: 'e-mail    medeiroisaque765@gmail.com' },
+      { c: 'ok', t: 'e-mail    medeirosisaque765@gmail.com' },
       { c: 'ok', t: 'github    github.com/Isaque-Medeiros' },
       { c: 'ok', t: 'linkedin  in/isaque-medeiros-a99421268' },
       { c: 'dim', t: '→ ou clique em "Falar comigo" no topo' }
@@ -518,10 +518,11 @@
     update();
   }
 
-  /* ---------------- 12. Filtros ---------------- */
+  /* ---------------- 12. Filtros (legado: o Lab substituiu a grade) ---------------- */
   function initFilters() {
     const filters = $$('.filter');
     const cards = $$('.pcard');
+    if (!filters.length || !cards.length) return;
     const count = $('#proj-count');
     const total = $('[data-proj-total]');
     if (total) total.textContent = String(cards.length);
@@ -552,190 +553,8 @@
   }
 
   /* ---------------- 13. Dados dos projetos ---------------- */
-  const PROJECTS = {
-    bsfm: {
-      kicker: 'Projeto acadêmico · UNIP · PIM 3º semestre',
-      title: 'BSFM — Brazilian System of Food Metric',
-      summary:
-        'Projeto integrador do 3º semestre: uma plataforma que reconhece o alimento pela foto e converte medida caseira em gramatura. Não é produto comercial — é um projeto acadêmico levado até o fim, com aplicação publicada, documentação em MkDocs e código aberto.',
-      badges: [['app publicado', 'live'], ['código aberto', 'blue'], ['acadêmico', 'cyan']],
-      meta: [['Meu papel', 'backend, API, modelo e documentação'], ['Ano', '2026'], ['Contexto', 'PIM — UNIP']],
-      metrics: [
-        ['.NET 8', 'API REST publicada'],
-        ['YOLO', 'detecção de alimento por imagem'],
-        ['3', 'repositórios no projeto'],
-        ['MkDocs', 'documentação pública']
-      ],
-      problem:
-        '"Uma colher de arroz" não é uma medida. Quem acompanha dieta precisa registrar o que come, mas medir em gramas é chato e impreciso — e os apps existentes exigem busca manual em tabela, que é exatamente onde o usuário desiste.',
-      built: [
-        'Backend em <strong>.NET 8 / ASP.NET Core</strong> com arquitetura em camadas e API REST documentada.',
-        '<strong>Inferência de visão computacional</strong> com modelo YOLO (ONNX) para identificar itens alimentares na imagem enviada.',
-        '<strong>Conversão de medidas caseiras</strong> em gramatura, cruzando a detecção com a base de composição nutricional (USDA).',
-        '<strong>Dashboard metabólico</strong> com IMC, TMB e TDEE calculados a partir do perfil do usuário.',
-        'Diário alimentar, plano semanal de refeições, controle de consumo de água e <strong>Mapa SOS Saúde</strong> com Leaflet.',
-        '<strong>Central LIBRAS</strong> — acessibilidade tratada como requisito, não como extra.',
-        'Deploy do backend no <strong>Render</strong> e documentação técnica completa em <strong>MkDocs</strong>, publicada no GitHub Pages.',
-        'Desenvolvimento apoiado em <strong>TDD e SDD</strong>, usando modelo de linguagem como par de programação.'
-      ],
-      result:
-        'Foi o projeto em que coloquei, pela primeira vez, um modelo de machine learning atrás de uma API que eu mesmo escrevi — e entendi na prática o que é latência de inferência, versionamento de modelo e documentação que outra pessoa consegue seguir. O app está no ar e a documentação explica como rodar do zero.',
-      stack: ['.NET 8', 'ASP.NET Core', 'C#', 'ONNX Runtime', 'YOLO', 'PostgreSQL', 'Render', 'MkDocs', 'Leaflet'],
-      links: [
-        ['Abrir o app', 'https://bsfm-nutri.onrender.com', 'external'],
-        ['Documentação', 'https://brazilian-system-of-food-metric.github.io/software-documentation/', 'book'],
-        ['Código', 'https://github.com/Brazilian-System-of-Food-Metric/BSFM-APP', 'github']
-      ]
-    },
-
-    barbe: {
-      kicker: 'Projeto próprio · barbearia em Jaraguá/SP',
-      title: 'Barbe City Jaraguá v2 — agendamento com Pix',
-      summary:
-        'Sistema que desenvolvi para a barbearia do Anderson. Não é um case vendido: é um projeto próprio, rodando no negócio de verdade, com agenda online, pagamento Pix e painel administrativo.',
-      badges: [['no ar', 'live'], ['projeto próprio', 'amber'], ['pagamento Pix', 'violet']],
-      meta: [['Meu papel', 'projeto, desenvolvimento e deploy'], ['Ano', '2026'], ['Status', 'publicado, com dados migrados']],
-      metrics: [
-        ['135', 'agendamentos históricos migrados'],
-        ['R$ 4.230', 'histórico conciliado'],
-        ['10', 'serviços cadastrados'],
-        ['LGPD', 'exclusão de dados do cliente']
-      ],
-      problem:
-        'Sem agenda digital, o cliente não sabia o horário livre, o dono perdia receita em horário vago e não havia histórico de quem faltou. Cobrar no salão significa dinheiro trocado, sem comprovante e sem conciliação.',
-      built: [
-        '<strong>Agendamento com ou sem login</strong>, calendário real de disponibilidade, serviços adicionais e bloqueios de horário.',
-        '<strong>Pagamento Pix pelo Mercado Pago</strong> com QR Code, copia-e-cola, webhook e polling de confirmação.',
-        '<strong>Promoções</strong> por serviço ou globais, com período de validade, selo de desconto e snapshot no histórico — o preço do dia nunca é reescrito.',
-        '<strong>Login em três modos</strong>: e-mail e senha, código de 6 dígitos por e-mail (Brevo) e Google OAuth.',
-        '<strong>Área do cliente</strong> com próximos horários, histórico, perfil e exclusão de dados (LGPD).',
-        '<strong>Painel administrativo</strong> com dashboard, agenda, serviços, usuários, financeiro, horários, logs e notificações.',
-        '<strong>Tema visual gerado por IA</strong>: o dono descreve a decoração, o sistema gera uma máscara sanitizada e aplica com um clique.',
-        '<strong>Segurança</strong>: bcrypt custo 12, sessão HttpOnly com hash no banco, CSRF double-submit, helmet/CSP, rate limit e SQL parametrizado.',
-        '<strong>Importação do legado</strong> com 135 agendamentos, preservando checksums e sem inventar pagamento para registro antigo.'
-      ],
-      result:
-        'Foi o projeto em que mais aprendi sobre modelagem relacional, integração de pagamento e o que “publicar” realmente significa: webhook que falha, sessão que expira, dado legado que não bate. Ainda é um projeto meu, sem contrato comercial — mas roda com dados reais e eu mantenho.',
-      stack: ['Node.js 24', 'Express', 'PostgreSQL 18', 'Neon', 'Mercado Pago', 'Google OAuth', 'Brevo', 'Vercel', 'bcrypt', 'CSP/Helmet'],
-      links: [
-        ['Ver site', 'https://barbe-city-jaragua-eta.vercel.app', 'external'],
-        ['Código', 'https://github.com/Isaque-Medeiros/BarbeCity-2.0', 'github']
-      ]
-    },
-
-    refresh: {
-      kicker: 'Ferramenta interna · equipe de field service',
-      title: 'Controle de bancada — Refresh 2026',
-      summary:
-        'Um painel que eu construí para o time acompanhar o andamento do refresh de máquinas. Não é produto da TOTVS, não foi licenciado e a empresa não tem envolvimento comercial com ele: é uma ferramenta interna, feita por mim, usada pela equipe.',
-      badges: [['uso interno', 'amber'], ['sem link público', 'blue'], ['IA aplicada', 'violet']],
-      meta: [['Meu papel', 'idealização, desenvolvimento e manutenção'], ['Ano', '2026'], ['Acesso', 'restrito à equipe']],
-      metrics: [
-        ['9', 'funções serverless'],
-        ['4', 'papéis de acesso'],
-        ['1', 'fonte de verdade: o banco'],
-        ['0', 'chave de IA no navegador']
-      ],
-      problem:
-        'O controle do fluxo era planilha e mensagem: ninguém sabia em tempo real onde cada máquina estava, quem era o responsável e o que faltava fazer. No fim do lote, o histórico se perdia.',
-      built: [
-        '<strong>Painel em tempo real</strong> com o estado de cada máquina, filtros por contrato, status e data, e ordenação.',
-        '<strong>Fila por analista</strong> e checklist final liberado para qualquer analista — a regra do processo, não a hierarquia, define quem pode fechar.',
-        '<strong>Autenticação com papéis</strong>: e-mail e senha com scrypt, sessão em cookie HttpOnly com hash no banco e login com Google (OAuth 2.0 server-side).',
-        '<strong>Quatro perfis</strong> (desenvolvedor, gestor, analista e cliente) com permissões distintas.',
-        '<strong>Migração de dados</strong> do modelo antigo em JSON para PostgreSQL no Neon, com re-hash automático de senhas legadas no primeiro login.',
-        '<strong>Relatórios imprimíveis em A4</strong>, exportação TSV/JSON e layout de impressão dedicado.',
-        '<strong>Módulo de IA</strong> cujo contexto é montado no servidor, a partir do banco — a chave nunca chega ao cliente.'
-      ],
-      result:
-        'Hoje o time usa para medir o andamento, e isso melhorou o meu próprio trabalho: eu deixei de ser o gargalo da informação. Não passou por comitê nem virou produto — é a prova de que eu consigo pegar um problema de operação, modelar e entregar. Por ser interno, o código e os dados não são públicos.',
-      stack: ['JavaScript (ES Modules)', 'Node.js', 'PostgreSQL', 'Neon', 'Vercel', 'Chart.js', 'scrypt', 'OAuth 2.0', 'LLM'],
-      links: []
-    },
-
-    dx4: {
-      kicker: 'Automação própria · operação LATAM (Konecta)',
-      title: 'Motor Híbrido 4DX',
-      summary:
-        'Um bookmarklet que eu usava no meu próprio fluxo de trabalho: em vez de digitar dezenas de campos repetidos, o script lia a tabela de origem e preenchia o formulário em um clique. Apresentei à equipe, mas não houve adoção oficial.',
-      badges: [['automação própria', 'violet'], ['JavaScript puro', 'blue'], ['sem repositório', 'amber']],
-      meta: [['Meu papel', 'concepção e desenvolvimento'], ['Ano', '2025 — 2026'], ['Contexto', 'Konecta · operação LATAM']],
-      metrics: [
-        ['1', 'clique para executar'],
-        ['0', 'instalação necessária'],
-        ['DOM', 'injeção + inspetor (Eruda)'],
-        ['LocalStorage', 'estado sincronizado']
-      ],
-      problem:
-        'O time repetia o mesmo preenchimento em formulários longos, com dados que já estavam em outra tela. Cada digitação era uma chance de erro, e cada erro virava retrabalho.',
-      built: [
-        '<strong>Bookmarklet em JavaScript puro</strong> — sem extensão, sem permissão de administrador, sem instalação.',
-        '<strong>Injeção do inspetor de DOM (Eruda)</strong> para ler a estrutura da página e localizar os campos corretamente.',
-        '<strong>Parsing de tabelas</strong> do sistema de origem e preenchimento automático dos campos de destino.',
-        '<strong>Estado em LocalStorage</strong>, permitindo guardar e restaurar o último preenchimento.',
-        'Tratamento de exceção por campo: se o seletor muda, o script avisa em vez de preencher errado.'
-      ],
-      result:
-        'Reduziu a minha digitação e o meu retrabalho enquanto eu estava na operação. Não virou ferramenta oficial da equipe; o aprendizado foi que a automação mais eficaz às vezes é a que não exige infraestrutura — só um navegador e conhecimento de DOM.',
-      stack: ['JavaScript', 'DOM API', 'LocalStorage', 'Eruda', 'Bookmarklet'],
-      links: []
-    },
-
-    sysacad: {
-      kicker: 'Trabalho acadêmico · estruturas de dados',
-      title: 'SysAcad — gestão acadêmica em C++',
-      summary:
-        'Sistema acadêmico completo rodando no terminal: login, alunos, matérias, turmas, notas e relatórios — com persistência em arquivo e JSON. O desafio não era a interface, era manter tudo consistente sem banco de dados.',
-      badges: [['C++', 'blue'], ['estruturas de dados', 'violet'], ['acadêmico', 'cyan']],
-      meta: [['Meu papel', 'desenvolvimento solo'], ['Ano', '2026'], ['Contexto', 'trabalho acadêmico']],
-      metrics: [
-        ['C++', 'linguagem'],
-        ['7', 'módulos de dados'],
-        ['CRUD', 'alunos, matérias, turmas e notas'],
-        ['cJSON', 'persistência e login']
-      ],
-      problem:
-        'O enunciado pedia um sistema de gestão acadêmica com persistência real. A parte difícil foi manter consistência entre matrícula, turma, matéria e nota sem um banco de dados.',
-      built: [
-        '<strong>Autenticação</strong> de usuários com cadastro, leitura e escrita em JSON via <strong>cJSON</strong>.',
-        '<strong>Structs e vetores</strong> para alunos, matérias e turmas, com validação de entrada e tratamento de erro de digitação.',
-        '<strong>CRUD completo</strong> com matrícula única, associação aluno–turma e lançamento de notas com faltas.',
-        '<strong>Relatórios</strong> gerados em arquivo texto a partir dos dados em memória.',
-        'Organização em <strong>homepage.cpp</strong> (login) e <strong>funcoes.cpp</strong> (regras), separando responsabilidade.'
-      ],
-      result:
-        'Aprendi na marra por que estrutura de dados importa: cada nova entidade exigia decidir como persistir e como manter coerência. Foi a base que depois facilitou entender modelagem relacional de verdade.',
-      stack: ['C++', 'cJSON', 'STL', 'File I/O', 'POO'],
-      links: [['Código', 'https://github.com/Isaque-Medeiros/Meus-ProjetosAcad', 'github']]
-    },
-
-    climo: {
-      kicker: 'Protótipo · IA aplicada',
-      title: 'Climo — assistente de operação',
-      summary:
-        'Um protótipo de assistente para consultar procedimentos e códigos de erro da operação em linguagem natural. Não evoluiu para produção e nunca passou por aprovação interna — ficou como estudo de LLM e de engenharia de contexto.',
-      badges: [['protótipo', 'amber'], ['IA aplicada', 'violet'], ['estudo', 'blue']],
-      meta: [['Meu papel', 'concepção e protótipo'], ['Ano', '2025 — 2026'], ['Status', 'protótipo encerrado']],
-      metrics: [
-        ['LLM', 'modelo de linguagem'],
-        ['servidor', 'contexto montado no backend'],
-        ['0', 'chave exposta no cliente'],
-        ['—', 'não chegou à produção']
-      ],
-      problem:
-        'Responder “qual o procedimento para este código de erro?” exigia procurar em manuais extensos ou perguntar para quem já sabia. O conhecimento ficava concentrado em poucas pessoas.',
-      built: [
-        'Protótipo de <strong>chat com LLM</strong> alimentado com manuais técnicos e tabelas de contingência da operação.',
-        '<strong>Contexto montado no servidor</strong>, a partir de dados reais — a chave da IA nunca iria para o navegador.',
-        '<strong>Renderização de Markdown segura</strong> na resposta, sem injeção de HTML arbitrário.',
-        'Experimentos de <strong>engenharia de prompt</strong> para melhorar precisão em perguntas de procedimento.'
-      ],
-      result:
-        'O protótipo não evoluiu para uso oficial e ficou incompleto. O aprendizado técnico — contexto no servidor, chave protegida e por que dado truncado do navegador inviabiliza uso operacional — foi aplicado depois na ferramenta de bancada que o time usa hoje.',
-      stack: ['LLM API', 'Node.js', 'Prompt engineering', 'Markdown seguro'],
-      links: []
-    }
-  };
+  // Fonte única de verdade em data.js (carregado antes deste arquivo).
+  const PROJECTS = window.PORTFOLIO_PROJECTS || {};
 
   /* ---------------- 14. Modal ---------------- */
   function initModal() {
@@ -819,6 +638,9 @@
     });
     $$('[data-close-modal]').forEach((el) => el.addEventListener('click', close));
 
+    // ponte usada pelo Project Lab para abrir o estudo de caso completo
+    window.PORTFOLIO_OPEN_CASE = open;
+
     document.addEventListener('keydown', (e) => {
       if (!modal.classList.contains('is-open')) return;
       if (e.key === 'Escape') { close(); return; }
@@ -848,31 +670,48 @@
     if (!palette || !input || !list) return;
 
     const items = [
-      { label: 'Sobre mim', hint: '01', href: '#sobre', icon: '#i-layers' },
-      { label: 'Experiência profissional', hint: '02', href: '#experiencia', icon: '#i-briefcase' },
-      { label: 'Projetos', hint: '03', href: '#projetos', icon: '#i-code' },
+      { label: 'Projetos — Project Lab', hint: '01', href: '#projetos', icon: '#i-code' },
+      { label: 'Sobre mim', hint: '02', href: '#sobre', icon: '#i-layers' },
+      { label: 'Trajetória profissional', hint: '03', href: '#experiencia', icon: '#i-briefcase' },
       { label: 'Stack técnica', hint: '04', href: '#stack', icon: '#i-cpu' },
       { label: 'Formação e certificações', hint: '05', href: '#formacao', icon: '#i-graduation' },
       { label: 'Contato', hint: '06', href: '#contato', icon: '#i-mail' },
       { label: 'Currículo (versão impressa)', hint: 'PDF', href: 'curriculo.html', icon: '#i-download' },
-      { label: 'BSFM — app, docs e código', hint: 'projeto', action: () => openProject('bsfm'), icon: '#i-sparkles' },
-      { label: 'Barbe City Jaraguá v2', hint: 'projeto', action: () => openProject('barbe'), icon: '#i-window' },
-      { label: 'Controle de bancada (interno)', hint: 'projeto', action: () => openProject('refresh'), icon: '#i-terminal' },
-      { label: 'Motor Híbrido 4DX', hint: 'projeto', action: () => openProject('dx4'), icon: '#i-code' },
-      { label: 'SysAcad (C++)', hint: 'projeto', action: () => openProject('sysacad'), icon: '#i-code' },
-      { label: 'Climo (protótipo)', hint: 'projeto', action: () => openProject('climo'), icon: '#i-bot' },
+      { label: 'Modo recrutador', hint: 'atalho R', action: () => toggleRecruiter(), icon: '#i-activity' },
+      { label: 'Atalhos de teclado', hint: 'atalho ?', action: () => openShortcuts(), icon: '#i-search' },
+      { label: 'Copiar meu e-mail', hint: 'medeirosisaque765@gmail.com', action: () => copyEmail(), icon: '#i-copy' },
+      { label: 'BSFM — demo e estudo de caso', hint: 'projeto', action: () => goLab('bsfm'), icon: '#i-sparkles' },
+      { label: 'Barbe City Jaraguá v2', hint: 'projeto', action: () => goLab('barbe'), icon: '#i-window' },
+      { label: 'Controle de bancada (interno)', hint: 'projeto', action: () => goLab('refresh'), icon: '#i-terminal' },
+      { label: 'Motor Híbrido 4DX', hint: 'projeto', action: () => goLab('dx4'), icon: '#i-code' },
+      { label: 'SysAcad (C++)', hint: 'projeto', action: () => goLab('sysacad'), icon: '#i-code' },
+      { label: 'Climo (protótipo)', hint: 'projeto', action: () => goLab('climo'), icon: '#i-bot' },
       { label: 'GitHub', hint: 'github.com/Isaque-Medeiros', href: 'https://github.com/Isaque-Medeiros', icon: '#i-github', ext: true },
       { label: 'LinkedIn', hint: 'in/isaque-medeiros', href: 'https://www.linkedin.com/in/isaque-medeiros-a99421268/', icon: '#i-linkedin', ext: true },
-      { label: 'Enviar e-mail', hint: 'medeiroisaque765@gmail.com', href: 'mailto:medeiroisaque765@gmail.com', icon: '#i-mail' }
+      { label: 'Enviar e-mail', hint: 'medeirosisaque765@gmail.com', href: 'mailto:medeirosisaque765@gmail.com', icon: '#i-mail' }
     ];
 
     let filtered = items.slice();
     let selected = 0;
 
-    const openProject = (id) => {
-      close();
-      const btn = $(`[data-open="${id}"]`);
+    const toggleRecruiter = () => {
+      const btn = $('#rec-toggle');
       if (btn) btn.click();
+    };
+    const openShortcuts = () => {
+      const btn = $('#shortcuts-open');
+      if (btn) btn.click();
+    };
+    const copyEmail = () => {
+      const email = 'medeirosisaque765@gmail.com';
+      const done = () => { if (window.PORTFOLIO_TOAST) window.PORTFOLIO_TOAST('E-mail copiado.'); };
+      if (navigator.clipboard) navigator.clipboard.writeText(email).then(done, done);
+      else done();
+    };
+    const goLab = (id) => {
+      close();
+      if (window.PORTFOLIO_LAB_SELECT) window.PORTFOLIO_LAB_SELECT(id, true);
+      else location.hash = '#projetos';
     };
 
     const render = () => {
@@ -880,7 +719,7 @@
         ? filtered
             .map(
               (it, i) =>
-                `<button class="palette__item${i === selected ? ' is-sel' : ''}" data-i="${i}">` +
+                `<button class="palette__item${i === selected ? ' is-sel' : ''}" type="button" data-i="${i}">` +
                 `<span class="pi-ic"><svg aria-hidden="true"><use href="${it.icon}"/></svg></span>` +
                 `<span>${it.label}</span><span class="pi-k">${it.hint}</span></button>`
             )
@@ -977,6 +816,7 @@
       clearTimeout(timer);
       timer = setTimeout(() => toast.classList.remove('is-on'), 2200);
     };
+    window.PORTFOLIO_TOAST = show;
 
     $$('[data-copy]').forEach((btn) => {
       btn.addEventListener('click', async () => {
